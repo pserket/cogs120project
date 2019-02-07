@@ -1,0 +1,64 @@
+.dance {
+    border: 1px solid black;
+    width: 250px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.text {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.edit {
+    margin-top: 20px;
+    border: 1px solid black;
+    width: 35px;
+    text-align: center;
+    margin-left: 65px;
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-top: 5px;
+    text-align: right;
+    width: 100px;
+}
+
+.thumbnail {
+    border: 1px solid black;
+    width: 70px;
+    height: 70px;
+    border-top: none;
+    border-right: none;
+}
+
+img {
+    width: 70px;
+    height: 70px;
+}
+
+.dance {
+    margin-bottom: 20px;
+}
+
+.bottom-btns {
+    display: flex;
+}
+
+.btn {
+    width: 82px;
+    border: 1px black solid;
+    height: 52px;
+    font-size: 3em;
+    text-align: center;
+}
+
+.btn:nth-child(1) {
+    border-right: none;
+}
+
+.btn:nth-child(3) {
+    border-left: none;
+}
