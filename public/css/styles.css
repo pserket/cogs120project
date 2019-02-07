@@ -3,12 +3,17 @@
     src: url(../fonts/sfpro.otf);
 }
 
+html {
+    display: flex;
+    justify-content: center;
+}
+
 body {
     font-family: sfpro;
 }
 
 .dance {
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     width: 250px;
     height: 70px;
     display: flex;
@@ -57,7 +62,7 @@ img {
     display: flex;
 }
 
-.btn {
+.bt {
     cursor: pointer;
     width: 82px;
     border: 1px black solid;
@@ -66,11 +71,11 @@ img {
     text-align: center;
 }
 
-.btn:nth-child(1) {
+.bt:nth-child(1) {
     border-right: none;
 }
 
-.btn:nth-child(3) {
+.bt:nth-child(3) {
     border-left: none;
 }
 
