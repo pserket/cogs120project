@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <link rel="stylesheet" href="dcount.css">
+
     <title>dancecount</title>
     
     <style>
@@ -69,7 +70,16 @@
 
 <body>
 <div id="body" align="center">
-      <img id="Sana-04.jpg" width="300" height="200" src="Sana-04.jpg" alt="The Scream">
+	<canvas id="myCanvas" width="300" height="200" style="border:1px solid" ></canvas>
+	<img id="scream" width="0" height="0"src="Sana-04.jpg" alt="The Scream">
+	<script>
+	window.onload = function() {
+	    var canvas = document.getElementById("myCanvas");
+	    var ctx = canvas.getContext("2d");
+	    var img = document.getElementById("scream");
+	   ctx.drawImage(img, 0, 0, 300, 200);
+	};
+	</script>
 	  <p>Playback slider</p>
       
       <div class="slidecontainer">
@@ -85,25 +95,18 @@
       
 
       <p></p>
-	  <div class="dropdown">
-  <span>Time Dropdown?</span>
-  <div class="dropdown-content">
-    <p>TIME</p>
-  </div>
-      <script>
-      var slider = document.getElementById("myRange");
-      var output = document.getElementById("demo");
-      output.innerHTML = slider.value;
-      
-      slider.oninput = function() {
-        output.innerHTML = this.value;
-      }
-      </script>
-	  <button class='button play'></button>
-	  <div class="dropdown">
-  <span>Time Dropdown?</span>
-  <div class="dropdown-content">
-    <p>TIME</p>
+
+
+
+  Start Time:<br>
+  <input type="time" name="start" value="0:00">
+  <br>
+  End Time:<br>
+  <input type="time" name="end" value="6:00">
+  <br><br>
+  <input type="submit" value="Loop">
+</form> 
+
 
 </div>
 
