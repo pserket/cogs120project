@@ -1,9 +1,19 @@
+@font-face {
+    font-family: sfpro;
+    src: url(../fonts/sfpro.otf);
+}
+
+body {
+    font-family: sfpro;
+}
+
 .dance {
     border: 1px solid black;
     width: 250px;
     height: 70px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
 }
 
 .text {
@@ -48,6 +58,7 @@ img {
 }
 
 .btn {
+    cursor: pointer;
     width: 82px;
     border: 1px black solid;
     height: 52px;
@@ -62,3 +73,9 @@ img {
 .btn:nth-child(3) {
     border-left: none;
 }
+
+body {
+    width: 310px;
+    margin: auto;
+}
+
