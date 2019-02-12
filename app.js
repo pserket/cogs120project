@@ -38,7 +38,7 @@ if ('development' == app.get('env')) {
 
 // Example route
 app.get('/', login.view);
-// app.get('/', index.view);
+app.get('/index', index.view);
 app.get('/dance', dance.view);
 
 http.createServer(app).listen(app.get('port'), function(){
