@@ -4,8 +4,6 @@ var data = require('../data.json');
  */
 
 exports.view = function(req, res){
-  console.log(data);
-
   for (var i = 0; i < data['users'].length; i++) {
     var x = data['users'][i];
 
