@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="dcount.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/dcount.css" rel="stylesheet">
     <style>
         .container{
             position:relative;
@@ -72,8 +74,32 @@
     <p>Your browser does not support the audio element</p>
   </audio>
 
-       
   <span id="tracktime"></span>
+
+  <script>
+  myaudio=document.getElementById("sample");
+  
+  </script>
+
+  <p></p>
+  <div class="slidecontainer">
+  <input type="range" min="1" max="200" value="100" class="slider" id="myRange">
+  <p>Speed: <span id="demo"></span>%</p>
+  </div>
+
+  <script>
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function() {
+    output.innerHTML = this.value;
+    myaudio.playbackRate=this.value/100;
+  }
+  </script>
+
+       
+  
 
   <script>
     var audio = document.getElementById('sample');
