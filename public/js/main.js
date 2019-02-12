@@ -14,6 +14,15 @@ $(document).ready(function() {
 /*
  * Function that is called when the document is ready.
  */
+function editDance(user, name) {
+    // window.location.href = document.location.origin + "/dance";
+    console.log('edit');
+};
+
+function openDance(user, name) {
+    window.location.href = document.location.origin + "/dance";
+};
+
 function initializePage() {
     console.log("Javascript connected!");
-}
+};

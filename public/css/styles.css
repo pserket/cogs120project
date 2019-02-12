@@ -56,15 +56,6 @@
     font-size: 2em;
 }
 
-.holder-shadow {
-    height: 174px;
-    background-color: black;
-    width: 20px;
-    margin-top: 6px;
-    position: absolute;
-    z-index: 10;
-}
-
 #login-card {
     display: flex;
     justify-content: center;

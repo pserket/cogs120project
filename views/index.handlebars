@@ -25,7 +25,7 @@
                 <a class="btn-floating btn-large waves-effect waves-light" style="margin-top: 55px;"><i class="material-icons">add</i></a>
             </div>
             {{#each dances}}
-                <div class='choreo-item card'>
+                <div class='choreo-item card' onclick="event.stopPropagation();openDance('{{author}}', '{{name}}');">
                     <img src="{{thumbnail}}" alt="Smiley face">
                     <div class='choreo-item-bot'>
                         <div class='choreo-item-text'>
@@ -34,7 +34,7 @@
                         <div class='choreo-item-duration'>
                             {{duration}}
                         </div>
-                        <a class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"><i
+                        <a class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn" onclick="event.stopPropagation();editDance('{{author}}', '{{name}}');"><i
                                 class="material-icons">edit</i></a>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
         </div>
         <div class='choreo-holder'>
             {{#each explore}}
-                <div class='choreo-item card'>
+                <div class='choreo-item card' onclick="event.stopPropagation();openDance('{{author}}', '{{name}}');">
                     <img src="{{thumbnail}}" alt="Smiley face">
                     <div class='choreo-item-bot'>
                         <div class='choreo-item-text'>
@@ -55,7 +55,7 @@
                         <div class='choreo-item-duration'>
                             {{duration}}
                         </div>
-                        <a class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"><i
+                        <a class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn" onclick="event.stopPropagation();editDance({{author}}, {{name}});"><i
                                 class="material-icons">edit</i></a>
                     </div>
                 </div>
