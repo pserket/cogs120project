@@ -65,29 +65,34 @@
         }
 })();
 </script>
+  <p>Audio</p>
 
-      <p>Audio</p>
-      <audio controls>
-        <source src="horse.ogg" type="audio/ogg">
-        <source src="horse.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
+  <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="document.getElementById('tracktime').innerHTML = 
+  Math.floor(this.currentTime) + ' / ' + Math.floor(this.duration);">
+    <p>Your browser does not support the audio element</p>
+  </audio>
 
-      </audio>
+       
+  <span id="tracktime"></span>
 
+  <script>
+    var audio = document.getElementById('sample');
+    var segmentEnd;
 
-      
+    audio.addEventListener('timeupdate', function (){
+        if (segmentEnd && audio.currentTime >= segmentEnd) {
+            audio.pause();
+        }   
+        console.log(audio.currentTime);
+    }, false);
 
-      <p></p>
+    function playSegment(startTime, endTime){
+        segmentEnd = endTime;
+        audio.currentTime = startTime;
+        audio.play();
+    }
+  </script>
 
-      <script>
-      var slider = document.getElementById("myRange");
-      var output = document.getElementById("demo");
-      output.innerHTML = slider.value;
-      
-      slider.oninput = function() {
-        output.innerHTML = this.value;
-      }
-      </script>
 
 
 </div>
