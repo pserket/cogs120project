@@ -3,84 +3,63 @@
     src: url(../fonts/sfpro.otf);
 }
 
-html {
+.choreo-holder {
     display: flex;
-    justify-content: center;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
-body {
-    font-family: sfpro;
+.choreo-item {
+    width: 170px;
+    height: 170px;
+    margin-left: 10px !important;
 }
 
-.dance {
-    /*border: 1px solid black;*/
-    width: 250px;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
+.choreo-item-bot {
+    width: 170px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.75);
+    margin-top: -50px;
+    z-index: 2;
+    position: relative;
 }
 
-.text {
-    margin-top: 5px;
+.choreo-item-text {
+    color: rgba(255,255,255,0.9);
+    font-size: 1.6em;
     margin-left: 5px;
+    height: 26px;
+    line-height: 28px;
 }
 
-.edit {
-    margin-top: 20px;
-    border: 1px solid black;
-    width: 35px;
-    text-align: center;
-    margin-left: 65px;
-    border-radius: 5px;
+.choreo-item-duration {
+    margin-left: 5px;
+    color: rgba(255,255,255,0.55);
 }
 
-.buttons {
-    margin-top: 5px;
-    text-align: right;
-    width: 100px;
+.choreo-item-btn {
+    position: relative;
+    top: -40px;
+    left: 130px;
 }
 
-.thumbnail {
-    border: 1px solid black;
-    width: 70px;
-    height: 70px;
-    border-top: none;
-    border-right: none;
-}
-
-img {
-    width: 70px;
-    height: 70px;
-}
-
-.dance {
-    margin-bottom: 20px;
-}
-
-.bottom-btns {
-    display: flex;
-}
-
-.bt {
-    cursor: pointer;
-    width: 82px;
-    border: 1px black solid;
-    height: 52px;
-    font-size: 3em;
-    text-align: center;
-}
-
-.bt:nth-child(1) {
-    border-right: none;
-}
-
-.bt:nth-child(3) {
-    border-left: none;
-}
-
-body {
-    width: 310px;
+.main-container {
+    width: 100%;
     margin: auto;
+    max-width: 1000px;
+    /*   background-color: red; */
 }
 
+.holder-title {
+    padding-left: 10px;
+    font-size: 2em;
+}
+
+.holder-shadow {
+    height: 174px;
+    background-color: black;
+    width: 20px;
+    margin-top: 6px;
+    position: absolute;
+    z-index: 10;
+}
