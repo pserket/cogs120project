@@ -63,3 +63,11 @@
     position: absolute;
     z-index: 10;
 }
+
+#login-card {
+    display: flex;
+    justify-content: center;
+    color: #848484;
+}
+
+#login-card
