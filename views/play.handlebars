@@ -31,28 +31,32 @@
     </style>
   </head>
   <body>
-  <!DOCTYPE html>
 
-<html>
-
-<head>
-  
-  <h1 align="center">Dance Notes</h1>
-</head>
-
-<body>
+<body style="background-color:darkslategrey;">
 <div id="body" align="center">
+
+  <button onclick="goBack()">Home</button>
+  <script>
+function goBack() {
+  window.location.href = document.location.origin + "/index";
+}
+</script>
+
+    <p></p>
+
+  <h1 align="center">Dance Notes</h1>
   <div id="imgGallary" class="container">
     <img src="http://www.examiningcalvinism.com/kingdavid.jpg" alt="" width="100%" height="300" />
     <img src="http://www.kingjamesbibleonline.org/1611-Bible/1611-King-James-Bible-Introduction.jpg" alt="" width="100%" height="300" />
-    <img src="http://biblestudyoutlines.org/wp-content/uploads/2012/07/the-triump-of-david-over-king-hadadezer-of-zobah-1024x729.jpg" alt="" width="100%" height="300" />
-    <img src="http://www.cgu.edu/Images/news/Flame%20Winter12/KJV-BibleBW.jpg" alt="" width="100%" height="300" />
+    <img src="https://i.imgflip.com/12tg2w.jpg" alt="" width="100%" height="300" />
+    <img src="https://brianjayjones.files.wordpress.com/2010/04/jandk.jpg?w=770&h=514" alt="" width="100%" height="300" />
 </div>
 <script>
+
 (function(){
         var imgLen = document.getElementById('imgGallary');
         var images = imgLen.getElementsByTagName('img');
-        var counter = 1;
+        var counter = 0;
 
         if(counter <= images.length){
             setInterval(function(){
@@ -60,13 +64,14 @@
                 console.log(images[counter].src);
                 counter++;
 
-                if(counter === images.length){
-                    counter = 1;
+                if(counter == images.length){
+                    counter = 0;
                 }
             },4000);
         }
 })();
 </script>
+
   <p></p>
 
   <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()"
@@ -80,14 +85,6 @@
   </script>
 
   <p></p>
-  Click to select section to loop (seconds):
-  <p></p>
-  <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> - 
-  <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton2"></input>
-
-  
-
-  <p></p>
   <div class="loopbutton">
     <label class="switch">
       <input type="checkbox" id="check">
@@ -95,6 +92,12 @@
     </label>
     Loop
   </div>
+
+  <p></p>
+  
+  Click to select section to loop: <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> - 
+  <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton2"></input> (seconds)
+
 
   <script>
   myaudio=document.getElementById("sample");

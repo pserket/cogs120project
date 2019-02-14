@@ -1,12 +1,10 @@
+'use strict';
 
-
-
-
+// Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
-  var btn = $(".button");
-  btn.click(function() {
-    btn.toggleClass("paused");
-    return false;
-  });
 
+    $('#home-btn').click(function(e) {
+        e.preventDefault();
+        window.location.href = document.location.origin + "/index";
+    });
 });
