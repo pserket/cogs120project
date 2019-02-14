@@ -51,7 +51,7 @@ const handleError = (err, res) => {
 };
 
 const upload = multer({
-    dest: "/uploads/"
+    dest: "./uploads/"
     // you might also want to set some limits: https://github.com/expressjs/multer#limits
 });
 
@@ -59,7 +59,7 @@ app.post(
     "/upload",
     upload.single("file" /* name attribute of <file> element in your form */),
     (req, res) => {
-        var file = 'uploads/image.png';
+        var file = './uploads/image.png';
 
         fs.rename(req.file.path, file, err => {
             if (err) return handleError(err, res);
