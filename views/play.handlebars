@@ -67,10 +67,9 @@
         }
 })();
 </script>
-  <p>Audio</p>
+  <p></p>
 
-  <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="document.getElementById('tracktime').innerHTML = 
-  Math.floor(this.currentTime) + ' / ' + Math.floor(this.duration);">
+  <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()"
     <p>Your browser does not support the audio element</p>
   </audio>
 
@@ -78,13 +77,39 @@
 
   <script>
   myaudio=document.getElementById("sample");
-  
   </script>
 
   <p></p>
+  Click to select section to loop (seconds):
+  <p></p>
+  <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> - 
+  <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton2"></input>
+
+  
+
+  <p></p>
+  <div class="loopbutton">
+    <label class="switch">
+      <input type="checkbox" id="check">
+      <span class="slider round" id="loopslider"></span>
+    </label>
+    Loop
+  </div>
+
+  <script>
+  myaudio=document.getElementById("sample");
+
+  var slider = document.getElementById("check");
+  slider.oninput = function() {
+    if (myaudio.loop == false) {myaudio.loop = true}
+    else {myaudio.loop = false};
+  }
+  </script>
+
+<p></p>
   <div class="slidecontainer">
-  <input type="range" min="1" max="200" value="100" class="slider" id="myRange">
-  <p>Speed: <span id="demo"></span>%</p>
+    <input type="range" min="1" max="200" value="100" class="slider" id="myRange">
+    <p>Speed: <span id="demo"></span>%</p>
   </div>
 
   <script>
@@ -98,26 +123,15 @@
   }
   </script>
 
-       
-  
-
   <script>
-    var audio = document.getElementById('sample');
-    var segmentEnd;
 
-    audio.addEventListener('timeupdate', function (){
-        if (segmentEnd && audio.currentTime >= segmentEnd) {
-            audio.pause();
-        }   
-        console.log(audio.currentTime);
-    }, false);
-
-    function playSegment(startTime, endTime){
-        segmentEnd = endTime;
-        audio.currentTime = startTime;
-        audio.play();
-    }
+    function audio() {
+      if(myaudio.loop == true){
+          if (document.getElementById("sample").currentTime >= document.getElementById("myButton2").value) {document.getElementById("sample").currentTime = document.getElementById("myButton1").value}
+          }
+      }
   </script>
+
 
 
 
