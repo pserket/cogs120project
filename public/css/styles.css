@@ -103,3 +103,7 @@ body {
     padding: 0 !important;
     background-color: white;
 }
+
+#back-btn {
+    margin-bottom: -55px;
+}

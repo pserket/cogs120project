@@ -9,4 +9,10 @@ $(document).ready(function() {
 
     var elems = document.querySelectorAll('.modal');
     M.Modal.init(elems);
+
+    $('#back-btn').click(function(e) {
+        e.preventDefault();
+
+        window.location.href = document.location.origin + "/index";
+    });
 });
