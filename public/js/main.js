@@ -9,6 +9,12 @@ $(document).ready(function() {
 
         window.location.href = document.location.origin + "/dance";
     });
+
+    $('#create-btn').click(function(e) {
+        e.preventDefault();
+
+        window.location.href = document.location.origin + "/create";
+    });
 });
 
 /*

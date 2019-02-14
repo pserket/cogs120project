@@ -3,6 +3,10 @@
     src: url(../fonts/sfpro.otf);
 }
 
+body {
+    padding: 10px;
+}
+
 .choreo-holder {
     display: flex;
     overflow-x: auto;
@@ -73,4 +77,29 @@
 
 .holder-title {
     font-family: sfpro;
+}
+
+.new-clip-btn {
+    position: unset !important;
+    bottom: unset !important;
+    margin: 20px auto auto;
+}
+
+.create-container {
+    height: 600px;
+    background-color: #404040;
+}
+
+.cue-container {
+    /*background-color: red;*/
+    width: calc(100% - 84px);
+    height: 100%;
+}
+
+.divid {
+    height: 95%;
+    margin-top: 2%;
+    width: 3px;
+    padding: 0 !important;
+    background-color: white;
 }

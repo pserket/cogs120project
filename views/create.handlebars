@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>Test Page</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/create.js"></script>
+    <link href="css/styles.css" rel="stylesheet">
+
+</head>
+<body class="cyan">
+    <div class='main-container create-container card'>
+        <div class="row">
+            <div class="col cue-container">
+
+            </div>
+            <div class="col divid"></div>
+            <div class="col">
+                <div class="fixed-action-btn new-clip-btn">
+                    <a class="btn-floating btn-large red">
+                        <i class="large material-icons">add</i>
+                    </a>
+                    <ul style="position: unset !important;">
+                        <li><a class="btn-floating blue waves-effect modal-trigger" href="#modal1"><i class="material-icons">text_fields</i></a></li>
+                        <li><a class="btn-floating yellow waves-effect modal-trigger" href="#modal2"><i class="material-icons">audiotrack</i></a></li>
+                        <li><a class="btn-floating red waves-effect modal-trigger" href="#modal3"><i class="material-icons">image</i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Create Textual Cue</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Create Audio Cue</h4>
+            <form method="post" enctype="multipart/form-data" action="/upload">
+            <input type="file" name="file">
+            <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <h4>Create Picture Cue</h4>
+            <form method="post" enctype="multipart/form-data" action="/upload">
+                <input type="file" name="file">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+</body>
