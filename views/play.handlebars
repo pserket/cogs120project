@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/dcount.css" rel="stylesheet">
+    <script src="js/dcount.js"></script>
     <style>
         .container{
             position:relative;
@@ -32,7 +33,7 @@
   </head>
   <body>
 
-<body style="background-color:darkslategrey;">
+<body >
 <div id="body" align="center">
 
   <button onclick="goBack()">Home</button>
@@ -45,15 +46,16 @@ function goBack() {
     <p></p>
 
   <h1 align="center">Dance Notes</h1>
-  <div id="imgGallary" class="container">
+  <div id="imgGallary" class="container"> <!-- THE IMAGE GALLERY -->
     <img src="http://www.examiningcalvinism.com/kingdavid.jpg" alt="" width="100%" height="300" />
     <img src="http://www.kingjamesbibleonline.org/1611-Bible/1611-King-James-Bible-Introduction.jpg" alt="" width="100%" height="300" />
     <img src="https://i.imgflip.com/12tg2w.jpg" alt="" width="100%" height="300" />
     <img src="https://brianjayjones.files.wordpress.com/2010/04/jandk.jpg?w=770&h=514" alt="" width="100%" height="300" />
 </div>
-<script>
 
-(function(){
+<!-- THE JAVASCRIPT FOR THE IMAGE GALLERY -->
+<script>
+(function(){ 
         var imgLen = document.getElementById('imgGallary');
         var images = imgLen.getElementsByTagName('img');
         var counter = 0;
@@ -73,17 +75,30 @@ function goBack() {
 </script>
 
   <p></p>
-
+<!-- PUT THE AUDIO HERE -->
   <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()"
     <p>Your browser does not support the audio element</p>
-  </audio>
-
-  <span id="tracktime"></span>
+  </audio> 
 
   <script>
   myaudio=document.getElementById("sample");
   </script>
 
+<!-- LOOP RANGE SLIDER -->
+
+<form>
+    <div>
+        <input type="text" class="sliderValue" data-index="0" value="10" />
+        <input type="text" class="sliderValue" data-index="1" value="90" />
+    </div>
+    <br />
+    <div id="slider"></div>
+</form>
+
+
+
+
+<!-- LOOP TOGGLE HTML -->
   <p></p>
   <div class="loopbutton">
     <label class="switch">
@@ -98,7 +113,7 @@ function goBack() {
   Click to select section to loop: <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> - 
   <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton2"></input> (seconds)
 
-
+<!-- LOOP TOGGLE JAVASCRIPT? -->
   <script>
   myaudio=document.getElementById("sample");
 
@@ -110,6 +125,8 @@ function goBack() {
   </script>
 
 <p></p>
+
+<!-- SPEED OF AUDIO SLIDER -->
   <div class="slidecontainer">
     <input type="range" min="1" max="200" value="100" class="slider" id="myRange">
     <p>Speed: <span id="demo"></span>%</p>
@@ -126,6 +143,8 @@ function goBack() {
   }
   </script>
 
+
+<!-- LOOP BETWEEN SPECIFIC TIME JAVASCRIPT -->
   <script>
 
     function audio() {
