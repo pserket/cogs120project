@@ -1,85 +1,56 @@
 {
-	"users": [{
+	"users": {
+		"dummy": {
 			"name": "dummy",
-			"dances": [{
+			"dances": [
+				{
 					"author": "dummy",
 					"name": "Dance 1",
 					"duration": "1:50",
-					"thumbnail": "https://picsum.photos/170?random"
+					"thumbnail": "https://picsum.photos/170?random",
+					"cues": [
+						{
+							"start": 10,
+							"end": 15,
+							"duration": 10,
+							"file": "uploads.png"
+						},
+						{
+							"start": 10,
+							"end": 15,
+							"duration": 10,
+							"file": "uploads.png"
+						}
+					]
 				},
 				{
 					"author": "dummy",
 					"name": "Dance 2",
 					"duration": "2:50",
-					"thumbnail": "https://picsum.photos/170?random"
-				},
-				{
-					"author": "dummy",
-					"name": "Dance 3",
-					"duration": "3:50",
-					"thumbnail": "https://picsum.photos/170?random"
-				},
-				{
-					"author": "dummy",
-					"name": "Dance 4",
-					"duration": "4:50",
-					"thumbnail": "https://picsum.photos/170?random"
-				}
-			]
-		},
-		{
-			"name": "dummy",
-			"dances": [{
-					"author": "dummy",
-					"name": "Dance 1",
-					"duration": "1:50",
-					"thumbnail": "https://picsum.photos/170?random"
-				},
-
-				{
-					"author": "dummy",
-					"name": "Dance 2",
-					"duration": "2:50",
-					"thumbnail": "https://picsum.photos/170?random"
-				},
-
-				{
-					"author": "dummy",
-					"name": "Dance 3",
-					"duration": "3:50",
-					"thumbnail": "https://picsum.photos/170?random"
-				},
-
-				{
-					"author": "dummy",
-					"name": "Dance 4",
-					"duration": "4:50",
 					"thumbnail": "https://picsum.photos/170?random"
 				}
 			]
 		}
-	],
-	"explore": [{
+	},
+	"explore": [
+		{
 			"author": "dummy",
 			"name": "Explore 1",
 			"duration": "1:50",
 			"thumbnail": "https://picsum.photos/170?random"
 		},
-
 		{
 			"author": "dummy",
 			"name": "Explore 2",
 			"duration": "2:50",
 			"thumbnail": "https://picsum.photos/170?random"
 		},
-
 		{
 			"author": "dummy",
 			"name": "Explore 3",
 			"duration": "3:50",
 			"thumbnail": "https://picsum.photos/170?random"
 		},
-
 		{
 			"author": "dummy",
 			"name": "Explore 4",
@@ -88,3 +59,4 @@
 		}
 	]
 }
+

@@ -3,32 +3,29 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
     initializePage();
-
-    $('.dance').click(function(e) {
-        e.preventDefault();
-
-        window.location.href = document.location.origin + "/dance";
-    });
-
-    $('#create-btn').click(function(e) {
-        e.preventDefault();
-
-        window.location.href = document.location.origin + "/create";
-    });
 });
+
+function createBtn(user) {
+    console.log(user);
+
+    $.get("/create_new/" + user).then(function(data) {
+        window.location = "/create/" + user + "/" + data['name'];
+    });
+}
 
 /*
  * Function that is called when the document is ready.
  */
 function editDance(user, name) {
-    // window.location.href = document.location.origin + "/dance";
-    console.log('edit');
-};
+    var string = "/create/" + user + "/" + name;
+
+    window.location = string;
+}
 
 function openDance(user, name) {
-    window.location.href = document.location.origin + "/dance";
-};
+    window.location = "/dance/" + user + "/" + name;
+}
 
 function initializePage() {
     console.log("Javascript connected!");
-};
+}

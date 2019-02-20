@@ -4,15 +4,8 @@ var data = require('../data.json');
  */
 
 exports.view = function(req, res){
-  for (var i = 0; i < data['users'].length; i++) {
-    var x = data['users'][i];
+  var x = data['users']['dummy'];
+  x['explore'] = data['explore'];
 
-    x['explore'] = data['explore'];
-
-    if (x['name'] === 'dummy') {
-        res.render('index', x);
-        break;
-    }
-  }
-
+  res.render('index', x);
 };

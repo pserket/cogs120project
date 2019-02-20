@@ -14,53 +14,59 @@
     <script src="js/main.js"></script>
     <link href="css/styles.css" rel="stylesheet">
 
+    <meta name="viewport" content="width=570, initial-scale=1">
+
 </head>
 <body class="cyan">
-    <div class='main-container'>
-        <div class='holder-title'>
+<div class='main-container'>
+    <div class='holder-title'>
         My Dances
-        </div>
-        <div class='choreo-holder'>
-            <div id="create-btn" class="card">
-                <a class="btn-floating btn-large waves-effect waves-light" style="margin-top: 55px;"><i class="material-icons">add</i></a>
-            </div>
-            {{#each dances}}
-                <div class='choreo-item card' onclick="event.stopPropagation();openDance('{{author}}', '{{name}}');">
-                    <img src="{{thumbnail}}" alt="Smiley face">
-                    <div class='choreo-item-bot'>
-                        <div class='choreo-item-text'>
-                            {{name}}
-                        </div>
-                        <div class='choreo-item-duration'>
-                            {{duration}}
-                        </div>
-                        <a class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn" onclick="event.stopPropagation();editDance('{{author}}', '{{name}}');"><i
-                                class="material-icons">edit</i></a>
-                    </div>
-                </div>
-            {{/each}}
-        </div>
-
-        <div class='holder-title'>
-            Explore
-        </div>
-        <div class='choreo-holder'>
-            {{#each explore}}
-                <div class='choreo-item card' onclick="event.stopPropagation();openDance('{{author}}', '{{name}}');">
-                    <img src="{{thumbnail}}" alt="Smiley face">
-                    <div class='choreo-item-bot'>
-                        <div class='choreo-item-text'>
-                            {{name}}
-                        </div>
-                        <div class='choreo-item-duration'>
-                            {{duration}}
-                        </div>
-                        <a class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn" onclick="event.stopPropagation();editDance({{author}}, {{name}});"><i
-                                class="material-icons">edit</i></a>
-                    </div>
-                </div>
-            {{/each}}
-        </div>
     </div>
+    <div class='choreo-holder'>
+        <div id="create-btn" class="card">
+            <a class="btn-floating btn-large waves-effect waves-light"
+               onclick="event.stopPropagation(); createBtn('{{name}}');" style="margin-top: 55px;"><i
+                    class="material-icons">add</i></a>
+        </div>
+        {{#each dances}}
+            <div class='choreo-item card' onclick="event.stopPropagation();openDance('{{author}}', '{{name}}');">
+                <img src="{{thumbnail}}" alt="Smiley face">
+                <div class='choreo-item-bot'>
+                    <div class='choreo-item-text'>
+                        {{name}}
+                    </div>
+                    <div class='choreo-item-duration'>
+                        {{duration}}
+                    </div>
+                    <a class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"
+                       onclick="event.stopPropagation();editDance('{{author}}', '{{name}}');"><i
+                            class="material-icons">edit</i></a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class='holder-title'>
+        Explore
+    </div>
+    <div class='choreo-holder'>
+        {{#each explore}}
+            <div class='choreo-item card' onclick="event.stopPropagation();openDance('{{author}}', '{{name}}');">
+                <img src="{{thumbnail}}" alt="Smiley face">
+                <div class='choreo-item-bot'>
+                    <div class='choreo-item-text'>
+                        {{name}}
+                    </div>
+                    <div class='choreo-item-duration'>
+                        {{duration}}
+                    </div>
+                    <a class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"
+                       onclick="event.stopPropagation();editDance({{author}}, {{name}});"><i
+                            class="material-icons">edit</i></a>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</div>
 </body>
 </html>

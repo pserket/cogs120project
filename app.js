@@ -10,6 +10,7 @@ const index = require('./routes/index');
 const login = require('./routes/login');
 const dance = require('./routes/dance');
 const create = require('./routes/create');
+const create_new = require('./routes/create_new');
 // Example route
 // var user = require('./routes/user');
 
@@ -38,8 +39,9 @@ if ('development' === app.get('env')) {
 // Example route
 app.get('/', login.view);
 app.get('/index', index.view);
-app.get('/dance', dance.view);
-app.get('/create', create.view);
+app.get('/dance/:author/:name', dance.view);
+app.get('/create/:author/:name', create.view);
+app.get('/create_new/:author', create_new.view);
 
 const multer = require("multer");
 
