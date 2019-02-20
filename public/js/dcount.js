@@ -25,20 +25,7 @@ $(document).ready(function () {
         if (lowerHandle == true) console.log('>>> LOWER <<<')
         if (upperHandle == true) console.log('>>> UPPER <<<')
 
-<<<<<<< HEAD
-var slider = document.getElementById('slider');
-
-noUiSlider.create(slider, {
-    start: [20, 80],
-    connect: true,
-    range: {
-        'min': 0,
-        'max': 100
-    }
-});
-=======
 
         output.html($(this).val().join(' - '));
     });
->>>>>>> 8c7e1ef942297ceadbc761d2e7fe064d38184a02
 });

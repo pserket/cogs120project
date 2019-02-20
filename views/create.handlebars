@@ -14,85 +14,93 @@
     <script src="../../js/create.js"></script>
     <link href="../../css/styles.css" rel="stylesheet">
 
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+
+
 </head>
 <body class="cyan">
-    <a id="back-btn" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">arrow_back</i></a>
-    <div class="dance_name">{{name}}</div>
-    <div class='main-container create-container card'>
+<a id="back-btn" class="btn-floating btn-large waves-effect waves-light red"><i
+        class="material-icons">arrow_back</i></a>
+<div class="dance_name">{{name}}</div>
+<div class='main-container create-container card'>
 
-        <div class="row">
-            <div class="col cue-container">
-                {{#each cues}}
-                    <div class="editing-cue">
-                        <div style="color: white">{{name}}</div>
-                        <div style="display: flex; color: #ababab">
-                            <div>Start: {{start}}, &nbsp</div>
-                            <div>End: {{end}}, &nbsp</div>
-                            <div>Duration: {{duration}}</div>
-                        </div>
-
+    <div class="row">
+        <div class="col cue-container">
+            {{#each cues}}
+                <div class="editing-cue">
+                    <div style="color: white">{{name}}</div>
+                    <div style="display: flex; color: #ababab">
+                        <div>Start: {{start}}, &nbsp</div>
+                        <div>End: {{end}}, &nbsp</div>
+                        <div>Duration: {{duration}}</div>
                     </div>
-                {{/each}}
-            </div>
-            <div class="col divid"></div>
-            <div class="col">
-                <div class="fixed-action-btn new-clip-btn">
-                    <a class="btn-floating btn-large green accent-3">
-                        <i class="large material-icons">add</i>
-                    </a>
-                    <ul style="position: unset !important;">
-                        <li><a class="btn-floating blue waves-effect modal-trigger" href="#modal1"><i class="material-icons">text_fields</i></a></li>
-                        <li><a class="btn-floating yellow waves-effect modal-trigger" href="#modal2"><i class="material-icons">audiotrack</i></a></li>
-                        <li><a class="btn-floating red waves-effect modal-trigger" href="#modal3"><i class="material-icons">image</i></a></li>
-                    </ul>
+
                 </div>
+            {{/each}}
+        </div>
+        <div class="col divid"></div>
+        <div class="col">
+            <div class="fixed-action-btn new-clip-btn">
+                <a class="btn-floating btn-large green accent-3">
+                    <i class="large material-icons">add</i>
+                </a>
+                <ul style="position: unset !important;">
+                    <li><a class="btn-floating blue waves-effect modal-trigger" href="#modal1"><i
+                            class="material-icons">text_fields</i></a></li>
+                    <li><a class="btn-floating yellow waves-effect modal-trigger" href="#modal2"><i
+                            class="material-icons">audiotrack</i></a></li>
+                    <li><a class="btn-floating red waves-effect modal-trigger" href="#modal3"><i class="material-icons">image</i></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="modal1" class="modal">
-        <div class="modal-content">
-            <h4>Create Textual Cue</h4>
-            <div class="input-field col s12">
-                <input id="text-cue-name" type="text">
-                <label for="text-cue-name">Cue Name</label>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <div onclick="textFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Create Textual Cue</h4>
+        <div class="input-field col s12">
+            <input id="text-cue-name" type="text">
+            <label for="text-cue-name">Cue Name</label>
         </div>
     </div>
-
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <h4>Create Audio Cue</h4>
-            <div class="input-field col s12">
-                <input id="audio-cue-name" type="text">
-                <label for="audio-cue-name">Cue Name</label>
-            </div>
-            <form id="audio-form" method="post" enctype="multipart/form-data" action="">
-                <input type="file" name="file">
-            </form>
-        </div>
-        <div class="modal-footer">
-            <div onclick="audioFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
-        </div>
+    <div class="modal-footer">
+        <div onclick="textFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
     </div>
+</div>
 
-    <div id="modal3" class="modal">
-        <div class="modal-content">
-            <h4>Create Picture Cue</h4>
-            <div class="input-field col s12">
-                <input id="pic-cue-name" type="text">
-                <label for="pic-cue-name">Cue Name</label>
-            </div>
-            <form id="picture-form" method="post" enctype="multipart/form-data" action="">
-                <input type="file" name="file">
-            </form>
-
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <h4>Create Audio Cue</h4>
+        <div class="input-field col s12">
+            <input id="audio-cue-name" type="text">
+            <label for="audio-cue-name">Cue Name</label>
         </div>
-        <div class="modal-footer">
-            <div onclick="pictureFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
-        </div>
+        <form id="audio-form" method="post" enctype="multipart/form-data" action="">
+            <input type="file" name="file">
+        </form>
     </div>
+    <div class="modal-footer">
+        <div onclick="audioFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
+    </div>
+</div>
+
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <h4>Create Picture Cue</h4>
+        <div class="input-field col s12">
+            <input id="pic-cue-name" type="text">
+            <label for="pic-cue-name">Cue Name</label>
+        </div>
+        <form id="picture-form" method="post" enctype="multipart/form-data" action="">
+            <input type="file" name="file">
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <div onclick="pictureFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
+    </div>
+</div>
 </body>
