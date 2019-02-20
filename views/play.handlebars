@@ -3,16 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 
-
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css">
-    <script src="../../js/nouislider.js"></script>
-    <script src="../../css/nouislider.css" rel="stylesheet" type="text/css"></script>
+    <script src="nouislider.css" rel="stylesheet"></script>
 
     <!--<script src="../../js/dcount.js"></script>-->
-    <link href="../../css/dcount.css" rel="stylesheet">
+    <link href="css/dcount.css" rel="stylesheet">
     <style>
         .container {
             position: relative;
@@ -40,6 +35,7 @@
 
 <body>
 <div id="body" align="center">
+	<script src="../../js/nouislider.min.js"></script>
 
     <button onclick="goBack()">Home</button>
     <script>
@@ -83,7 +79,7 @@
 
     <p></p>
     <!-- PUT THE AUDIO HERE -->
-    <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()">
+    <audio id="sample" src="../../niceforwhat.mp3" controls preload ontimeupdate="audio()">
     <p>Your browser does not support the audio element</p>
     </audio>
 
@@ -106,8 +102,21 @@
 
     <!-- LOOP RANGE SLIDER -->
 
-<div id="range-slider"></div>
-<div id="output"></div>
+<div id="slider">
+</div>
+
+<script>
+	var slider = document.getElementById('slider');
+
+noUiSlider.create(slider, {
+    start: [20, 80],
+    connect: true,
+    range: {
+        'min': 0,
+        'max': 100
+    }
+});
+</script>
 
     <!--
     Click to select section to loop: <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> -

@@ -96,6 +96,3 @@ input:checked + #loopslider:before {
 }
 
 /*CSS FOR LOOP RANGE SLIDER */
-body { padding: 30px 30px; }
-#range-slider { width: 300px; } 
-#output { margin-top: 30px; }
