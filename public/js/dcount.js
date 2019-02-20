@@ -1,17 +1,14 @@
 'use strict';
 
 $(document).ready(function() {
-    (function() {
 
         $('#home-btn').click(function(e) {
             e.preventDefault();
             window.location.href = document.location.origin + "/index";
         });
-    });
 
 //JAVASCRIPT FOR LOOP RANGE SLIDER
 
-    (function () {
         $(".slider-range").slider({
             range: true,
             min: 0,
@@ -25,6 +22,5 @@ $(document).ready(function() {
         });
         $(".amount").val("$" + $(".slider-range").slider("values", 0) +
             " - $" + $(".slider-range").slider("values", 1));
-    });
 
 });

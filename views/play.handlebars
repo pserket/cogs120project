@@ -1,160 +1,169 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
     <script src="../../js/dcount.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+
     <link href="../../css/dcount.css" rel="stylesheet">
     <style>
-        .container{
-            position:relative;
-            width:300px;
-            height:200px;
-            border-radius:5px;
-            border:1px solid red;
-            overflow:hidden;
+        .container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            border-radius: 5px;
+            border: 1px solid red;
+            overflow: hidden;
         }
     </style>
 
     <title>dancecount</title>
-    
+
     <style>
-    <!--
-    body {
-      color:#000000;
-      background-color:#FFFFFF;
-      background-repeat:no-repeat;
-    }
+        <!--
+        body {
+            color: #000000;
+            background-color: #FFFFFF;
+            background-repeat: no-repeat;
+        }
 
-  
+
     </style>
-  </head>
-  <body>
+</head>
+<body>
 
-<body >
+<body>
 <div id="body" align="center">
 
-  <button onclick="goBack()">Home</button>
-  <script>
-function goBack() {
-  window.location.href = document.location.origin + "/index";
-}
-</script>
+    <button onclick="goBack()">Home</button>
+    <script>
+        function goBack() {
+            window.location.href = document.location.origin + "/index";
+        }
+    </script>
 
     <p></p>
 
-  <h1 align="center">Dance Notes</h1>
-  <div id="imgGallary" class="container"> <!-- THE IMAGE GALLERY -->
-    <img src="http://www.examiningcalvinism.com/kingdavid.jpg" alt="" width="100%" height="300" />
-    <img src="http://www.kingjamesbibleonline.org/1611-Bible/1611-King-James-Bible-Introduction.jpg" alt="" width="100%" height="300" />
-    <img src="https://i.imgflip.com/12tg2w.jpg" alt="" width="100%" height="300" />
-    <img src="https://brianjayjones.files.wordpress.com/2010/04/jandk.jpg?w=770&h=514" alt="" width="100%" height="300" />
-</div>
+    <h1 align="center">Dance Notes</h1>
+    <div id="imgGallary" class="container"> <!-- THE IMAGE GALLERY -->
+        <img src="http://www.examiningcalvinism.com/kingdavid.jpg" alt="" width="100%" height="300"/>
+        <img src="http://www.kingjamesbibleonline.org/1611-Bible/1611-King-James-Bible-Introduction.jpg" alt=""
+             width="100%" height="300"/>
+        <img src="https://i.imgflip.com/12tg2w.jpg" alt="" width="100%" height="300"/>
+        <img src="https://brianjayjones.files.wordpress.com/2010/04/jandk.jpg?w=770&h=514" alt="" width="100%"
+             height="300"/>
+    </div>
 
-<!-- THE JAVASCRIPT FOR THE IMAGE GALLERY -->
-<script>
-(function(){ 
-        var imgLen = document.getElementById('imgGallary');
-        var images = imgLen.getElementsByTagName('img');
-        var counter = 0;
+    <!-- THE JAVASCRIPT FOR THE IMAGE GALLERY -->
+    <script>
+        (function () {
+            var imgLen = document.getElementById('imgGallary');
+            var images = imgLen.getElementsByTagName('img');
+            var counter = 0;
 
-        if(counter <= images.length){
-            setInterval(function(){
-                images[0].src = images[counter].src;
-                console.log(images[counter].src);
-                counter++;
+            if (counter <= images.length) {
+                setInterval(function () {
+                    images[0].src = images[counter].src;
+                    console.log(images[counter].src);
+                    counter++;
 
-                if(counter == images.length){
-                    counter = 0;
-                }
-            },4000);
-        }
-})();
-</script>
+                    if (counter == images.length) {
+                        counter = 0;
+                    }
+                }, 4000);
+            }
+        })();
+    </script>
 
-  <p></p>
-<!-- PUT THE AUDIO HERE -->
-  <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()"
+    <p></p>
+    <!-- PUT THE AUDIO HERE -->
+    <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()"
     <p>Your browser does not support the audio element</p>
-  </audio> 
+    </audio>
 
-  <script>
-  myaudio=document.getElementById("sample");
-  </script>
-
-
-
-<!-- LOOP TOGGLE HTML -->
-  <p></p>
-  <div class="loopbutton">
-    <label class="switch">
-      <input type="checkbox" id="check">
-      <span class="slider round" id="loopslider"></span>
-    </label>
-    Loop
-  </div>
-
-  <p></p>
-
-<!-- LOOP RANGE SLIDER -->
-
-<p>
-    <input class="amount" readonly style="border:0; color:black; background: transparent; text-align: center;" type="text">
-</p>
-<div class="slider-range"></div>
-<input id="s1" name="s1" type="hidden" />
-<input id="s2" name="s2" type="hidden" />
+    <script>
+        myaudio = document.getElementById("sample");
+    </script>
 
 
-  <!--
-  Click to select section to loop: <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> - 
-  <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton2"></input> (seconds)
--->
+    <!-- LOOP TOGGLE HTML -->
+    <p></p>
+    <div class="loopbutton">
+        <label class="switch">
+            <input type="checkbox" id="check">
+            <span class="slider round" id="loopslider"></span>
+        </label>
+        Loop
+    </div>
 
-<!-- LOOP TOGGLE JAVASCRIPT? -->
-  <script>
-  myaudio=document.getElementById("sample");
+    <p></p>
 
-  var slider = document.getElementById("check");
-  slider.oninput = function() {
-    if (myaudio.loop == false) {myaudio.loop = true}
-    else {myaudio.loop = false};
-  }
-  </script>
+    <!-- LOOP RANGE SLIDER -->
 
-<p></p>
-
-<!-- SPEED OF AUDIO SLIDER -->
-  <div class="slidecontainer">
-    <input type="range" min="1" max="200" value="100" class="slider" id="myRange">
-    <p>Speed: <span id="demo"></span>%</p>
-  </div>
-
-  <script>
-  var slider = document.getElementById("myRange");
-  var output = document.getElementById("demo");
-  output.innerHTML = slider.value;
-
-  slider.oninput = function() {
-    output.innerHTML = this.value;
-    myaudio.playbackRate=this.value/100;
-  }
-  </script>
+    <p>
+        <input class="amount" readonly style="border:0; color:black; background: transparent; text-align: center;"
+               type="text">
+    </p>
+    <div class="slider-range"></div>
+    <input id="s1" name="s1" type="hidden"/>
+    <input id="s2" name="s2" type="hidden"/>
 
 
-<!-- LOOP BETWEEN SPECIFIC TIME JAVASCRIPT 
-  <script>
-
-    function audio() {
-      if(myaudio.loop == true){
-          if (document.getElementById("sample").currentTime >= document.getElementById("myButton2").value) {document.getElementById("sample").currentTime = document.getElementById("myButton1").value}
-          }
-      }
-  </script>
+    <!--
+    Click to select section to loop: <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> -
+    <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton2"></input> (seconds)
   -->
 
+    <!-- LOOP TOGGLE JAVASCRIPT? -->
+    <script>
+        myaudio = document.getElementById("sample");
 
+        var slider = document.getElementById("check");
+        slider.oninput = function () {
+            if (myaudio.loop == false) {
+                myaudio.loop = true
+            }
+            else {
+                myaudio.loop = false
+            }
+            ;
+        }
+    </script>
+
+    <p></p>
+
+    <!-- SPEED OF AUDIO SLIDER -->
+    <div class="slidecontainer">
+        <input type="range" min="1" max="200" value="100" class="slider" id="myRange">
+        <p>Speed: <span id="demo"></span>%</p>
+    </div>
+
+    <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+            myaudio.playbackRate = this.value / 100;
+        }
+    </script>
+
+
+    <!-- LOOP BETWEEN SPECIFIC TIME JAVASCRIPT
+      <script>
+
+        function audio() {
+          if(myaudio.loop == true){
+              if (document.getElementById("sample").currentTime >= document.getElementById("myButton2").value) {document.getElementById("sample").currentTime = document.getElementById("myButton1").value}
+              }
+          }
+      </script>
+      -->
 
 
 </div>
