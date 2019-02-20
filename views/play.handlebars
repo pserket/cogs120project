@@ -72,7 +72,7 @@
 
     <p></p>
     <!-- PUT THE AUDIO HERE -->
-    <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()">
+    <audio id="sample" src="../../niceforwhat.mp3" controls preload ontimeupdate="audio()">
         <p>Your browser does not support the audio element</p>
     </audio>
 
@@ -93,12 +93,45 @@
 
     <p></p>
 
-    <!-- <div id="range-slider"></div>
-    <div id="output"></div> -->
-
+    <p>Select section to loop from (in seconds): </p>
+    <!-- LOOP SECTION 2 HANDLE SLIDER RANGE -->
     <div style="width: 300px">
         <input type="text" class="js-range-slider" name="my_range" value="" />
     </div>
+
+    <script>
+    $(".js-range-slider").ionRangeSlider({
+    type: "double"
+    });
+
+    let my_range = $(".js-range-slider").data("ionRangeSlider");
+    //  Update range slider content (this will change handles positions)
+    myaudio = document.getElementById("sample");
+    my_range.update({
+        min: 0,
+        from: 0
+    });
+
+    console.log(myaudio.duration)
+
+    console.log($('.js-range-slider').data('to'))
+    </script>
+
+    <!-- LOOP BETWEEN SPECIFIC TIME JAVASCRIPT -->
+      <script>
+        function audio() {
+        	var myaudio = document.getElementById("sample");
+
+        	my_range.update({
+        		max: Math.floor(myaudio.duration)
+    		});
+
+          	if(myaudio.loop == true){
+	              if (document.getElementById("sample").currentTime >= $('.js-range-slider').data("to")) {document.getElementById("sample").currentTime = $('.js-range-slider').data("from")}
+	              }
+          }
+      </script>
+ 
 
     <!--
     Click to select section to loop: <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> -
@@ -106,6 +139,7 @@
   -->
 
     <!-- LOOP TOGGLE JAVASCRIPT? -->
+
     <script>
         myaudio = document.getElementById("sample");
         var slider = document.getElementById("check");
@@ -138,15 +172,7 @@
     </script>
 
 
-    <!-- LOOP BETWEEN SPECIFIC TIME JAVASCRIPT
-      <script>
-        function audio() {
-          if(myaudio.loop == true){
-              if (document.getElementById("sample").currentTime >= document.getElementById("myButton2").value) {document.getElementById("sample").currentTime = document.getElementById("myButton1").value}
-              }
-          }
-      </script>
-      -->
+
 
 
 </div>
