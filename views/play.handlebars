@@ -4,8 +4,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/dcount.css" rel="stylesheet">
     <script src="js/dcount.js"></script>
+    <link href="css/dcount.css" rel="stylesheet">
     <style>
         .container{
             position:relative;
@@ -24,7 +24,6 @@
     body {
       color:#000000;
       background-color:#FFFFFF;
-      background-image:url('Background Image');
       background-repeat:no-repeat;
     }
 
@@ -84,18 +83,6 @@ function goBack() {
   myaudio=document.getElementById("sample");
   </script>
 
-<!-- LOOP RANGE SLIDER -->
-
-<form>
-    <div>
-        <input type="text" class="sliderValue" data-index="0" value="10" />
-        <input type="text" class="sliderValue" data-index="1" value="90" />
-    </div>
-    <br />
-    <div id="slider"></div>
-</form>
-
-
 
 
 <!-- LOOP TOGGLE HTML -->
@@ -109,9 +96,21 @@ function goBack() {
   </div>
 
   <p></p>
-  
+
+<!-- LOOP RANGE SLIDER -->
+
+<p>
+    <input class="amount" readonly style="border:0; color:black; background: transparent; text-align: center;" type="text">
+</p>
+<div class="slider-range"></div>
+<input id="s1" name="s1" type="hidden" />
+<input id="s2" name="s2" type="hidden" />
+
+
+  <!--
   Click to select section to loop: <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> - 
   <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton2"></input> (seconds)
+-->
 
 <!-- LOOP TOGGLE JAVASCRIPT? -->
   <script>
@@ -144,7 +143,7 @@ function goBack() {
   </script>
 
 
-<!-- LOOP BETWEEN SPECIFIC TIME JAVASCRIPT -->
+<!-- LOOP BETWEEN SPECIFIC TIME JAVASCRIPT 
   <script>
 
     function audio() {
@@ -153,6 +152,7 @@ function goBack() {
           }
       }
   </script>
+  -->
 
 
 

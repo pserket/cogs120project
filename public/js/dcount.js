@@ -1,7 +1,7 @@
 'use strict';
 
 // Call this function when the page loads (the "ready" event)
-$(document).ready(function() {
+(function() {
 
     $('#home-btn').click(function(e) {
         e.preventDefault();
@@ -10,21 +10,19 @@ $(document).ready(function() {
 });
 
 //JAVASCRIPT FOR LOOP RANGE SLIDER
-$(document).ready(function() {
-    $("#slider").slider({
+
+(function () {
+    $(".slider-range").slider({
+        range: true,
         min: 0,
-        max: 100,
-        step: 1,
-        values: [10, 90],
-        slide: function(event, ui) {
-            for (var i = 0; i < ui.values.length; ++i) {
-                $("input.sliderValue[data-index=" + i + "]").val(ui.values[i]);
-            }
+        max: 1000,
+        values: [0, 1000],
+        slide: function (event, ui) {
+            $(".amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+            $('#s1').val(ui.values[0]);
+            $('#s2').val(ui.values[1]);
         }
     });
-
-    $("input.sliderValue").change(function() {
-        var $this = $(this);
-        $("#slider").slider("values", $this.data("index"), $this.val());
-    });
+    $(".amount").val("$" + $(".slider-range").slider("values", 0) +
+        " - $" + $(".slider-range").slider("values", 1));
 });
