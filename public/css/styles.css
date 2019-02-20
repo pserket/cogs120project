@@ -103,3 +103,11 @@ body {
     padding: 0 !important;
     background-color: white;
 }
+
+#back-btn {
+    margin-bottom: -55px;
+}
+
+#create-btn {
+    min-width: 170px;
+}
