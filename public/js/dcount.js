@@ -1,4 +1,4 @@
-'use strict';
+
 
 $(document).ready(function() {
 
@@ -9,18 +9,25 @@ $(document).ready(function() {
 
 //JAVASCRIPT FOR LOOP RANGE SLIDER
 
-        $(".slider-range").slider({
-            range: true,
-            min: 0,
-            max: 1000,
-            values: [0, 1000],
-            slide: function (event, ui) {
-                $(".amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-                $('#s1').val(ui.values[0]);
-                $('#s2').val(ui.values[1]);
-            }
-        });
-        $(".amount").val("$" + $(".slider-range").slider("values", 0) +
-            " - $" + $(".slider-range").slider("values", 1));
+var output = $('#output');
 
+$('#range-slider').noUiSlider({
+    start: [0, 100], 
+    range: {
+        'min': [0],
+        'max': [100]
+    }
+}).on('slide', function(evt) {
+    var lowerHandle=false;
+    var upperHandle=false;
+    if($(evt.target).find('.noUi-handle-lower').hasClass("noUi-active")) lowerHandle=true;
+    if($(evt.target).find('.noUi-handle-upper').hasClass("noUi-active")) upperHandle=true;
+    // In this event handler, I want to see which of the two sliders is being moved
+    // Is there a property of the 'evt' parameter which would tell me this?
+    if(lowerHandle==true) console.log('>>> LOWER <<<')
+    if(upperHandle==true) console.log('>>> UPPER <<<')
+    
+    
+    output.html($(this).val().join(' - '));
+});
 });
