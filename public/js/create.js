@@ -16,3 +16,13 @@ $(document).ready(function() {
         window.location.href = document.location.origin + "/index";
     });
 });
+
+function pictureFormBtn(author, name) {
+    console.log('derp');
+
+    // $('#audio-form').attr("action", "/upload_picture/" + author + "/" + name);
+}
+
+function audioFormBtn(author, name) {
+    console.log('derp');
+}

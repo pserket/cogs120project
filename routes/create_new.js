@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 var data = require('../data.json');
 
 exports.view = function (req, res) {
@@ -5,21 +7,10 @@ exports.view = function (req, res) {
 
     var dances = data['users'][author]['dances'];
 
-    function in_dances(name) {
-        for (var i = 0; i < dances.length; i++) {
-            var dance = dances[i];
-
-            if (dance['name'] === name) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     var dance_name = 'Dance ';
     var count = 1;
 
-    while (in_dances(dance_name + count.toString())) {
+    while (dance_name + count.toString() in dances) {
         count++;
     }
 
@@ -33,9 +24,19 @@ exports.view = function (req, res) {
         "cues": []
     };
 
-    data['users'][author]['dances'].push(dance);
+    data['users'][author]['dances'][dance_name] = dance;
 
     // save
+
+    var content = JSON.stringify(data);
+
+    fs.writeFile('data.json', content, 'utf8', function (err) {
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log("The file was saved!");
+    });
 
     res.json({
        'name' : dance_name

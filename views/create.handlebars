@@ -17,11 +17,22 @@
 </head>
 <body class="cyan">
     <a id="back-btn" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">arrow_back</i></a>
+    <div class="dance_name">{{name}}</div>
     <div class='main-container create-container card'>
 
         <div class="row">
             <div class="col cue-container">
+                {{#each cues}}
+                    <div class="editing-cue">
+                        <div style="color: white">{{name}}</div>
+                        <div style="display: flex; color: #ababab">
+                            <div>Start: {{start}}, &nbsp</div>
+                            <div>End: {{end}}, &nbsp</div>
+                            <div>Duration: {{duration}}</div>
+                        </div>
 
+                    </div>
+                {{/each}}
             </div>
             <div class="col divid"></div>
             <div class="col">
@@ -52,9 +63,9 @@
     <div id="modal2" class="modal">
         <div class="modal-content">
             <h4>Create Audio Cue</h4>
-            <form method="post" enctype="multipart/form-data" action="/upload">
+            <form id="audio-form" onclick="event.stopPropagation(); audioFormBtn({{author}},{{name}});" method="post" enctype="multipart/form-data" action="">
             <input type="file" name="file">
-            <input type="submit" value="Submit">
+            <input>
             </form>
         </div>
         <div class="modal-footer">
@@ -65,13 +76,13 @@
     <div id="modal3" class="modal">
         <div class="modal-content">
             <h4>Create Picture Cue</h4>
-            <form method="post" enctype="multipart/form-data" action="/upload">
+            <form id="picture-form" method="post" enctype="multipart/form-data" action="">
                 <input type="file" name="file">
-                <input type="submit" value="Submit">
             </form>
+
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <div onclick="pictureFormBtn('{{author}}','{{name}}')" class="btn">Derp</div>
         </div>
     </div>
 </body>

@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-    <script src="nouislider.min.js"></script>
-	<script src="nouislider.min.css"></script>
 
-    <script src="../../js/dcount.js"></script>
 
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css">
+    <script src="../../js/nouislider.js"></script>
+    <script src="../../css/nouislider.css" rel="stylesheet" type="text/css"></script>
 
+    <!--<script src="../../js/dcount.js"></script>-->
     <link href="../../css/dcount.css" rel="stylesheet">
     <style>
         .container {
@@ -37,7 +37,6 @@
 
     </style>
 </head>
-<body>
 
 <body>
 <div id="body" align="center">
@@ -84,7 +83,7 @@
 
     <p></p>
     <!-- PUT THE AUDIO HERE -->
-    <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()"
+    <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()">
     <p>Your browser does not support the audio element</p>
     </audio>
 
@@ -127,7 +126,6 @@
             else {
                 myaudio.loop = false
             }
-            ;
         }
     </script>
 

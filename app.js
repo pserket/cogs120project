@@ -58,10 +58,43 @@ const upload = multer({
 });
 
 app.post(
-    "/upload",
+    "/upload_picture/:author/:name",
     upload.single("file" /* name attribute of <file> element in your form */),
     (req, res) => {
-        var file = './uploads/image.png';
+        var file = './uploads/pictures/' + req.file.originalname;
+
+        var ext = path.extname(req.file.originalname);
+
+        if (!(ext === '.jpg' || ext === '.png' || ext === '.jpeg')) {
+            return res
+                .status(500)
+                .contentType("text/plain")
+                .end("Wrong file type! (use png and jpg)");
+        }
+
+        fs.rename(req.file.path, file, err => {
+            if (err) return handleError(err, res);
+
+            res
+                .status(200)
+                .contentType("text/plain")
+                .redirect('back');
+        });
+    }
+);
+
+app.post(
+    "/upload_audio/:author/:name",
+    upload.single("file" /* name attribute of <file> element in your form */),
+    (req, res) => {
+        var file = './uploads/audio/' + req.file.originalname;
+
+        if (!(ext === '.mp3')) {
+            return res
+                .status(500)
+                .contentType("text/plain")
+                .end("Wrong file type! (use mp3)");
+        }
 
         fs.rename(req.file.path, file, err => {
             if (err) return handleError(err, res);

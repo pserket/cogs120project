@@ -111,3 +111,14 @@ body {
 #create-btn {
     min-width: 170px;
 }
+
+.dance_name {
+    font-size: 3em;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.editing-cue {
+    margin: 5px;
+}
