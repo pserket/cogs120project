@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 
-<<<<<<< HEAD
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.0.4/wNumb.min.js'></script>
+
     <script src="../../css/nouislider.css" rel="stylesheet" type="text/css"></script>
-=======
+    <script src="../../js/nouislider.js" type="text/javascript"></script>
 
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css">
-    <script src="../../css/nouislider.min.css" rel="stylesheet" type="text/css"></script>
->>>>>>> 981ea5796b61c7dc60b5f990f21a3209fb37ee38
-
-    <!--<script src="../../js/dcount.js"></script>-->
-    <link href="../../css/dcount.css" rel="stylesheet">
+    <!--<link href="../../css/dcount.css" rel="stylesheet">-->
     <style>
         .container {
             position: relative;
@@ -87,7 +87,7 @@
     <p></p>
     <!-- PUT THE AUDIO HERE -->
     <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()">
-    <p>Your browser does not support the audio element</p>
+        <p>Your browser does not support the audio element</p>
     </audio>
 
     <script>
@@ -107,19 +107,8 @@
 
     <p></p>
 
-    <!-- LOOP RANGE SLIDER -->
-
-<<<<<<< HEAD
-<div id="slider">
-</div>
-
-<script>
-	
-</script>
-=======
-<div id="range-slider"></div>
-<div id="output"></div>
->>>>>>> 981ea5796b61c7dc60b5f990f21a3209fb37ee38
+    <div id="range-slider"></div>
+    <div id="output"></div>
 
     <!--
     Click to select section to loop: <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> -
@@ -132,13 +121,13 @@
 
         var slider = document.getElementById("check");
         slider.oninput = function () {
-            if (myaudio.loop == false) {
+            if (myaudio.loop === false) {
                 myaudio.loop = true
             }
             else {
                 myaudio.loop = false
             }
-        }
+        };
     </script>
 
     <p></p>
@@ -174,7 +163,7 @@
 
 
 </div>
-<script src="../../js/nouislider.min.js"></script>
+<script src="../../js/dcount.js"></script>
 
 </body>
 </html>
