@@ -49,7 +49,9 @@ $(document).ready(function () {
 // $('input').popup(); 
 // </script>
 
-$('input').popup(); 
+    $(".js-range-slider").ionRangeSlider({
+        type: "double"
+    });
 
 
 });
