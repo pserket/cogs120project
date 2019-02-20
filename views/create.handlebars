@@ -53,36 +53,46 @@
     <div id="modal1" class="modal">
         <div class="modal-content">
             <h4>Create Textual Cue</h4>
-            <p>A bunch of text</p>
+            <div class="input-field col s12">
+                <input id="text-cue-name" type="text">
+                <label for="text-cue-name">Cue Name</label>
+            </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <div onclick="textFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
         </div>
     </div>
 
     <div id="modal2" class="modal">
         <div class="modal-content">
             <h4>Create Audio Cue</h4>
-            <form id="audio-form" onclick="event.stopPropagation(); audioFormBtn({{author}},{{name}});" method="post" enctype="multipart/form-data" action="">
-            <input type="file" name="file">
-            <input>
+            <div class="input-field col s12">
+                <input id="audio-cue-name" type="text">
+                <label for="audio-cue-name">Cue Name</label>
+            </div>
+            <form id="audio-form" method="post" enctype="multipart/form-data" action="">
+                <input type="file" name="file">
             </form>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <div onclick="audioFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
         </div>
     </div>
 
     <div id="modal3" class="modal">
         <div class="modal-content">
             <h4>Create Picture Cue</h4>
+            <div class="input-field col s12">
+                <input id="pic-cue-name" type="text">
+                <label for="pic-cue-name">Cue Name</label>
+            </div>
             <form id="picture-form" method="post" enctype="multipart/form-data" action="">
                 <input type="file" name="file">
             </form>
 
         </div>
         <div class="modal-footer">
-            <div onclick="pictureFormBtn('{{author}}','{{name}}')" class="btn">Derp</div>
+            <div onclick="pictureFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
         </div>
     </div>
 </body>

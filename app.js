@@ -57,8 +57,33 @@ const upload = multer({
     // you might also want to set some limits: https://github.com/expressjs/multer#limits
 });
 
+function saveCue(author, name, cue_name, file_name, type) {
+    var data = require('./data.json');
+
+    var cue = {
+        "name": cue_name,
+        "start": 10,
+        "end": 15,
+        "duration": 10,
+        "file": file_name,
+        "type": type
+    };
+
+    data['users'][author]['dances'][name]['cues'].push(cue);
+
+    var content = JSON.stringify(data);
+
+    fs.writeFile('data.json', content, 'utf8', function (err) {
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log("New cue saved");
+    });
+}
+
 app.post(
-    "/upload_picture/:author/:name",
+    "/upload_picture/:author/:name/:cue_name",
     upload.single("file" /* name attribute of <file> element in your form */),
     (req, res) => {
         var file = './uploads/pictures/' + req.file.originalname;
@@ -80,11 +105,17 @@ app.post(
                 .contentType("text/plain")
                 .redirect('back');
         });
+
+        const author = req.params.author;
+        const name = req.params.name;
+        const cue_name = req.params.cue_name;
+
+        saveCue(author, name, cue_name, file, ext);
     }
 );
 
 app.post(
-    "/upload_audio/:author/:name",
+    "/upload_audio/:author/:name/:cue_name",
     upload.single("file" /* name attribute of <file> element in your form */),
     (req, res) => {
         var file = './uploads/audio/' + req.file.originalname;
@@ -104,6 +135,12 @@ app.post(
                 .contentType("text/plain")
                 .redirect('back');
         });
+
+        const author = req.params.author;
+        const name = req.params.name;
+        const cue_name = req.params.cue_name;
+
+        saveCue(author, name, cue_name, file, ext);
     }
 );
 

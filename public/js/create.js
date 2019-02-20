@@ -18,11 +18,22 @@ $(document).ready(function() {
 });
 
 function pictureFormBtn(author, name) {
-    console.log('derp');
+    var cue_name = $('#pic-cue-name').val();
 
-    // $('#audio-form').attr("action", "/upload_picture/" + author + "/" + name);
+    $('#picture-form').attr("action", "/upload_picture/" + author + "/" + name + "/" + cue_name);
+    $('#picture-form').submit();
 }
 
 function audioFormBtn(author, name) {
-    console.log('derp');
+    var cue_name = $('#audio-cue-name').val();
+
+    $('#audio-form').attr("action", "/upload_audio/" + author + "/" + name + "/" + cue_name);
+    $('#audio-form').submit();
+}
+
+function textFormBtn(author, name) {
+    // var cue_name = $('#pic-cue-name').val();
+
+    // $('#picture-form').attr("action", "/upload_picture/" + author + "/" + name + "/" + cue_name);
+    // $('#picture-form').submit();
 }
