@@ -116,9 +116,13 @@ body {
     font-size: 3em;
     width: 300px;
     margin-left: auto;
+    padding-left: 20px;
     margin-right: auto;
 }
 
 .editing-cue {
     margin: 5px;
+    padding: 7px;
+    background-color: #00000082;
+    border-radius: 3px;
 }

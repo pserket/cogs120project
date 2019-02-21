@@ -19,7 +19,8 @@
     "mongoose": "*",
     "multer": "*",
     "nouislider": "^13.1.1",
-    "util": "*"
+    "util": "*",
+    "mkdirp": "latest"
   },
   "engines": {
     "node": "8.9.x"

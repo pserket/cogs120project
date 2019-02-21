@@ -57,6 +57,21 @@ const upload = multer({
     // you might also want to set some limits: https://github.com/expressjs/multer#limits
 });
 
+const bodyParser = require("body-parser");
+
+/** bodyParser.urlencoded(options)
+ * Parses the text as URL encoded data (which is how browsers tend to send form data from regular forms set to POST)
+ * and exposes the resulting object (containing the keys and values) on req.body
+ */
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+/**bodyParser.json(options)
+ * Parses the text as JSON and exposes the resulting object on req.body.
+ */
+app.use(bodyParser.json());
+
 function saveCue(author, name, cue_name, file_name, type) {
     var data = require('./data.json');
 
@@ -82,13 +97,52 @@ function saveCue(author, name, cue_name, file_name, type) {
     });
 }
 
+var mkdirp = require('mkdirp');
+
 app.post(
-    "/upload_picture/:author/:name/:cue_name",
+    "/upload_text/:author/:name",
+    (req, res) => {
+        const author = req.params.author;
+        const name = req.params.name;
+        const cue_name = req.body.cue_name;
+        const text_area = req.body.text_area;
+
+        const parent_dir = './database/' + author + '/text/';
+
+        mkdirp(parent_dir, function (err) {
+            if (err) return console.error(err);
+            else console.log('Done!');
+
+            const file = parent_dir + cue_name + '.txt';
+
+            fs.writeFile(file, text_area, function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+
+                console.log("The file was saved!");
+
+                saveCue(author, name, file, text_area, '.txt');
+
+                res
+                    .status(200)
+                    .contentType("text/plain")
+                    .redirect('back');
+            });
+        });
+
+
+    }
+);
+
+app.post(
+    "/upload_picture/:author/:name",
     upload.single("file" /* name attribute of <file> element in your form */),
     (req, res) => {
-        var file = './uploads/pictures/' + req.file.originalname;
+        const author = req.params.author;
 
-        var ext = path.extname(req.file.originalname);
+        const parent_dir = './database/' + author + '/pictures/';
+        const ext = path.extname(req.file.originalname);
 
         if (!(ext === '.jpg' || ext === '.png' || ext === '.jpeg')) {
             return res
@@ -97,20 +151,28 @@ app.post(
                 .end("Wrong file type! (use png and jpg)");
         }
 
-        fs.rename(req.file.path, file, err => {
-            if (err) return handleError(err, res);
+        mkdirp(parent_dir, function (err) {
+            if (err) return console.error(err);
+            else console.log('Done!');
 
-            res
-                .status(200)
-                .contentType("text/plain")
-                .redirect('back');
+            const file = parent_dir + req.file.originalname;
+
+            const name = req.params.name;
+            const cue_name = req.body.cue_name;
+
+
+            fs.rename(req.file.path, file, err => {
+                if (err) return handleError(err, res);
+
+                saveCue(author, name, cue_name, file, ext);
+
+                res
+                    .status(200)
+                    .contentType("text/plain")
+                    .redirect('back');
+            });
         });
 
-        const author = req.params.author;
-        const name = req.params.name;
-        const cue_name = req.params.cue_name;
-
-        saveCue(author, name, cue_name, file, ext);
     }
 );
 
@@ -118,7 +180,11 @@ app.post(
     "/upload_audio/:author/:name/:cue_name",
     upload.single("file" /* name attribute of <file> element in your form */),
     (req, res) => {
-        var file = './uploads/audio/' + req.file.originalname;
+        const author = req.params.author;
+
+        const parent_dir = './database/' + author + '/audio/';
+
+        const ext = path.extname(req.file.originalname);
 
         if (!(ext === '.mp3')) {
             return res
@@ -127,20 +193,27 @@ app.post(
                 .end("Wrong file type! (use mp3)");
         }
 
-        fs.rename(req.file.path, file, err => {
-            if (err) return handleError(err, res);
+        mkdirp(parent_dir, function (err) {
+            if (err) return console.error(err);
+            else console.log('Done!');
 
-            res
-                .status(200)
-                .contentType("text/plain")
-                .redirect('back');
+            const file = parent_dir + req.file.originalname;
+
+            const name = req.params.name;
+            const cue_name = req.body.cue_name;
+
+
+            fs.rename(req.file.path, file, err => {
+                if (err) return handleError(err, res);
+
+                saveCue(author, name, cue_name, file, ext);
+
+                res
+                    .status(200)
+                    .contentType("text/plain")
+                    .redirect('back');
+            });
         });
-
-        const author = req.params.author;
-        const name = req.params.name;
-        const cue_name = req.params.cue_name;
-
-        saveCue(author, name, cue_name, file, ext);
     }
 );
 
