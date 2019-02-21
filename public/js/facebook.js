@@ -19,5 +19,8 @@ function statusChangeCallback(response) {
 }
 
 function changeUser(response) {
-window.location.href = document.location.origin + "/index";
+  console.log(response);
+  $("#photo").attr("src", response.picture.data.url);
+  $("#name").text(response.name);
+  window.location.href = document.location.origin + "/index";
 }
