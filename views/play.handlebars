@@ -6,6 +6,9 @@
     <!--Plugin CSS file with desired skin-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
 
+    <!-- Backbutton  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!--jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -30,16 +33,8 @@
 </head>
 
 <body>
+<a id="back-btn" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">arrow_back</i></a>
 <div id="body" align="center">
-
-    <button onclick="goBack()">Home</button>
-    <script>
-        function goBack() {
-            window.location.href = document.location.origin + "/index";
-        }
-    </script>
-
-    <p></p>
 
     <h1 align="center">Dance Notes</h1>
     <div id="imgGallary" class="container"> <!-- THE IMAGE GALLERY -->
@@ -72,7 +67,7 @@
 
     <p></p>
     <!-- PUT THE AUDIO HERE -->
-    <audio id="sample" src="niceforwhat.mp3" controls preload ontimeupdate="audio()">
+    <audio id="sample" src="../../niceforwhat.mp3" controls preload ontimeupdate="audio()">
         <p>Your browser does not support the audio element</p>
     </audio>
 
@@ -93,12 +88,47 @@
 
     <p></p>
 
-    <!-- <div id="range-slider"></div>
-    <div id="output"></div> -->
-
+    <p>Select section to loop from (in seconds): </p>
+    <!-- LOOP SECTION 2 HANDLE SLIDER RANGE -->
     <div style="width: 300px">
         <input type="text" class="js-range-slider" name="my_range" value="" />
     </div>
+
+    <script>
+    $(".js-range-slider").ionRangeSlider({
+    type: "double"
+    });
+
+    let my_range = $(".js-range-slider").data("ionRangeSlider");
+    //  Update range slider content (this will change handles positions)
+    myaudio = document.getElementById("sample");
+    my_range.update({
+        min: 0,
+        from: 0
+    });
+
+    console.log(myaudio.duration)
+
+    console.log($('.js-range-slider').data('to'))
+    </script>
+
+    <!-- LOOP BETWEEN SPECIFIC TIME JAVASCRIPT -->
+      <script>
+        function audio() {
+        	var myaudio = document.getElementById("sample");
+
+        	my_range.update({
+        		max: Math.floor(myaudio.duration)
+    		});
+
+          	if(myaudio.loop == true){
+	              if (document.getElementById("sample").currentTime >= $('.js-range-slider').data("to")) {document.getElementById("sample").currentTime = $('.js-range-slider').data("from")}
+	              
+		          if (document.getElementById("sample").currentTime <= $('.js-range-slider').data("from")) {document.getElementById("sample").currentTime = $('.js-range-slider').data("from")}
+		          }
+          }
+      </script>
+ 
 
     <!--
     Click to select section to loop: <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> -
@@ -106,6 +136,7 @@
   -->
 
     <!-- LOOP TOGGLE JAVASCRIPT? -->
+
     <script>
         myaudio = document.getElementById("sample");
         var slider = document.getElementById("check");
@@ -138,15 +169,7 @@
     </script>
 
 
-    <!-- LOOP BETWEEN SPECIFIC TIME JAVASCRIPT
-      <script>
-        function audio() {
-          if(myaudio.loop == true){
-              if (document.getElementById("sample").currentTime >= document.getElementById("myButton2").value) {document.getElementById("sample").currentTime = document.getElementById("myButton1").value}
-              }
-          }
-      </script>
-      -->
+
 
 
 </div>
