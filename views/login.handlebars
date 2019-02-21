@@ -14,13 +14,14 @@
     <script src="js/login.js"></script>
     <link href="css/styles.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-
+    {{> facebook}}
+    <script src="/js/facebook.js"></script>
 </head>
 <body class="cyan">
     <center><img src="image.png" alt="logo" width="300"></center>
 <div id="login-card" class="darken-1">
 
-    <div class="card" style="height: 360px; background-color: rgba(0,0,0,.7);">
+    <div class="card" style="height: 400px; background-color: rgba(0,0,0,.7);">
         <div class="card-content black-text" style="padding-bottom: 14px; text-align: center">
             <div class="card-title" style="color: white">Login</div>
             <div class="input-field col s6" style="height: 80px; color: white">
@@ -34,6 +35,9 @@
             <a id="login-btn" class="waves-effect waves-light btn">Login</a>
             <p  style="color: rgba(255,255,255,0.75)">Don't have an account yet?</p>
             <div id="sign-up-btn" style="color: teal; cursor: pointer; font-weight: 600;">Sign Up</div>
+            <p  style="color: rgba(255,255,255,0.75)">or Login via Facebook</p>
+            <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+            </fb:login-button>
         </div>
     </div>
 </div>
