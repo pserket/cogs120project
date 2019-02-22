@@ -122,7 +122,7 @@
 
             if (document.getElementById("sample").currentTime < cuesArray.length) {
                 img.src = cuesArray[Math.floor(document.getElementById("sample").currentTime)];
-                console.log(Math.floor(document.getElementById("sample").currentTime));
+                //console.log(Math.floor(document.getElementById("sample").currentTime));
 
                 //document.getElementById('imageDiv').appendChild(img);
             }
@@ -185,11 +185,6 @@
 </div>
 <script src="../../js/dcount.js"></script>
 
-<script>
-        {{#each cues}}
-        console.log('{{cue_name}}');
-        {{/each}}
-</script>
 
 </body>
 </html>
