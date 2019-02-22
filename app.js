@@ -93,17 +93,16 @@ app.get(
     }
 );
 
-function saveCue(author, name, cue_name, file_name, fromT, toT) {
+function saveCue(author, name, cue_name, file_name, fromT, toT, type) {
     var data = require('./data.json');
 
-    const ext = path.extname(file_name);
 
     var cue = {
         "cue_name": cue_name,
         "start": fromT,
         "end": toT,
         "file": file_name.substring(1),
-        "type": ext
+        "type": type
     };
 
     data['users'][author]['dances'][name]['cues'].push(cue);
@@ -146,7 +145,7 @@ app.post(
 
                 console.log("The file was saved!");
 
-                saveCue(author, name, cue_name, file, fromT, toT);
+                saveCue(author, name, cue_name, file, fromT, toT, 'text');
 
                 res
                     .status(200)
@@ -187,7 +186,7 @@ app.post(
                 if (err) return handleError(err, res);
                 const fromT = req.params.fromT;
                 const toT = req.params.toT;
-                saveCue(author, name, cue_name, file, fromT, toT);
+                saveCue(author, name, cue_name, file, fromT, toT, 'image');
 
                 res
                     .status(200)
@@ -230,7 +229,7 @@ app.post(
                 if (err) return handleError(err, res);
                 const fromT = req.params.fromT;
                 const toT = req.params.toT;
-                saveCue(author, name, cue_name, file, fromT, toT);
+                saveCue(author, name, cue_name, file, fromT, toT, 'audio');
 
                 res
                     .status(200)

@@ -14,14 +14,14 @@
               "start": "100",
               "end": "141",
               "file": "/database/dummy/image/icon.png",
-              "type": ".png"
+              "type": "image"
             },
             {
               "cue_name": "cue_text",
               "start": "138",
               "end": "237",
               "file": "/database/dummy/text/cue_text.txt",
-              "type": ".txt"
+              "type": "text"
             }
           ]
         },
