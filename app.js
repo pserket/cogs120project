@@ -30,7 +30,6 @@ app.use(express.cookieParser('IxD secret key'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
-
 // development only
 if ('development' === app.get('env')) {
     app.use(express.errorHandler());
@@ -72,15 +71,37 @@ app.use(bodyParser.urlencoded({
  */
 app.use(bodyParser.json());
 
-function saveCue(author, name, cue_name, file_name, type) {
+app.get(
+    "/database/:author/:ftype/:fl",
+    (req, res) => {
+        const author = req.params.author;
+        const ftype = req.params.ftype;
+        const fl = req.params.fl;
+
+        var filePath = "./database/" + author + "/" + ftype + "/" + fl;
+
+        console.log('downloading ' + filePath);
+
+        const ext = path.extname(fl);
+
+
+        console.log('downloading ' + ftype + "/" + ext.substring(1));
+
+        var file = fs.readFileSync(filePath);
+        res.writeHead(200, {'Content-Type': ftype + "/" + ext.substring(1)})
+        res.end(file, 'binary');
+    }
+);
+
+function saveCue(author, name, cue_name, file_name, fromT, toT, type) {
     var data = require('./data.json');
 
+
     var cue = {
-        "name": cue_name,
-        "start": 10,
-        "end": 15,
-        "duration": 10,
-        "file": file_name,
+        "cue_name": cue_name,
+        "start": fromT,
+        "end": toT,
+        "file": file_name.substring(1),
         "type": type
     };
 
@@ -100,12 +121,14 @@ function saveCue(author, name, cue_name, file_name, type) {
 var mkdirp = require('mkdirp');
 
 app.post(
-    "/upload_text/:author/:name",
+    "/upload_text/:author/:name/:fromT/:toT",
     (req, res) => {
         const author = req.params.author;
         const name = req.params.name;
         const cue_name = req.body.cue_name;
         const text_area = req.body.text_area;
+        const fromT = req.params.fromT;
+        const toT = req.params.toT;
 
         const parent_dir = './database/' + author + '/text/';
 
@@ -122,7 +145,7 @@ app.post(
 
                 console.log("The file was saved!");
 
-                saveCue(author, name, file, text_area, '.txt');
+                saveCue(author, name, cue_name, file, fromT, toT, 'text');
 
                 res
                     .status(200)
@@ -130,18 +153,16 @@ app.post(
                     .redirect('back');
             });
         });
-
-
     }
 );
 
 app.post(
-    "/upload_picture/:author/:name",
+    "/upload_picture/:author/:name/:fromT/:toT",
     upload.single("file" /* name attribute of <file> element in your form */),
     (req, res) => {
         const author = req.params.author;
 
-        const parent_dir = './database/' + author + '/pictures/';
+        const parent_dir = './database/' + author + '/image/';
         const ext = path.extname(req.file.originalname);
 
         if (!(ext === '.jpg' || ext === '.png' || ext === '.jpeg')) {
@@ -163,8 +184,9 @@ app.post(
 
             fs.rename(req.file.path, file, err => {
                 if (err) return handleError(err, res);
-
-                saveCue(author, name, cue_name, file, ext);
+                const fromT = req.params.fromT;
+                const toT = req.params.toT;
+                saveCue(author, name, cue_name, file, fromT, toT, 'image');
 
                 res
                     .status(200)
@@ -177,7 +199,7 @@ app.post(
 );
 
 app.post(
-    "/upload_audio/:author/:name/:cue_name",
+    "/upload_audio/:author/:name/:cue_name/:fromT/:toT",
     upload.single("file" /* name attribute of <file> element in your form */),
     (req, res) => {
         const author = req.params.author;
@@ -205,14 +227,64 @@ app.post(
 
             fs.rename(req.file.path, file, err => {
                 if (err) return handleError(err, res);
-
-                saveCue(author, name, cue_name, file, ext);
+                const fromT = req.params.fromT;
+                const toT = req.params.toT;
+                saveCue(author, name, cue_name, file, fromT, toT, 'audio');
 
                 res
                     .status(200)
                     .contentType("text/plain")
                     .redirect('back');
             });
+        });
+    }
+);
+
+
+app.post(
+    "/create/:author/:update_cue/:author2/:name/:cue_name/:fromT/:toT",
+    (req, res) => {
+        var data = require('./data.json');
+        const author = req.params.author;
+        const name = req.params.name;
+        const cue_name = req.params.cue_name;
+        const fromT = req.params.fromT;
+        const toT = req.params.toT;
+
+        console.log(req.params);
+
+        var cues = data['users'][author]['dances'][name]['cues'];
+
+        var index = -1;
+        var cue;
+        for (var i = 0; i < cues.length; i++) {
+            if (cues[i]['cue_name'] === cue_name) {
+                cue = cues[i];
+                index = i;
+                break;
+            }
+        }
+
+        if (index < 0) {
+            console.log("ERROR");
+            return;
+        }
+
+        cue['start'] = fromT;
+        cue['end'] = toT;
+
+        cues[index] = cue;
+
+        data['users'][author]['dances'][name]['cues'] = cues;
+
+        var content = JSON.stringify(data);
+
+        fs.writeFile('data.json', content, 'utf8', function (err) {
+            if (err) {
+                return console.log(err);
+            }
+
+            console.log("Cue updated " + cue_name);
         });
     }
 );

@@ -11,8 +11,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--Plugin CSS file with desired skin-->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
+
+    <!--jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--Plugin JavaScript file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
+
+
     <script src="../../js/create.js"></script>
     <link href="../../css/styles.css" rel="stylesheet">
+    <link href="../../css/create.css" rel="stylesheet">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -28,29 +41,56 @@
     <div class="row">
         <div class="col cue-container">
             {{#each cues}}
-                <a href="#modal-{{name}}" class="modal-trigger">
-                    <div class="editing-cue">
-                        <div style="color: white; font-size: 1.2em;">{{name}}</div>
-                        <div style="display: flex; color: #ababab">
-                            <div>Start: {{start}}, &nbsp</div>
-                            <div>End: {{end}}, &nbsp</div>
-                            <div>Duration: {{duration}}</div>
-                        </div>
-                    </div>
-                </a>
 
-                <div id="modal-{{name}}" class="modal" style="height: 500px; overflow: hidden">
-                    <div class="modal-content" style="height: 440px;">
-                        <h4 style="text-align: center;">Edit Cue</h4>
-                        <div class="input-field col s12">
-                            <input value="{{name}}" id="text-cue-name" type="text">
-                            <label for="text-cue-name">Cue Name</label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div onclick="textFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
-                    </div>
+                <!--<a href="#modal-{{cue_name}}" class="modal-trigger">-->
+                <div class="editing-cue">
+                    <!--<div style="color: white; font-size: 1.2em;">{{name}}</div>-->
+                    <input id="{{~{cue_name}~}}-cue-range" type="text" class="js-range-slider" name="my_range" value=""
+                           data-type="double"
+                           data-min="0"
+                           data-max="400"
+                           data-from="{{start}}"
+                           data-to="{{end}}" onclick="event.stopPropagation()"/>
                 </div>
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        var el = $("#{{~{cue_name}~}}-cue-range");
+                        el.ionRangeSlider({
+                            onFinish: function (data) {
+                                // Called then action is done and mouse is released
+
+                                var from = data.from;
+                                var to = data.to;
+
+                                var url = "update_cue/" + '{{../author}}' + "/" + '{{../name}}' + "/" + '{{cue_name}}' + "/" + from + "/" + to;
+
+                                $.ajax({
+                                    method: "POST",
+                                    url: url
+                                }).done(function (msg) {
+                                    alert("Data Saved:  " + msg);
+                                });
+                            },
+                        });
+
+                        $("#{{cue_name}}-cue-range").parent().find(".irs-bar").text('{{cue_name}}')
+                    });
+                </script>
+                <!--</a>-->
+
+                <!--<div id="modal-{{name}}" class="modal" style="height: 500px; overflow: hidden">-->
+                <!--<div class="modal-content" style="height: 440px;">-->
+                <!--<h4 style="text-align: center;">Edit Cue</h4>-->
+                <!--<div class="input-field col s12">-->
+                <!--<input value="{{name}}" id="text-cue-name" type="text">-->
+                <!--<label for="text-cue-name">Cue Name</label>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="modal-footer">-->
+                <!--<div onclick="textFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>-->
+                <!--</div>-->
+                <!--</div>-->
             {{/each}}
         </div>
         <div class="col divid"></div>
@@ -85,12 +125,17 @@
                 <textarea id="textarea1" class="materialize-textarea" name="text_area"></textarea>
                 <label for="textarea1">Textarea</label>
             </div>
-
+            <input type="text" class="js-range-slider rslider-my" name="my_range" value=""
+                   data-type="double"
+                   data-min="0"
+                   data-max="400"
+                   data-from="100"
+                   data-to="200"/>
         </form>
 
     </div>
     <div class="modal-footer">
-        <div onclick="$('#text-form').submit()" class="btn">Submit</div>
+        <div onclick="addStartEndToForm('#text-form', 'upload_text', '{{author}}', '{{name}}')" class="btn">Submit</div>
     </div>
 </div>
 
@@ -115,10 +160,18 @@
                     </div>
                 </div>
             </div>
+
+            <input type="text" class="js-range-slider rslider-my" name="my_range" value=""
+                   data-type="double"
+                   data-min="0"
+                   data-max="400"
+                   data-from="100"
+                   data-to="200"/>
         </form>
     </div>
     <div class="modal-footer">
-        <div onclick="$('#audio-form').submit()" class="btn">Submit</div>
+        <div onclick="addStartEndToForm('#audio-form', 'upload_audio', '{{author}}', '{{name}}')" class="btn">Submit
+        </div>
     </div>
 </div>
 
@@ -144,12 +197,20 @@
                     </div>
                 </div>
             </div>
+            <input type="text" class="js-range-slider rslider-my" name="my_range" value=""
+                   data-type="double"
+                   data-min="0"
+                   data-max="400"
+                   data-from="100"
+                   data-to="200"/>
         </form>
 
 
     </div>
     <div class="modal-footer">
-        <div onclick="$('#picture-form').submit()" class="btn">Submit</div>
+        <div onclick="addStartEndToForm('#picture-form', 'upload_picture', '{{author}}', '{{name}}')" class="btn">
+            Submit
+        </div>
     </div>
 </div>
 </body>

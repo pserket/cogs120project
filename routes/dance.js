@@ -1,5 +1,10 @@
 
 
 exports.view = function(req, res){
-    res.render('play');
+    const author = req.params.author;
+    const name = req.params.name;
+
+    var data = require('../data.json');
+
+    res.render('play', data['users'][author]['dances'][name]);
 };

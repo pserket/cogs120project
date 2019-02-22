@@ -10,28 +10,18 @@
           "thumbnail": "https://picsum.photos/170?random",
           "cues": [
             {
-              "name": "1",
-              "start": 10,
-              "end": 15,
-              "duration": 10,
-              "file": "./database/dummy/pictures/imageedit_3_4721211783.png",
-              "type": ".png"
+              "cue_name": "cue_1",
+              "start": "100",
+              "end": "141",
+              "file": "/database/dummy/image/icon.png",
+              "type": "image"
             },
             {
-              "name": "2",
-              "start": 10,
-              "end": 15,
-              "duration": 10,
-              "file": "./database/dummy/pictures/icon.png",
-              "type": ".png"
-            },
-            {
-              "name": "text1",
-              "start": 10,
-              "end": 15,
-              "duration": 10,
-              "file": "derpitty herp",
-              "type": ".txt"
+              "cue_name": "cue_text",
+              "start": "138",
+              "end": "237",
+              "file": "/database/dummy/text/cue_text.txt",
+              "type": "text"
             }
           ]
         },
@@ -45,57 +35,6 @@
         "Dance 3": {
           "author": "dummy",
           "name": "Dance 3",
-          "duration": "1:50",
-          "thumbnail": "https://picsum.photos/170?random",
-          "cues": []
-        },
-        "Dance 4": {
-          "author": "dummy",
-          "name": "Dance 4",
-          "duration": "1:50",
-          "thumbnail": "https://picsum.photos/170?random",
-          "cues": []
-        },
-        "Dance 5": {
-          "author": "dummy",
-          "name": "Dance 5",
-          "duration": "1:50",
-          "thumbnail": "https://picsum.photos/170?random",
-          "cues": []
-        },
-        "Dance 6": {
-          "author": "dummy",
-          "name": "Dance 6",
-          "duration": "1:50",
-          "thumbnail": "https://picsum.photos/170?random",
-          "cues": [
-            {
-              "name": "afjsdj",
-              "start": 10,
-              "end": 15,
-              "duration": 10,
-              "file": "./uploads/pictures/333NMQc.jpg",
-              "type": ".jpg"
-            }
-          ]
-        },
-        "Dance 7": {
-          "author": "dummy",
-          "name": "Dance 7",
-          "duration": "1:50",
-          "thumbnail": "https://picsum.photos/170?random",
-          "cues": []
-        },
-        "Dance 8": {
-          "author": "dummy",
-          "name": "Dance 8",
-          "duration": "1:50",
-          "thumbnail": "https://picsum.photos/170?random",
-          "cues": []
-        },
-        "Dance 9": {
-          "author": "dummy",
-          "name": "Dance 9",
           "duration": "1:50",
           "thumbnail": "https://picsum.photos/170?random",
           "cues": []
