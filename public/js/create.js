@@ -16,7 +16,7 @@ $(document).ready(function () {
         window.location.href = document.location.origin + "/index";
     });
 
-    // $(".js-range-slider").ionRangeSlider();
+    $(".rslider-my").ionRangeSlider();
 });
 
 function addStartEndToForm(formId, type, author, name) {
