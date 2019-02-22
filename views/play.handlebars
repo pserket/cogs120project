@@ -37,7 +37,13 @@
 <div id="body" align="center">
 
     <h1 align="center">Dance Notes</h1>
+    
+
+
     <div id="imgGallary" class="container"> <!-- THE IMAGE GALLERY -->
+        {{#each cues}}
+
+        {{/each}}
         <img src="http://www.examiningcalvinism.com/kingdavid.jpg" alt="" width="100%" height="300"/>
         <img src="http://www.kingjamesbibleonline.org/1611-Bible/1611-King-James-Bible-Introduction.jpg" alt=""
              width="100%" height="300"/>
@@ -46,9 +52,22 @@
              height="300"/>
     </div>
 
+    <script type="text/javascript">
+        {{#each cues}}
+            console.log('{{cue_name}}');
+        {{/each}}
+    </script>
+
     <!-- THE JAVASCRIPT FOR THE IMAGE GALLERY -->
     <script>
-        (function () {
+        var myaudio = document.getElementById("sample");
+
+
+        myaudio.addEventListener('loadedmetadata',function() {
+            let cuesArray = new Array(myaudio.duration).fill('https://www.formica.com/~/media/emea/images/decors/eu/cc0949.jpg');
+
+
+
             var imgLen = document.getElementById('imgGallary');
             var images = imgLen.getElementsByTagName('img');
             var counter = 0;
@@ -64,6 +83,7 @@
             }
         })();
     </script>
+    
 
     <p></p>
     <!-- PUT THE AUDIO HERE -->
