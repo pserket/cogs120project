@@ -97,7 +97,7 @@ function saveCue(author, name, cue_name, file_name, fromT, toT) {
     var data = require('./data.json');
 
     var cue = {
-        "name": cue_name,
+        "cue_name": cue_name,
         "start": fromT,
         "end": toT,
         "file": file_name.substring(1)
@@ -234,6 +234,35 @@ app.post(
                     .contentType("text/plain")
                     .redirect('back');
             });
+        });
+    }
+);
+
+app.post(
+    "/update_cue/:author/:name/:cue_name/:fromT/:toT",
+    (req, res) => {
+        var data = require('./data.json');
+        const author = req.params.author;
+        const name = req.params.name;
+        const cue_name = req.body.cue_name;
+        const fromT = req.params.fromT;
+        const toT = req.params.toT;
+
+        var cues = data['users'][author]['dances'][name]['cues'];
+
+        for (var cue in cues) {
+            if (cue['name'] === cue_name) {
+                cue['start'] = fromT;
+                cue['end'] = toT;
+            }
+        }
+
+        fs.writeFile('data.json', data, 'utf8', function (err) {
+            if (err) {
+                return console.log(err);
+            }
+
+            console.log("Cue updated");
         });
     }
 );
