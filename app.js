@@ -136,22 +136,30 @@ app.post(
             if (err) return console.error(err);
             else console.log('Done!');
 
-            const file = parent_dir + cue_name + '.txt';
 
-            fs.writeFile(file, text_area, function (err) {
-                if (err) {
-                    return console.log(err);
-                }
+            console.log("The file was saved!");
 
-                console.log("The file was saved!");
-
-                saveCue(author, name, cue_name, file, fromT, toT, 'text');
-
-                res
-                    .status(200)
-                    .contentType("text/plain")
-                    .redirect('back');
-            });
+            saveCue(author, name, cue_name, text_area, fromT, toT, 'text');
+            res
+                .status(200)
+                .contentType("text/plain")
+                .redirect('back');
+            // const file = parent_dir + cue_name + '.txt';
+            //
+            // fs.writeFile(file, text_area, function (err) {
+            //     if (err) {
+            //         return console.log(err);
+            //     }
+            //
+            //     console.log("The file was saved!");
+            //
+            //     saveCue(author, name, cue_name, text_area, fromT, toT, 'text');
+            //
+            //     res
+            //         .status(200)
+            //         .contentType("text/plain")
+            //         .redirect('back');
+            // });
         });
     }
 );

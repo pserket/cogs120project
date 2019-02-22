@@ -17,10 +17,10 @@
               "type": "image"
             },
             {
-              "cue_name": "cue_text",
-              "start": "138",
-              "end": "237",
-              "file": "/database/dummy/text/cue_text.txt",
+              "cue_name": "text_cue",
+              "start": "147",
+              "end": "200",
+              "file": "orem ipsum okaod kopa wpdoka",
               "type": "text"
             }
           ]
