@@ -86,10 +86,13 @@
             min: 0,
             from: 0
         });
-
-        console.log(myaudio.duration);
-
-        console.log($('.js-range-slider').data('to'))
+        myaudio.addEventListener('loadedmetadata', function () {
+            my_range.update({
+            max: Math.floor(myaudio.duration),
+            from: 0,
+            to: Math.floor(myaudio.duration)
+        });
+        });
     </script>
 
     <!-- AUDIO LISTENER FUNCTION (LOOP BETWEEN SPECIFIC TIME & DISPLAYS IMAGE) -->
@@ -115,19 +118,15 @@
             // }
             var myaudio = document.getElementById("sample");
 
-
             var img = document.getElementById("screen");
 
             if (document.getElementById("sample").currentTime < cuesArray.length) {
                 img.src = cuesArray[Math.floor(document.getElementById("sample").currentTime)];
-                console.log(Math.floor(document.getElementById("sample").currentTime));
+                //console.log(Math.floor(document.getElementById("sample").currentTime));
 
                 //document.getElementById('imageDiv').appendChild(img);
             }
 
-            my_range.update({
-                max: Math.floor(myaudio.duration)
-            });
 
             if (myaudio.loop == true) {
                 if (document.getElementById("sample").currentTime >= $('.js-range-slider').data("to")) {
@@ -186,11 +185,6 @@
 </div>
 <script src="../../js/dcount.js"></script>
 
-<script>
-        {{#each cues}}
-        console.log('{{cue_name}}');
-        {{/each}}
-</script>
 
 </body>
 </html>
