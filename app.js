@@ -259,8 +259,6 @@ app.post(
         const fromT = req.params.fromT;
         const toT = req.params.toT;
 
-        console.log(req.params);
-
         var cues = data['users'][author]['dances'][name]['cues'];
 
         var index = -1;
@@ -293,6 +291,53 @@ app.post(
             }
 
             console.log("Cue updated " + cue_name);
+
+        });
+    }
+);
+
+app.post(
+    "/create/:author/:delete_cue/:author2/:name/:cue_name",
+    (req, res) => {
+        var data = require('./data.json');
+        const author = req.params.author;
+        const name = req.params.name;
+        const cue_name = req.params.cue_name;
+
+        var cues = data['users'][author]['dances'][name]['cues'];
+
+        var index = -1;
+        var cue;
+        for (var i = 0; i < cues.length; i++) {
+            if (cues[i]['cue_name'] === cue_name) {
+                cue = cues[i];
+                index = i;
+                break;
+            }
+        }
+
+        if (index < 0) {
+            console.log("ERROR");
+            return;
+        }
+
+        cues.splice(index, 1);
+
+        data['users'][author]['dances'][name]['cues'] = cues;
+
+        var content = JSON.stringify(data);
+
+        fs.writeFile('data.json', content, 'utf8', function (err) {
+            if (err) {
+                return console.log(err);
+            }
+
+            res
+                .status(200)
+                .contentType("text/plain")
+                .redirect('back');
+
+            console.log("Cue deleted " + cue_name);
         });
     }
 );
