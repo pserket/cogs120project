@@ -41,30 +41,46 @@
     <div class="row">
         <div class="col cue-container">
             {{#each cues}}
-                <a href="#modal-{{name}}" class="modal-trigger">
+
+                <!--<a href="#modal-{{name}}" class="modal-trigger">-->
                     <div class="editing-cue">
-                        <div style="color: white; font-size: 1.2em;">{{name}}</div>
+                        <!--<div style="color: white; font-size: 1.2em;">{{name}}</div>-->
                         <input id="{{name}}-cue-range" type="text" class="js-range-slider" name="my_range" value=""
                                data-type="double"
                                data-min="0"
-                               data-max="1000"
+                               data-max="400"
                                data-from="{{start}}"
                                data-to="{{end}}" onclick="event.stopPropagation()"/>
                     </div>
-                </a>
 
-                <div id="modal-{{name}}" class="modal" style="height: 500px; overflow: hidden">
-                    <div class="modal-content" style="height: 440px;">
-                        <h4 style="text-align: center;">Edit Cue</h4>
-                        <div class="input-field col s12">
-                            <input value="{{name}}" id="text-cue-name" type="text">
-                            <label for="text-cue-name">Cue Name</label>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div onclick="textFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>
-                    </div>
-                </div>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            var el = $("#{{name}}-cue-range");
+                            el.ionRangeSlider({
+                                onFinish: function (data) {
+                                    // Called then action is done and mouse is released
+
+                                    console.log(data.to);
+                                },
+                            });
+
+                            $("#{{name}}-cue-range").parent().find(".irs-bar").text('{{name}}')
+                        });
+                    </script>
+                <!--</a>-->
+
+                <!--<div id="modal-{{name}}" class="modal" style="height: 500px; overflow: hidden">-->
+                    <!--<div class="modal-content" style="height: 440px;">-->
+                        <!--<h4 style="text-align: center;">Edit Cue</h4>-->
+                        <!--<div class="input-field col s12">-->
+                            <!--<input value="{{name}}" id="text-cue-name" type="text">-->
+                            <!--<label for="text-cue-name">Cue Name</label>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="modal-footer">-->
+                        <!--<div onclick="textFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>-->
+                    <!--</div>-->
+                <!--</div>-->
             {{/each}}
         </div>
         <div class="col divid"></div>
@@ -99,7 +115,12 @@
                 <textarea id="textarea1" class="materialize-textarea" name="text_area"></textarea>
                 <label for="textarea1">Textarea</label>
             </div>
-
+            <input type="text" class="js-range-slider" name="my_range" value=""
+                   data-type="double"
+                   data-min="0"
+                   data-max="400"
+                   data-from="100"
+                   data-to="200"/>
         </form>
 
     </div>
@@ -129,6 +150,13 @@
                     </div>
                 </div>
             </div>
+
+            <input type="text" class="js-range-slider" name="my_range" value=""
+                   data-type="double"
+                   data-min="0"
+                   data-max="400"
+                   data-from="100"
+                   data-to="200"/>
         </form>
     </div>
     <div class="modal-footer">
@@ -158,12 +186,12 @@
                     </div>
                 </div>
             </div>
-            <input id="new-cue-range" type="text" class="js-range-slider" name="my_range" value=""
+            <input type="text" class="js-range-slider" name="my_range" value=""
                    data-type="double"
                    data-min="0"
-                   data-max="1000"
-                   data-from="200"
-                   data-to="500"/>
+                   data-max="400"
+                   data-from="100"
+                   data-to="200"/>
         </form>
 
 
