@@ -96,11 +96,14 @@ app.get(
 function saveCue(author, name, cue_name, file_name, fromT, toT) {
     var data = require('./data.json');
 
+    const ext = path.extname(file_name);
+
     var cue = {
         "cue_name": cue_name,
         "start": fromT,
         "end": toT,
-        "file": file_name.substring(1)
+        "file": file_name.substring(1),
+        "type": ext
     };
 
     data['users'][author]['dances'][name]['cues'].push(cue);
@@ -143,7 +146,7 @@ app.post(
 
                 console.log("The file was saved!");
 
-                saveCue(author, name, file, text_area, fromT, toT);
+                saveCue(author, name, cue_name, file, fromT, toT);
 
                 res
                     .status(200)
