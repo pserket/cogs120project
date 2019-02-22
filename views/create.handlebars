@@ -43,56 +43,53 @@
             {{#each cues}}
 
                 <!--<a href="#modal-{{cue_name}}" class="modal-trigger">-->
-                    <div class="editing-cue">
-                        <!--<div style="color: white; font-size: 1.2em;">{{name}}</div>-->
-                        <input id="{{cue_name}}-cue-range" type="text" class="js-range-slider" name="my_range" value=""
-                               data-type="double"
-                               data-min="0"
-                               data-max="400"
-                               data-from="{{start}}"
-                               data-to="{{end}}" onclick="event.stopPropagation()"/>
-                    </div>
+                <div class="editing-cue">
+                    <!--<div style="color: white; font-size: 1.2em;">{{name}}</div>-->
+                    <input id="{{~{cue_name}~}}-cue-range" type="text" class="js-range-slider" name="my_range" value=""
+                           data-type="double"
+                           data-min="0"
+                           data-max="400"
+                           data-from="{{start}}"
+                           data-to="{{end}}" onclick="event.stopPropagation()"/>
+                </div>
 
-                    <script type="text/javascript">
-                        $(document).ready(function () {
-                            var el = $("#{{cue_name}}-cue-range");
-                            el.ionRangeSlider({
-                                onFinish: function (data) {
-                                    // Called then action is done and mouse is released
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        var el = $("#{{~{cue_name}~}}-cue-range");
+                        el.ionRangeSlider({
+                            onFinish: function (data) {
+                                // Called then action is done and mouse is released
 
-                                    var from = data.from;
-                                    var to = data.to;
+                                var from = data.from;
+                                var to = data.to;
 
-                                    var url = "update_cue/" + {{author}} + "/" + {{name}} + "/" + {{cue_name}} + "/" + from + "/" + to;
+                                var url = "update_cue/" + '{{../author}}' + "/" + '{{../name}}' + "/" + '{{cue_name}}' + "/" + from + "/" + to;
 
-
-                                    $.ajax({
-                                        method: "POST",
-                                        url: url
-                                    }).done(function( msg ) {
-                                        alert( "Data Saved:  " + msg);
-                                    });
-
-                                    console.log(data.to);
-                                },
-                            });
-
-                            $("#{{cue_name}}-cue-range").parent().find(".irs-bar").text('{{cue_name}}')
+                                $.ajax({
+                                    method: "POST",
+                                    url: url
+                                }).done(function (msg) {
+                                    alert("Data Saved:  " + msg);
+                                });
+                            },
                         });
-                    </script>
+
+                        $("#{{cue_name}}-cue-range").parent().find(".irs-bar").text('{{cue_name}}')
+                    });
+                </script>
                 <!--</a>-->
 
                 <!--<div id="modal-{{name}}" class="modal" style="height: 500px; overflow: hidden">-->
-                    <!--<div class="modal-content" style="height: 440px;">-->
-                        <!--<h4 style="text-align: center;">Edit Cue</h4>-->
-                        <!--<div class="input-field col s12">-->
-                            <!--<input value="{{name}}" id="text-cue-name" type="text">-->
-                            <!--<label for="text-cue-name">Cue Name</label>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<div class="modal-footer">-->
-                        <!--<div onclick="textFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>-->
-                    <!--</div>-->
+                <!--<div class="modal-content" style="height: 440px;">-->
+                <!--<h4 style="text-align: center;">Edit Cue</h4>-->
+                <!--<div class="input-field col s12">-->
+                <!--<input value="{{name}}" id="text-cue-name" type="text">-->
+                <!--<label for="text-cue-name">Cue Name</label>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="modal-footer">-->
+                <!--<div onclick="textFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>-->
+                <!--</div>-->
                 <!--</div>-->
             {{/each}}
         </div>
@@ -173,7 +170,8 @@
         </form>
     </div>
     <div class="modal-footer">
-        <div onclick="addStartEndToForm('#audio-form', 'upload_audio', '{{author}}', '{{name}}')" class="btn">Submit</div>
+        <div onclick="addStartEndToForm('#audio-form', 'upload_audio', '{{author}}', '{{name}}')" class="btn">Submit
+        </div>
     </div>
 </div>
 
@@ -210,7 +208,9 @@
 
     </div>
     <div class="modal-footer">
-        <div onclick="addStartEndToForm('#picture-form', 'upload_picture', '{{author}}', '{{name}}')" class="btn">Submit</div>
+        <div onclick="addStartEndToForm('#picture-form', 'upload_picture', '{{author}}', '{{name}}')" class="btn">
+            Submit
+        </div>
     </div>
 </div>
 </body>

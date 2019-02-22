@@ -238,31 +238,51 @@ app.post(
     }
 );
 
+
 app.post(
-    "/update_cue/:author/:name/:cue_name/:fromT/:toT",
+    "/create/:author/:update_cue/:author2/:name/:cue_name/:fromT/:toT",
     (req, res) => {
         var data = require('./data.json');
         const author = req.params.author;
         const name = req.params.name;
-        const cue_name = req.body.cue_name;
+        const cue_name = req.params.cue_name;
         const fromT = req.params.fromT;
         const toT = req.params.toT;
 
+        console.log(req.params);
+
         var cues = data['users'][author]['dances'][name]['cues'];
 
-        for (var cue in cues) {
-            if (cue['name'] === cue_name) {
-                cue['start'] = fromT;
-                cue['end'] = toT;
+        var index = -1;
+        var cue;
+        for (var i = 0; i < cues.length; i++) {
+            if (cues[i]['cue_name'] === cue_name) {
+                cue = cues[i];
+                index = i;
+                break;
             }
         }
 
-        fs.writeFile('data.json', data, 'utf8', function (err) {
+        if (index < 0) {
+            console.log("ERROR");
+            return;
+        }
+
+        cue['start'] = fromT;
+        cue['end'] = toT;
+
+        cues[index] = cue;
+
+        data['users'][author]['dances'][name]['cues'] = cues;
+
+        var content = JSON.stringify(data);
+
+        fs.writeFile('data.json', content, 'utf8', function (err) {
             if (err) {
                 return console.log(err);
             }
 
-            console.log("Cue updated");
+            console.log("Cue updated " + cue_name);
         });
     }
 );
