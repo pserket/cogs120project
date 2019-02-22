@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Plugin CSS file with desired skin-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/css/ion.rangeSlider.min.css"/>
 
     <!-- Backbutton  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,19 +34,18 @@
 </head>
 
 <body>
-<a id="back-btn" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">arrow_back</i></a>
+<a id="back-btn" class="btn-floating btn-large waves-effect waves-light red"><i
+        class="material-icons">arrow_back</i></a>
 <div id="body" align="center">
 
     <h1 align="center">Dance Notes</h1>
-    
 
 
     <div id="imageDiv" class="container"> <!-- THE IMAGE GALLERY -->
-        <img id = "screen" src="https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg"/>
+        <img id="screen"
+             src="https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg" width="302" height="202"/>
     </div>
 
-
-    
 
     <p></p>
     <!-- PUT THE AUDIO HERE -->
@@ -71,76 +71,78 @@
     <p>Select section to loop from (in seconds): </p>
     <!-- LOOP SECTION 2 HANDLE SLIDER RANGE -->
     <div style="width: 300px">
-        <input type="text" class="js-range-slider" name="my_range" value="" />
+        <input type="text" class="js-range-slider" name="my_range" value=""/>
     </div>
 
     <script>
-    $(".js-range-slider").ionRangeSlider({
-    type: "double"
-    });
+        $(".js-range-slider").ionRangeSlider({
+            type: "double"
+        });
 
-    let my_range = $(".js-range-slider").data("ionRangeSlider");
-    //  Update range slider content (this will change handles positions)
-    myaudio = document.getElementById("sample");
-    my_range.update({
-        min: 0,
-        from: 0
-    });
+        let my_range = $(".js-range-slider").data("ionRangeSlider");
+        //  Update range slider content (this will change handles positions)
+        myaudio = document.getElementById("sample");
+        my_range.update({
+            min: 0,
+            from: 0
+        });
 
-    console.log(myaudio.duration)
+        console.log(myaudio.duration);
 
-    console.log($('.js-range-slider').data('to'))
+        console.log($('.js-range-slider').data('to'))
     </script>
 
     <!-- AUDIO LISTENER FUNCTION (LOOP BETWEEN SPECIFIC TIME & DISPLAYS IMAGE) -->
-      <script>
+    <script>
         var myaudio = document.getElementById("sample");
-        var cuesArray = new Array(400).fill('Sana-04.jpg');
+        var cuesArray = new Array(400).fill('../../Sana-04.jpg');
+        // var cuesArray = new Array(400).fill('../../Sana-04.jpg');
 
 
-        myaudio.addEventListener('loadedmetadata',function() {
-            
+        myaudio.addEventListener('loadedmetadata', function () {
+
             {{#each cues}}
-                for (let i = {{start}}; i<={{end}}; i++) {
+                for (let i = {{start}}; i <={{end}}; i++) {
                     cuesArray[i] = "{{file}}";
                 }
             {{/each}}
         });
 
 
-
         function audio() {
-            for (let i = 0; i<cuesArray.length;i++){
-            console.log(cuesArray[i])
-        }
-        	var myaudio = document.getElementById("sample");
+            // for (let i = 0; i < cuesArray.length; i++) {
+            //     console.log(cuesArray[i])
+            // }
+            var myaudio = document.getElementById("sample");
 
-            
+
             var img = document.getElementById("screen");
 
             if (document.getElementById("sample").currentTime < cuesArray.length) {
-                img.src = cuesArray[document.getElementById("sample").currentTime];
-                console.log(cuesArray[document.getElementById("sample").currentTime]);
+                img.src = cuesArray[Math.floor(document.getElementById("sample").currentTime)];
+                console.log(Math.floor(document.getElementById("sample").currentTime));
 
                 //document.getElementById('imageDiv').appendChild(img);
-
             }
 
-        	my_range.update({
-        		max: Math.floor(myaudio.duration)
-    		});
+            my_range.update({
+                max: Math.floor(myaudio.duration)
+            });
 
-          	if(myaudio.loop == true){
-	              if (document.getElementById("sample").currentTime >= $('.js-range-slider').data("to")) {document.getElementById("sample").currentTime = $('.js-range-slider').data("from")}
-	              
-		          if (document.getElementById("sample").currentTime <= $('.js-range-slider').data("from")) {document.getElementById("sample").currentTime = $('.js-range-slider').data("from")}
-		          }
+            if (myaudio.loop == true) {
+                if (document.getElementById("sample").currentTime >= $('.js-range-slider').data("to")) {
+                    document.getElementById("sample").currentTime = $('.js-range-slider').data("from")
+                }
+
+                if (document.getElementById("sample").currentTime <= $('.js-range-slider').data("from")) {
+                    document.getElementById("sample").currentTime = $('.js-range-slider').data("from")
+                }
+            }
 
 
-            
-          }
-      </script>
- 
+        }
+    </script>
+
 
     <!--
     Click to select section to loop: <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton1"></input> -
@@ -179,9 +181,6 @@
             myaudio.playbackRate = this.value / 100;
         }
     </script>
-
-
-
 
 
 </div>
