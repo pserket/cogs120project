@@ -82,6 +82,13 @@
 
                 <script type="text/javascript">
                     $(document).ready(function () {
+                        function toMin(num) {
+                            var n = num;
+                            var minutes = Math.floor(n / 60);
+                            var seconds = (n - minutes * 60);
+                            return (minutes.toString() + ':' + seconds.toString());
+                        }
+
                         var el = $("#{{~{cue_name}~}}-cue-range");
                         el.ionRangeSlider({
                             onFinish: function (data) {
@@ -99,6 +106,7 @@
                                     alert("Data Saved:  " + msg);
                                 });
                             },
+                            prettify: toMin
                         });
 
                         $("#{{cue_name}}-cue-range").parent().find(".irs-bar").text('{{cue_name}}')

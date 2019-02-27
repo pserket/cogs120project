@@ -16,7 +16,16 @@ $(document).ready(function () {
         window.location.href = document.location.origin + "/index";
     });
 
-    $(".rslider-my").ionRangeSlider();
+    function toMin(num) {
+        var n = num;
+        var minutes = Math.floor(n / 60);
+        var seconds = (n - minutes * 60);
+        return (minutes.toString() + ':' + seconds.toString());
+    }
+
+    $(".rslider-my").ionRangeSlider({
+        prettify: toMin
+    });
 });
 
 function addStartEndToForm(formId, type, author, name) {
