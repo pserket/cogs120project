@@ -36,19 +36,27 @@
 <body>
 <a id="back-btn" class="btn-floating btn-large waves-effect waves-light red"><i
         class="material-icons">arrow_back</i></a>
+
+<script type="text/javascript">
+    console.log("{{author}}");
+    console.log("{{name}}");
+
+</script>   
+
 <div id="body" align="center">
-
+<input type=button onclick="location.href='/create/{{author}}/{{name}}/'" value='edit'>
     <h1 align="center">Dance Notes</h1>
+    
 
 
-    <div id="screen" class="container"> <!-- THE IMAGE GALLERY -->
-        <img src="https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg" width="302" height="202"/>
+    <div id="screen" class="container" style="width:100%; height:100%;max-width: 500px; max-height: 400px;"> <!-- THE IMAGE GALLERY -->
+        <img src="../../black.jpg" width="100%" height="100%"/>
     </div>
 
 
     <p></p>
     <!-- PUT THE AUDIO HERE -->
-    <audio id="sample" src="../../niceforwhat.mp3" controls preload ontimeupdate="audio()">
+    <audio id="sample" src="../../niceforwhat.mp3" controls style="width: 100%; max-height:400px; max-width: 500px"preload ontimeupdate="audio()">
         <p>Your browser does not support the audio element</p>
     </audio>
 
@@ -62,29 +70,35 @@
             <input type="checkbox" id="check">
             <span class="slider round" id="loopslider"></span>
         </label>
-        Loop
+        Loop and select section to loop from:
     </div>
 
     <p></p>
-
-    <p>Select section to loop from (in seconds): </p>
     <!-- LOOP SECTION 2 HANDLE SLIDER RANGE -->
     <div style="width: 300px">
         <input type="text" class="js-range-slider" name="my_range" value=""/>
     </div>
 
     <script>
+
+        function toMin(num) {
+            var n = num;
+            var minutes = Math.floor(n / 60);
+            var seconds = (n - minutes * 60);
+            return (minutes.toString() + ':' + seconds.toString());
+        }
+  
         $(".js-range-slider").ionRangeSlider({
-            type: "double"
+            type: "double",
+            min: 0,
+            max: 210,
+            from: 0,
+            prettify: toMin
         });
 
         let my_range = $(".js-range-slider").data("ionRangeSlider");
         //  Update range slider content (this will change handles positions)
         myaudio = document.getElementById("sample");
-        my_range.update({
-            min: 0,
-            from: 0
-        });
         myaudio.addEventListener('loadedmetadata', function () {
             my_range.update({
             max: Math.floor(myaudio.duration),
@@ -93,6 +107,7 @@
         });
         });
     </script>
+    
 
     <!-- AUDIO LISTENER FUNCTION (LOOP BETWEEN SPECIFIC TIME & DISPLAYS IMAGE) -->
     <script>
@@ -109,7 +124,7 @@
                         cuesArray[i] = ("<h2><strong>{{file}}</strong></h2>");
                     }
                     else if ("{{type}}" == "image") {
-                        cuesArray[i] = ("<img src='{{file}}' width='302' height='202'/> margin='auto'");
+                        cuesArray[i] = ("<img src='{{file}}' width='302' height='202'/>");
                     }
                 }
             {{/each}}
