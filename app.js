@@ -37,6 +37,8 @@ if ('development' === app.get('env')) {
 
 // Example route
 app.get('/', login.view);
+app.get('/login', login.login);
+app.get('/register', login.register);
 app.get('/index', index.view);
 app.get('/dance/:author/:name', dance.view);
 app.get('/create/:author/:name', create.view);
