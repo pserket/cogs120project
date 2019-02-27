@@ -84,16 +84,15 @@
   
         $(".js-range-slider").ionRangeSlider({
             type: "double",
+            min: 0,
+            max: 210,
+            from: 0,
             prettify: toMin
         });
 
         let my_range = $(".js-range-slider").data("ionRangeSlider");
         //  Update range slider content (this will change handles positions)
         myaudio = document.getElementById("sample");
-        my_range.update({
-            min: 0,
-            from: 0
-        });
         myaudio.addEventListener('loadedmetadata', function () {
             my_range.update({
             max: Math.floor(myaudio.duration),
