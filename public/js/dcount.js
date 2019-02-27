@@ -9,6 +9,3 @@ $(document).ready(function() {
     });
 
 });
-    function editButton(author, name) {
-        window.location.href = document.location.origin + "/create/" + author + "/" + name;
-    };
