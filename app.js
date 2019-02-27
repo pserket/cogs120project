@@ -341,7 +341,7 @@ app.post(
 app.get('/', login.view);
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 app.get('/login', urlencodedParser, login.login);
-app.get('/register', login.register);
+app.get('/register', urlencodedParser, login.register);
 app.get('/index', index.view);
 app.get('/dance/:author/:name', dance.view);
 app.get('/create/:author/:name', create.view);
