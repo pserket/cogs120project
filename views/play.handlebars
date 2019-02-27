@@ -74,8 +74,15 @@
     </div>
 
     <script>
+        
         $(".js-range-slider").ionRangeSlider({
-            type: "double"
+            type: "double",
+            prettify: function(num) {
+            var n = num;
+            var minutes = Math.floor(n / 60);
+            var seconds = n - minutes * 60
+            return (minutes.toString() + ':' seconds.toString())
+        }
         });
 
         let my_range = $(".js-range-slider").data("ionRangeSlider");
@@ -109,7 +116,7 @@
                         cuesArray[i] = ("<h2><strong>{{file}}</strong></h2>");
                     }
                     else if ("{{type}}" == "image") {
-                        cuesArray[i] = ("<img src='{{file}}' width='302' height='202'/> margin='auto'");
+                        cuesArray[i] = ("<img src='{{file}}' width='302' height='202'/>");
                     }
                 }
             {{/each}}
