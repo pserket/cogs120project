@@ -1,1 +1,108 @@
+<<<<<<< HEAD
 {"users":{"dummy":{"name":"dummy","dances":{"Dance 1":{"author":"dummy","name":"Dance 1","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[{"cue_name":"cue_1","start":"100","end":"141","file":"/database/dummy/image/icon.png","type":"image"},{"cue_name":"cue_text","start":"138","end":"237","file":"/database/dummy/text/cue_text.txt","type":"text"}]},"Dance 2":{"author":"dummy","name":"Dance 2","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]},"Dance 3":{"author":"dummy","name":"Dance 3","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]},"Dance 4":{"author":"dummy","name":"Dance 4","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]},"Dance 5":{"author":"dummy","name":"Dance 5","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]},"Dance 6":{"author":"dummy","name":"Dance 6","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]}},"explore":[{"author":"dummy","name":"Explore 1","duration":"1:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 2","duration":"2:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 3","duration":"3:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 4","duration":"4:50","thumbnail":"https://picsum.photos/170?random"}]}},"explore":[{"author":"dummy","name":"Explore 1","duration":"1:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 2","duration":"2:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 3","duration":"3:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 4","duration":"4:50","thumbnail":"https://picsum.photos/170?random"}]}
+=======
+{
+  "users": {
+    "dummy": {
+      "name": "dummy",
+      "dances": {
+        "Dance 1": {
+          "author": "dummy",
+          "name": "Dance 1",
+          "duration": "1:50",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": [
+            {
+              "cue_name": "walk_1",
+              "start": "100",
+              "end": "200",
+              "file": "/database/dummy/image/walk1.png",
+              "type": "image"
+            },
+            {
+              "cue_name": "walk_2",
+              "start": "200",
+              "end": "242",
+              "file": "/database/dummy/image/walk2.png",
+              "type": "image"
+            }
+          ]
+        },
+        "Dance 2": {
+          "author": "dummy",
+          "name": "Dance 2",
+          "duration": "1:50",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": []
+        },
+        "Dance 3": {
+          "author": "dummy",
+          "name": "Dance 3",
+          "duration": "1:50",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": []
+        },
+        "Dance 4": {
+          "author": "dummy",
+          "name": "Dance 4",
+          "duration": "1:50",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": []
+        }
+      },
+      "explore": [
+        {
+          "author": "dummy",
+          "name": "Explore 1",
+          "duration": "1:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        },
+        {
+          "author": "dummy",
+          "name": "Explore 2",
+          "duration": "2:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        },
+        {
+          "author": "dummy",
+          "name": "Explore 3",
+          "duration": "3:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        },
+        {
+          "author": "dummy",
+          "name": "Explore 4",
+          "duration": "4:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        }
+      ]
+    }
+  },
+  "explore": [
+    {
+      "author": "dummy",
+      "name": "Explore 1",
+      "duration": "1:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    },
+    {
+      "author": "dummy",
+      "name": "Explore 2",
+      "duration": "2:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    },
+    {
+      "author": "dummy",
+      "name": "Explore 3",
+      "duration": "3:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    },
+    {
+      "author": "dummy",
+      "name": "Explore 4",
+      "duration": "4:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    }
+  ]
+}
+>>>>>>> 6d16bd74b9e7ca1a865291e2e299139344cf20d8

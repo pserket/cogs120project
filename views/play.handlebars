@@ -46,9 +46,8 @@
     <h1 align="center">Dance Notes</h1>
 
 
-    <div id="imageDiv" class="container"> <!-- THE IMAGE GALLERY -->
-        <img id="screen"
-             src="https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg" width="302" height="202"/>
+    <div id="screen" class="container"> <!-- THE IMAGE GALLERY -->
+        <img src="https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg" width="302" height="202"/>
     </div>
 
 
@@ -103,7 +102,7 @@
     <!-- AUDIO LISTENER FUNCTION (LOOP BETWEEN SPECIFIC TIME & DISPLAYS IMAGE) -->
     <script>
         var myaudio = document.getElementById("sample");
-        var cuesArray = new Array(400).fill('../../Sana-04.jpg');
+        var cuesArray = new Array(400).fill(("<img id='screen' src='https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg' width='302' height='202'/>"));
         // var cuesArray = new Array(400).fill('../../Sana-04.jpg');
 
 
@@ -111,7 +110,12 @@
 
             {{#each cues}}
                 for (let i = {{start}}; i <={{end}}; i++) {
-                    cuesArray[i] = "{{file}}";
+                    if ("{{type}}" == "text") {
+                        cuesArray[i] = ("<h2><strong>{{file}}</strong></h2>");
+                    }
+                    else if ("{{type}}" == "image") {
+                        cuesArray[i] = ("<img src='{{file}}' width='302' height='202'/> margin='auto'");
+                    }
                 }
             {{/each}}
         });
@@ -123,10 +127,10 @@
             // }
             var myaudio = document.getElementById("sample");
 
-            var img = document.getElementById("screen");
+            //var container = document.getElementById("screen");
 
             if (document.getElementById("sample").currentTime < cuesArray.length) {
-                img.src = cuesArray[Math.floor(document.getElementById("sample").currentTime)];
+                $("#screen").html(cuesArray[Math.floor(document.getElementById("sample").currentTime)]);
                 //console.log(Math.floor(document.getElementById("sample").currentTime));
 
                 //document.getElementById('imageDiv').appendChild(img);

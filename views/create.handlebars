@@ -53,8 +53,31 @@
                            data-type="double"
                            data-min="0"
                            data-max="400"
+                           data-to-max="370"
                            data-from="{{start}}"
                            data-to="{{end}}" onclick="event.stopPropagation()"/>
+
+                    <script>
+                        function deleteCue() {
+                            var url = "delete_cue/" + '{{../author}}' + "/" + '{{../name}}' + "/" + '{{cue_name}}';
+
+                            $.ajax({
+                                method: "POST",
+                                url: url
+                            }).done(function (msg) {
+                                // alert("Cue deleted:  " + msg);
+
+                                location.reload(true);
+                            });
+                        }
+                    </script>
+
+                    <!--<button data-target="modal-{{cue_name}}" class="btn modal-trigger">Modal</button>-->
+
+                    <a style="position: relative; left: calc(100% - 58px); top: -60px;"
+                       class="btn-floating btn-large waves-effect waves-light red modal-trigger"
+                       href="#modal-{{cue_name}}"><i
+                            class="material-icons">delete</i></a>
                 </div>
 
                 <script type="text/javascript">
@@ -83,23 +106,20 @@
                 </script>
                 <!--</a>-->
 
-                <!--<div id="modal-{{name}}" class="modal" style="height: 500px; overflow: hidden">-->
-                <!--<div class="modal-content" style="height: 440px;">-->
-                <!--<h4 style="text-align: center;">Edit Cue</h4>-->
-                <!--<div class="input-field col s12">-->
-                <!--<input value="{{name}}" id="text-cue-name" type="text">-->
-                <!--<label for="text-cue-name">Cue Name</label>-->
-                <!--</div>-->
-                <!--</div>-->
-                <!--<div class="modal-footer">-->
-                <!--<div onclick="textFormBtn('{{author}}','{{name}}')" class="btn">Submit</div>-->
-                <!--</div>-->
-                <!--</div>-->
+                <div id="modal-{{cue_name}}" class="modal" style="height: 170px; overflow: hidden">
+                    <div class="modal-content">
+                        <h4 style="text-align: center;">Delete Cue?</h4>
+                    </div>
+                    <div class="modal-footer" style="text-align: center;">
+                        <a href="#!" style="color: white" class="modal-close waves-effect waves-green btn-flat red z-depth-1">No</a>
+                        <a href="#!" style="color: white" class="modal-close waves-effect waves-green btn-flat green z-depth-1" onclick="deleteCue()">Yes</a>
+                    </div>
+                </div>
             {{/each}}
         </div>
         <div class="col divid"></div>
         <div class="col">
-            <div class="fixed-action-btn new-clip-btn">
+            <div class="fixed-action-btn new-clip-btn" style="margin-top: 10px;">
                 <a class="btn-floating btn-large green accent-3">
                     <i class="large material-icons">add</i>
                 </a>
