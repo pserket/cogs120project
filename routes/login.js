@@ -5,10 +5,10 @@ exports.view = function (req, res) {
 };
 
 exports.login = function (req, res) {
-    const username = req.body.username;
-    const password = req.body.password;
+    const username = req.query.username;
+    const password = req.query.password;
 
-    if (!(users[username] === undefined)) {
+    if (typeof users[username] !== "undefined" && users[username] === password) {
         var data = require('../data.json');
 
         var x = data['users'][username];
@@ -16,7 +16,7 @@ exports.login = function (req, res) {
 
         res.render('index', x);
     } else {
-        console.log(!(users[username] === undefined));
+        console.log(typeof users[username]);
         console.log(users[username] === password);
 
         return res

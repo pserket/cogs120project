@@ -31,7 +31,7 @@
     <div class="card" style="height: 385px; background-color: rgba(0,0,0,.7);">
         <div class="card-content black-text" style="padding-bottom: 14px; text-align: center">
             <div class="card-title" style="color: white">Login</div>
-            <form id="login-form" action="/login" method="get">
+            <form id="login-form" action="/login" method="get" enctype="application/json">
                 <div class="input-field col s6" style="height: 60px; color: white">
                     <input id="login_user_name" name="username" type="text" class="validate" data-length="16" style="color: white">
                     <label for="login_user_name">Username</label>
@@ -61,7 +61,7 @@
     <div class="card" style="height: 400px; background-color: rgba(0,0,0,.7);">
         <div class="card-content black-text" style="padding-bottom: 14px; text-align: center">
             <div class="card-title" style="color: white">Register</div>
-            <form id="register-form" action="/register" method="get">
+            <form id="register-form" action="/register" method="get" enctype="multipart/form-data">
                 <div class="input-field col s6" style="height: 60px; color: white">
                     <input id="register_user_name" name="username" type="text" class="validate" data-length="16" style="color: white">
                     <label for="register_user_name">Username</label>
