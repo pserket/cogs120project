@@ -60,7 +60,7 @@ body {
     font-size: 2em;
 }
 
-#login-card {
+#login-card, #register-card {
     display: flex;
     justify-content: center;
     color: #848484;
