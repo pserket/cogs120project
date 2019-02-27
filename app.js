@@ -36,11 +36,7 @@ if ('development' === app.get('env')) {
 }
 
 // Example route
-app.get('/', login.view);
-app.get('/index', index.view);
-app.get('/dance/:author/:name', dance.view);
-app.get('/create/:author/:name', create.view);
-app.get('/create_new/:author', create_new.view);
+
 
 const multer = require("multer");
 
@@ -341,6 +337,15 @@ app.post(
         });
     }
 );
+
+app.get('/', login.view);
+var urlencodedParser = bodyParser.urlencoded({extended: false});
+app.get('/login', urlencodedParser, login.login);
+app.get('/register', login.register);
+app.get('/index', index.view);
+app.get('/dance/:author/:name', dance.view);
+app.get('/create/:author/:name', create.view);
+app.get('/create_new/:author', create_new.view);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
