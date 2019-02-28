@@ -39,7 +39,18 @@
 <body class="cyan">
 <a id="back-btn" class="btn-floating btn-large waves-effect waves-light red"><i
         class="material-icons">arrow_back</i></a>
-<div class="dance_name">{{name}}</div>
+<div style="display: flex; width: 350px; margin: auto">
+    <div style="display: flex">
+        <div class="dance_name">{{name}}</div>
+        <button style="margin-top: 13px;" class="black btn-floating waves-effect waves-light btn" type="submit" form="play-btn">
+            <i class="material-icons">play_arrow</i>
+        </button>
+    </div>
+    <form id="play-btn" method="get" action="/dance/{{author}}/{{name}}">
+    </form>
+
+
+</div>
 <div class='main-container create-container card'>
 
     <div class="row">
@@ -119,27 +130,28 @@
                         <h4 style="text-align: center;">Delete Cue?</h4>
                     </div>
                     <div class="modal-footer" style="text-align: center;">
-                        <a href="#!" style="color: white" class="modal-close waves-effect waves-green btn-flat red z-depth-1">No</a>
-                        <a href="#!" style="color: white" class="modal-close waves-effect waves-green btn-flat green z-depth-1" onclick="deleteCue()">Yes</a>
+                        <a href="#!" style="color: white"
+                           class="modal-close waves-effect waves-green btn-flat red z-depth-1">No</a>
+                        <a href="#!" style="color: white"
+                           class="modal-close waves-effect waves-green btn-flat green z-depth-1" onclick="deleteCue()">Yes</a>
                     </div>
                 </div>
             {{/each}}
         </div>
         <div class="col divid"></div>
         <div class="col">
-            <div class="fixed-action-btn new-clip-btn" style="margin-top: 10px;">
-                <a class="btn-floating btn-large green accent-3">
-                    <i class="large material-icons">add</i>
-                </a>
-                <ul style="position: unset !important;">
-                    <li><a class="btn-floating blue waves-effect modal-trigger" href="#modal1"><i
-                            class="material-icons">text_fields</i></a></li>
-                    <li><a class="btn-floating yellow waves-effect modal-trigger" href="#modal2"><i
-                            class="material-icons">audiotrack</i></a></li>
-                    <li><a class="btn-floating red waves-effect modal-trigger" href="#modal3"><i class="material-icons">image</i></a>
-                    </li>
-                </ul>
-            </div>
+
+            <ul style="position: unset !important;">
+                <li style="margin-bottom: 17px"><a class="btn-floating btn-large blue waves-effect modal-trigger"
+                                                   href="#modal1"><i
+                        class="material-icons">text_fields</i></a></li>
+                <li style="margin-bottom: 17px"><a class="btn-floating btn-large green waves-effect modal-trigger"
+                                                   href="#modal2"><i
+                        class="material-icons">audiotrack</i></a></li>
+                <li style="margin-bottom: 17px"><a class="btn-floating btn-large purple waves-effect modal-trigger"
+                                                   href="#modal3"><i class="material-icons">image</i></a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
@@ -155,7 +167,7 @@
 
             <div class="input-field col s12">
                 <textarea id="textarea1" class="materialize-textarea" name="text_area"></textarea>
-                <label for="textarea1">Textarea</label>
+                <label for="textarea1">Text</label>
             </div>
             <input type="text" class="js-range-slider rslider-my" name="my_range" value=""
                    data-type="double"

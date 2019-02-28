@@ -20,7 +20,8 @@
     "multer": "*",
     "nouislider": "^13.1.1",
     "util": "*",
-    "mkdirp": "latest"
+    "mkdirp": "latest",
+    "get-audio-duration": "latest"
   },
   "engines": {
     "node": "8.9.x"
