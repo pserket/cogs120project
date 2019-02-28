@@ -21,14 +21,14 @@ exports.view = function (req, res) {
     const parent_dir = './database/' + author + '/audio/';
     const file = parent_dir + req.file.originalname;
 
-    const ext = path.extname(req.file.originalname).toLowerCase();
+    // const ext = path.extname(req.file.originalname).toLowerCase();
 
-    if (ext !== '.mp3' && ext !== '.wav' && ext !== '.ogg' && ext !== '.wav' && ext !== '.flac') {
-        return res
-            .status(500)
-            .contentType("text/plain")
-            .end("Wrong file type!\n name: " + req.file.originalname + "\n ext: " + ext);
-    }
+    // if (ext !== '.mp3' && ext !== '.wav' && ext !== '.ogg' && ext !== '.wav' && ext !== '.flac') {
+    //     return res
+    //         .status(500)
+    //         .contentType("text/plain")
+    //         .end("Wrong file type!\n name: " + req.file.originalname + "\n ext: " + ext);
+    // }
 
     getAudioDurationInSeconds(file).then((duration) => {
         var mins = Math.floor(duration / 60);
