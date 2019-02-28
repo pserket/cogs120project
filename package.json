@@ -18,10 +18,10 @@
     "mongodb": "*",
     "mongoose": "*",
     "multer": "*",
-    "nouislider": "^13.1.1",
     "util": "*",
     "mkdirp": "latest",
-    "get-audio-duration": "latest"
+    "get-audio-duration": "latest",
+    "mediaserver": "latest"
   },
   "engines": {
     "node": "8.9.x"

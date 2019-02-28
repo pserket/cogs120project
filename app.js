@@ -67,6 +67,8 @@ app.use(bodyParser.urlencoded({
  */
 app.use(bodyParser.json());
 
+var ms = require('mediaserver');
+
 app.get(
     "/database/:author/:ftype/:fl",
     (req, res) => {
@@ -84,8 +86,11 @@ app.get(
         console.log('downloading ' + ftype + "/" + ext.substring(1));
 
         var file = fs.readFileSync(filePath);
-        res.writeHead(200, {'Content-Type': ftype + "/" + ext.substring(1)})
-        res.end(file, 'binary');
+        // res.writeHead(200, {'Content-Type': ftype + "/" + ext.substring(1)});
+        // res.end(file, 'binary');
+
+        // new
+        ms.pipe(req,res,filePath);
     }
 );
 

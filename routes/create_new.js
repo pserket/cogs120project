@@ -19,7 +19,14 @@ exports.view = function (req, res) {
     }
 
     const parent_dir = './database/' + author + '/audio/';
-    const file = parent_dir + req.file.originalname;
+    // const file = parent_dir + req.file.originalname;
+    var file = parent_dir + req.file.originalname + '.mp3';
+
+    // if (req.file.originalname.contains('.mp3') || req.file.originalname.contains('.wav')) {
+    //     file = parent_dir + req.file.originalname;
+    // } else {
+    //     file = parent_dir + req.file.originalname + '.mp3';
+    // }
 
     // const ext = path.extname(req.file.originalname).toLowerCase();
     //
