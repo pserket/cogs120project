@@ -39,7 +39,17 @@
 <body class="cyan">
 <a id="back-btn" class="btn-floating btn-large waves-effect waves-light red"><i
         class="material-icons">arrow_back</i></a>
-<div class="dance_name">{{name}}</div>
+<div style="display: flex">
+    <div class="dance_name">{{name}}
+        <button style="margin-top: -10px;" class="black btn-floating waves-effect waves-light btn" type="submit" form="play-btn">
+            <i class="material-icons">play_arrow</i>
+        </button>
+    </div>
+    <form id="play-btn" method="get" action="/dance/{{author}}/{{name}}">
+    </form>
+
+
+</div>
 <div class='main-container create-container card'>
 
     <div class="row">
@@ -119,8 +129,10 @@
                         <h4 style="text-align: center;">Delete Cue?</h4>
                     </div>
                     <div class="modal-footer" style="text-align: center;">
-                        <a href="#!" style="color: white" class="modal-close waves-effect waves-green btn-flat red z-depth-1">No</a>
-                        <a href="#!" style="color: white" class="modal-close waves-effect waves-green btn-flat green z-depth-1" onclick="deleteCue()">Yes</a>
+                        <a href="#!" style="color: white"
+                           class="modal-close waves-effect waves-green btn-flat red z-depth-1">No</a>
+                        <a href="#!" style="color: white"
+                           class="modal-close waves-effect waves-green btn-flat green z-depth-1" onclick="deleteCue()">Yes</a>
                     </div>
                 </div>
             {{/each}}
@@ -128,14 +140,17 @@
         <div class="col divid"></div>
         <div class="col">
 
-                <ul style="position: unset !important;">
-                    <li style="margin-bottom: 17px"><a class="btn-floating btn-large blue waves-effect modal-trigger" href="#modal1"><i
-                            class="material-icons">text_fields</i></a></li>
-                    <li style="margin-bottom: 17px"><a class="btn-floating btn-large green waves-effect modal-trigger" href="#modal2"><i
-                            class="material-icons">audiotrack</i></a></li>
-                    <li style="margin-bottom: 17px"><a class="btn-floating btn-large purple waves-effect modal-trigger" href="#modal3"><i class="material-icons">image</i></a>
-                    </li>
-                </ul>
+            <ul style="position: unset !important;">
+                <li style="margin-bottom: 17px"><a class="btn-floating btn-large blue waves-effect modal-trigger"
+                                                   href="#modal1"><i
+                        class="material-icons">text_fields</i></a></li>
+                <li style="margin-bottom: 17px"><a class="btn-floating btn-large green waves-effect modal-trigger"
+                                                   href="#modal2"><i
+                        class="material-icons">audiotrack</i></a></li>
+                <li style="margin-bottom: 17px"><a class="btn-floating btn-large purple waves-effect modal-trigger"
+                                                   href="#modal3"><i class="material-icons">image</i></a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
