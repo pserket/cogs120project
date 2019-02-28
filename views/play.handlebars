@@ -39,8 +39,11 @@
 
 
 <div id="body" align="center">
-<input type=button onclick="location.href='/create/{{author}}/{{name}}'" value='edit'>
-    <h1 align="center">{{name}}</h1>
+    <h1 align="center" style="display: inline-block;">{{name}} &nbsp</h1>
+    <a id ="edit-btn" class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"
+                       onclick="event.stopPropagation();editDance('{{author}}', '{{name}}');"><i
+                            class="material-icons">edit</i></a>
+
 
     <div id="screen" class="container" style="width:100%; height:100%;max-width: 500px; max-height: 400px;"> <!-- THE IMAGE GALLERY -->
         <img src="../../black.jpg" width="100%" height="100%"/>

@@ -8,9 +8,9 @@ $(document).ready(function() {
         window.location.href = document.location.origin + "/index";
     });
 
-    $('#edit-btn').click(function(e) {
-        e.preventDefault();
-        window.location.href = document.location.origin + "/index";
-    });
-
 });
+function editDance(user, name) {
+    var string = "/create/" + user + "/" + name;
+
+    window.location = string;
+}
