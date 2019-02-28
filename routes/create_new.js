@@ -22,13 +22,28 @@ exports.view = function (req, res) {
     const file = parent_dir + req.file.originalname;
 
     // const ext = path.extname(req.file.originalname).toLowerCase();
-
+    //
     // if (ext !== '.mp3' && ext !== '.wav' && ext !== '.ogg' && ext !== '.wav' && ext !== '.flac') {
     //     return res
     //         .status(500)
     //         .contentType("text/plain")
     //         .end("Wrong file type!\n name: " + req.file.originalname + "\n ext: " + ext);
     // }
+
+    mkdirp(parent_dir, function (err) {
+        if (err) return console.error(err);
+        else console.log('Done!');
+
+
+        fs.rename(req.file.path, file, err => {
+            if (err) {
+                return res
+                    .status(500)
+                    .contentType("text/plain")
+                    .end("Error");
+            }
+        });
+    });
 
     getAudioDurationInSeconds(file).then((duration) => {
         var mins = Math.floor(duration / 60);
@@ -58,22 +73,7 @@ exports.view = function (req, res) {
             console.log("The file was saved!");
         });
 
-        mkdirp(parent_dir, function (err) {
-            if (err) return console.error(err);
-            else console.log('Done!');
-
-
-            fs.rename(req.file.path, file, err => {
-                if (err) {
-                    return res
-                        .status(500)
-                        .contentType("text/plain")
-                        .end("Error");
-                }
-            });
-        });
-
         res.writeHead(301, { Location: "/create/" + author + "/" + dn });
         res.end();
-    });
+    }).catch(console.error);
 };
