@@ -33,7 +33,7 @@ exports.view = function (req, res) {
         "author": author,
         "name": dn,
         "duration": "1:50",
-        "song": file,
+        "song": file.substring(1),
         "thumbnail": "https://picsum.photos/170?random",
         "cues": []
     };
