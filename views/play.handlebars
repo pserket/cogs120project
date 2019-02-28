@@ -59,8 +59,6 @@
         <p>Your browser does not support the audio element</p>
     </audio>
 
-    <!-- THE JAVASCRIPT FOR THE IMAGE GALLERY -->
-
 
     <!-- LOOP TOGGLE HTML -->
     <p></p>
@@ -73,7 +71,7 @@
     </div>
 
     <p></p>
-    <!-- LOOP SECTION 2 HANDLE SLIDER RANGE -->
+    <!-- LOOP 2 HANDLE SLIDER RANGE -->
     <div style="width: 300px">
         <input type="text" class="js-range-slider" name="my_range" value=""/>
     </div>
@@ -108,10 +106,11 @@
     </script>
     
 
-    <!-- AUDIO LISTENER FUNCTION (LOOP BETWEEN SPECIFIC TIME & DISPLAYS IMAGE) -->
+    <!-- CUES AND AUDIO LISTENER FUNCTION (LOOP BETWEEN SPECIFIC TIME & DISPLAYS IMAGE) -->
     <script>
         var myaudio = document.getElementById("sample");
-        var cuesArray = new Array(400).fill(("<img id='screen' src='https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg' width='100%' height='100%'/>"));
+        var cuesArray = new Array(400).fill(("<img id='screen' src='../../black.jpg' width='100%' height='100%'/>"));
+        var audioCueArray = new Array(400);
         // var cuesArray = new Array(400).fill('../../Sana-04.jpg');
 
 
