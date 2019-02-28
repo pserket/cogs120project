@@ -345,7 +345,9 @@ app.get('/register', urlencodedParser, login.register);
 app.get('/index', index.view);
 app.get('/dance/:author/:name', dance.view);
 app.get('/create/:author/:name', create.view);
-app.get('/create_new/:author', create_new.view);
+app.post('/create_new/:author',
+    upload.single("file" /* name attribute of <file> element in your form */),
+    create_new.view);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));

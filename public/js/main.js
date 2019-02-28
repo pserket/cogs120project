@@ -3,6 +3,9 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
     initializePage();
+
+    var elems = document.querySelectorAll('.modal');
+    M.Modal.init(elems);
 });
 
 function createBtn(user) {

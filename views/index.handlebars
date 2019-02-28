@@ -26,8 +26,7 @@
     </div>
     <div class='choreo-holder'>
         <div id="create-btn" class="card">
-            <a class="btn-floating btn-large waves-effect waves-light"
-               onclick="event.stopPropagation(); createBtn('{{name}}');" style="margin-top: 55px;"><i
+            <a class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#modal1" style="margin-top: 55px;"><i
                     class="material-icons">add</i></a>
         </div>
         {{#each dances}}
@@ -89,6 +88,38 @@
 
 		</div>
 	</div>
+</div>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4 style="text-align: center;">New Dance Note</h4>
+        <form id="dn-form" method="post" enctype="multipart/form-data"
+              action="/create_new/{{name}}">
+            <div class="input-field col s6">
+                <input id="dn-name" type="text" name="dn_name">
+                <label for="dn-name">Note Name</label>
+            </div>
+            <div class="row">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Browse</span>
+                        <input type="file" name="file"/>
+                    </div>
+
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text"
+                               placeholder="Upload song"/>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    <div class="modal-footer">
+        <button class="waves-effect waves-light btn" type="submit" form="dn-form" value="Submit">
+            Submit
+        </button>
+    </div>
 </div>
 </body>
 </html>
