@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 var data = require('../data.json');
 var mkdirp = require('mkdirp');
-const { getAudioDurationInSeconds } = require('get-audio-duration')
+const { getAudioDurationInSeconds } = require('get-audio-duration');
 
 exports.view = function (req, res) {
     const author = req.params.author;
@@ -27,7 +27,7 @@ exports.view = function (req, res) {
         return res
             .status(500)
             .contentType("text/plain")
-            .end("Wrong file type!: " + ext);
+            .end("Wrong file type!\n name: " + req.file.originalname + "\n ext: " + ext);
     }
 
     getAudioDurationInSeconds(file).then((duration) => {
