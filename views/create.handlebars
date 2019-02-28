@@ -42,7 +42,8 @@
 <div style="display: flex; width: 350px; margin: auto">
     <div style="display: flex">
         <div class="dance_name">{{name}}</div>
-        <button style="margin-top: 13px;" class="black btn-floating waves-effect waves-light btn" type="submit" form="play-btn">
+        <button style="margin-top: 13px;" class="black btn-floating waves-effect waves-light btn" type="submit"
+                form="play-btn">
             <i class="material-icons">play_arrow</i>
         </button>
     </div>
@@ -152,6 +153,9 @@
                                                    href="#modal3"><i class="material-icons">image</i></a>
                 </li>
             </ul>
+
+            <a style="position: absolute; bottom: 10px;" class="btn-floating btn-large red waves-effect modal-trigger"
+               href="#modal-delete-note"><i class="material-icons">delete</i></a>
         </div>
     </div>
 </div>
@@ -255,6 +259,34 @@
         <div onclick="addStartEndToForm('#picture-form', 'upload_picture', '{{author}}', '{{name}}')" class="btn">
             Submit
         </div>
+    </div>
+</div>
+
+<script>
+    function deleteNote() {
+        var url = "delete_note/" + '{{author}}' + "/" + '{{name}}';
+
+        $.ajax({
+            method: "POST",
+            url: url
+        }).done(function (msg) {
+            // alert("Cue deleted:  " + msg);
+
+            window.location = '/index';
+        });
+    }
+</script>
+
+
+<div id="modal-delete-note" class="modal" style="height: 170px; overflow: hidden">
+    <div class="modal-content">
+        <h4 style="text-align: center;">Delete Note?</h4>
+    </div>
+    <div class="modal-footer" style="text-align: center;">
+        <a href="#!" style="color: white"
+           class="modal-close waves-effect waves-green btn-flat red z-depth-1">No</a>
+        <a href="#!" style="color: white"
+           class="modal-close waves-effect waves-green btn-flat green z-depth-1" onclick="deleteNote()">Yes</a>
     </div>
 </div>
 </body>

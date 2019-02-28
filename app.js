@@ -338,6 +338,34 @@ app.post(
     }
 );
 
+app.post(
+    "/create/:author/:delete_note/:author2/:name",
+    (req, res) => {
+        var data = require('./data.json');
+        const author = req.params.author;
+        const name = req.params.name;
+
+        delete data['users'][author]['dances'][name];
+
+        console.log(data['users'][author]['dances']);
+
+        var content = JSON.stringify(data);
+
+        fs.writeFile('data.json', content, 'utf8', function (err) {
+            if (err) {
+                return console.log(err);
+            }
+
+            res
+                .status(200)
+                .contentType("text/plain")
+                .redirect('back');
+
+            console.log("Note deleted " + name);
+        });
+    }
+);
+
 app.get('/', login.view);
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 app.get('/login', urlencodedParser, login.login);
