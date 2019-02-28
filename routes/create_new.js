@@ -21,9 +21,9 @@ exports.view = function (req, res) {
     const parent_dir = './database/' + author + '/audio/';
     const file = parent_dir + req.file.originalname;
 
-    const ext = path.extname(req.file.originalname);
+    const ext = path.extname(req.file.originalname).toLowerCase();
 
-    if (!(ext === '.mp3')) {
+    if (ext !== '.mp3' && ext !== '.wav' && ext !== '.ogg' && ext !== '.wav' && ext !== '.flac') {
         return res
             .status(500)
             .contentType("text/plain")
