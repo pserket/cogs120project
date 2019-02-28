@@ -27,7 +27,7 @@ exports.view = function (req, res) {
         return res
             .status(500)
             .contentType("text/plain")
-            .end("Wrong file type! (use mp3)");
+            .end("Wrong file type!: " + ext);
     }
 
     getAudioDurationInSeconds(file).then((duration) => {
