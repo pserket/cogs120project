@@ -48,39 +48,41 @@ exports.view = function (req, res) {
                     .status(500)
                     .contentType("text/plain")
                     .end("Error");
+            } else {
+                getAudioDurationInSeconds(file).then((duration) => {
+                    var mins = Math.floor(duration / 60);
+                    var seconds = Math.floor(duration % 60);
+                    var d = mins.toString() + ":" + seconds.toString();
+
+                    var dance = {
+                        "author": author,
+                        "name": dn,
+                        "duration": d,
+                        "song": file.substring(1),
+                        "thumbnail": "https://picsum.photos/170?random",
+                        "cues": []
+                    };
+
+                    data['users'][author]['dances'][dn] = dance;
+
+                    // save
+
+                    var content = JSON.stringify(data);
+
+                    fs.writeFile('data.json', content, 'utf8', function (err) {
+                        if (err) {
+                            return console.log(err);
+                        }
+
+                        console.log("The file was saved!");
+
+                        res.writeHead(301, { Location: "/create/" + author + "/" + dn });
+                        res.end();
+                    });
+
+
+                }).catch(console.error);
             }
         });
     });
-
-    getAudioDurationInSeconds(file).then((duration) => {
-        var mins = Math.floor(duration / 60);
-        var seconds = Math.floor(duration % 60);
-        var d = mins.toString() + ":" + seconds.toString();
-
-        var dance = {
-            "author": author,
-            "name": dn,
-            "duration": d,
-            "song": file.substring(1),
-            "thumbnail": "https://picsum.photos/170?random",
-            "cues": []
-        };
-
-        data['users'][author]['dances'][dn] = dance;
-
-        // save
-
-        var content = JSON.stringify(data);
-
-        fs.writeFile('data.json', content, 'utf8', function (err) {
-            if (err) {
-                return console.log(err);
-            }
-
-            console.log("The file was saved!");
-        });
-
-        res.writeHead(301, { Location: "/create/" + author + "/" + dn });
-        res.end();
-    }).catch(console.error);
 };
