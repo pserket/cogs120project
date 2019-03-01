@@ -21,7 +21,8 @@
     "util": "*",
     "mkdirp": "latest",
     "get-audio-duration": "latest",
-    "mediaserver": "latest"
+    "mediaserver": "latest",
+    "mp3-duration": "latest"
   },
   "engines": {
     "node": "8.9.x"
