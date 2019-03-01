@@ -8,20 +8,20 @@ body {
 }
 
 .choreo-holder {
-    display: flex;
+    /*display: flex;*/
     overflow-x: auto;
     overflow-y: hidden;
 }
 
 .choreo-item {
-    width: 170px;
+    width: 100px;
     height: 170px;
     margin-left: 10px !important;
     cursor: pointer;
 }
 
 .choreo-item-bot {
-    width: 170px;
+    width: 400px;
     height: 50px;
     background-color: rgba(0, 0, 0, 0.75);
     margin-top: -50px;
@@ -67,9 +67,9 @@ body {
 }
 
 #create-btn {
-    width: 170px;
-    height: 170px;
-    margin-left: 10px;
+    width: 400px;
+    height: 200px;
+    margin-left: 0px;
     text-align: center;
     background-color: rgba(0,0,0,.75);
     cursor: pointer;
