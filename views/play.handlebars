@@ -46,7 +46,7 @@
                             class="material-icons">edit</i></a>
 
 
-    <div id="screen" class="container" style="width:100%; height:100%;max-width: 500px; max-height: 400px;"> <!-- THE IMAGE GALLERY -->
+    <div id="screen" class="container" style="width:100%; height:400px; max-width: 500px; max-height: 400px;"> <!-- THE IMAGE GALLERY -->
         <img src="../../black.jpg" width="100%" height="100%"/>
     </div>
 
@@ -87,6 +87,7 @@
         }
   
         $(".js-range-slider").ionRangeSlider({
+            skin: "round",
             type: "double",
             min: 0,
             max: 210,
@@ -186,7 +187,7 @@
 
     <!-- SPEED OF AUDIO SLIDER -->
     <div class="slidecontainer">
-        <input type="range" min="1" max="200" value="100" class="slider" id="myRange">
+        <input type="range" min="25" max="200" value="100" class="slider" id="myRange">
         <p>Speed: <span id="demo"></span>%</p>
     </div>
 
