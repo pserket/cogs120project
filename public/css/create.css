@@ -34,3 +34,15 @@
 .to {
     margin-left: -3px;
 }
+
+.text-cue .irs-bar {
+    background-color: #2196F3 !important;
+}
+
+.audio-cue .irs-bar {
+    background-color: #4CAF50 !important;
+}
+
+.image-cue .irs-bar {
+    background-color: #9c27b0 !important;
+}
