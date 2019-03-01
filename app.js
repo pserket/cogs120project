@@ -97,6 +97,11 @@ app.get(
 function saveCue(author, name, cue_name, file_name, fromT, toT, type) {
     var data = require('./data.json');
 
+    function replaceAll(str, find, replace) {
+        return str.replace(new RegExp(find, 'g'), replace);
+    }
+
+    cue_name = replaceAll(cue_name, ' ', '-');
 
     var cue = {
         "cue_name": cue_name,

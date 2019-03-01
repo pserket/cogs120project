@@ -3,6 +3,7 @@ const path = require('path');
 var data = require('../data.json');
 var mkdirp = require('mkdirp');
 const { getAudioDurationInSeconds } = require('get-audio-duration');
+var mp3Duration = require('mp3-duration');
 
 exports.view = function (req, res) {
     const author = req.params.author;
@@ -49,7 +50,11 @@ exports.view = function (req, res) {
                     .contentType("text/plain")
                     .end("Error");
             } else {
-                getAudioDurationInSeconds(file).then((duration) => {
+
+                mp3Duration(file, function (err, duration) {
+                    if (err) return console.log(err.message);
+                    console.log('Your file is ' + duration + ' seconds long');
+
                     var mins = Math.floor(duration / 60);
                     var seconds = Math.floor(duration % 60);
                     var d = mins.toString() + ":" + seconds.toString();
@@ -80,8 +85,41 @@ exports.view = function (req, res) {
                         res.end();
                     });
 
+                });
 
-                }).catch(console.error);
+                // getAudioDurationInSeconds(file).then((duration) => {
+                //     var mins = Math.floor(duration / 60);
+                //     var seconds = Math.floor(duration % 60);
+                //     var d = mins.toString() + ":" + seconds.toString();
+                //
+                //     var dance = {
+                //         "author": author,
+                //         "name": dn,
+                //         "duration": d,
+                //         "song": file.substring(1),
+                //         "thumbnail": "https://picsum.photos/170?random",
+                //         "cues": []
+                //     };
+                //
+                //     data['users'][author]['dances'][dn] = dance;
+                //
+                //     // save
+                //
+                //     var content = JSON.stringify(data);
+                //
+                //     fs.writeFile('data.json', content, 'utf8', function (err) {
+                //         if (err) {
+                //             return console.log(err);
+                //         }
+                //
+                //         console.log("The file was saved!");
+                //
+                //         res.writeHead(301, { Location: "/create/" + author + "/" + dn });
+                //         res.end();
+                //     });
+                //
+                //
+                // }).catch(console.error);
             }
         });
     });

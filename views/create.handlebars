@@ -59,7 +59,7 @@
             {{#each cues}}
 
                 <!--<a href="#modal-{{cue_name}}" class="modal-trigger">-->
-                <div class="editing-cue">
+                <div class="editing-cue" style="padding-right: 45px">
                     <!--<div style="color: white; font-size: 1.2em;">{{name}}</div>-->
                     <input id="{{~{cue_name}~}}-cue-range" type="text" class="js-range-slider" name="my_range" value=""
                            data-type="double"
@@ -86,7 +86,7 @@
 
                     <!--<button data-target="modal-{{cue_name}}" class="btn modal-trigger">Modal</button>-->
 
-                    <a style="position: relative; left: calc(100% - 58px); top: -60px;"
+                    <a style="position: relative; left: calc(100% - 25px); top: -60px;"
                        class="btn-floating btn-large waves-effect waves-light red modal-trigger"
                        href="#modal-{{cue_name}}"><i
                             class="material-icons">delete</i></a>
