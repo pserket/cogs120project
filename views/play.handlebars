@@ -114,8 +114,6 @@
         var myaudio = document.getElementById("sample");
         var cuesArray = new Array(400).fill(("<img id='screen' src='../../black.jpg' width='100%' height='100%'/>"));
         var audioCueArray = new Array(400);
-        // var cuesArray = new Array(400).fill('../../Sana-04.jpg');
-
 
         myaudio.addEventListener('loadedmetadata', function () {
 
@@ -128,6 +126,7 @@
                         cuesArray[i] = ("<img src='{{file}}' width='302' height='202'/>");
                     }
                 }
+
             {{/each}}
         });
 
@@ -142,7 +141,8 @@
             //var container = document.getElementById("screen");
 
             if (document.getElementById("sample").currentTime < cuesArray.length) {
-                $("#screen").html(cuesArray[Math.floor(document.getElementById("sample").currentTime)]);
+                if (cuesArray[Math.floor(document.getElementById("sample").currentTime)] !== $("#screen").html()):
+                    $("#screen").html(cuesArray[Math.floor(document.getElementById("sample").currentTime)]);
                 //console.log(Math.floor(document.getElementById("sample").currentTime));
 
                 //document.getElementById('imageDiv').appendChild(img);
