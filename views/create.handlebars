@@ -41,7 +41,7 @@
         class="material-icons">arrow_back</i></a>
 <div style="display: flex; width: 350px; margin: auto">
     <div style="display: flex">
-        <div class="dance_name">{{name}}</div>
+        <div class="dance_name" style="padding-left: 50px;">{{name}}</div>
         <button style="margin-top: 13px;" class="black btn-floating waves-effect waves-light btn" type="submit"
                 form="play-btn">
             <i class="material-icons">play_arrow</i>
@@ -52,6 +52,7 @@
 
 
 </div>
+
 <div class='main-container create-container card'>
 
     <div class="row">
@@ -160,7 +161,7 @@
     </div>
 </div>
 
-<div id="modal1" class="modal">
+<div id="modal1" class="modal" style="height: 400px; max-height: 400px;">
     <div class="modal-content">
         <h4 style="text-align: center;">New Textual Cue</h4>
         <form id="text-form" method="post" action="/upload_text/{{author}}/{{name}}">
@@ -172,6 +173,9 @@
             <div class="input-field col s12">
                 <textarea id="textarea1" class="materialize-textarea" name="text_area"></textarea>
                 <label for="textarea1">Text</label>
+            </div>
+            <div style="text-align: center; margin: auto; font-size: 1.1em; color: grey;">Choose start and end times for
+                this cue
             </div>
             <input type="text" class="js-range-slider rslider-my" name="my_range" value=""
                    data-type="double"
@@ -187,7 +191,7 @@
     </div>
 </div>
 
-<div id="modal2" class="modal">
+<div id="modal2" class="modal" style="height: 400px; max-height: 400px;">
     <div class="modal-content">
         <h4 style="text-align: center;">New Audio Cue</h4>
         <form id="audio-form" method="post" enctype="multipart/form-data" action="/upload_audio/{{author}}/{{name}}">
@@ -208,7 +212,9 @@
                     </div>
                 </div>
             </div>
-
+            <div style="text-align: center; margin: auto; font-size: 1.1em; color: grey;">Choose start and end times for
+                this cue
+            </div>
             <input type="text" class="js-range-slider rslider-my" name="my_range" value=""
                    data-type="double"
                    data-min="0"
@@ -223,7 +229,7 @@
     </div>
 </div>
 
-<div id="modal3" class="modal">
+<div id="modal3" class="modal" style="height: 400px; max-height: 400px;">
     <div class="modal-content">
         <h4 style="text-align: center;">New Picture Cue</h4>
         <form id="picture-form" method="post" enctype="multipart/form-data"
@@ -244,6 +250,9 @@
                                placeholder="Upload file"/>
                     </div>
                 </div>
+            </div>
+            <div style="text-align: center; margin: auto; font-size: 1.1em; color: grey;">Choose start and end times for
+                this cue
             </div>
             <input type="text" class="js-range-slider rslider-my" name="my_range" value=""
                    data-type="double"
