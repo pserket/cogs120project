@@ -14,7 +14,8 @@
     <script src="js/main.js"></script>
     <link href="css/styles.css" rel="stylesheet">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 
 </head>
 <link rel="shortcut icon" href="/myfavicon.ico" type="image/x-icon"/>
@@ -57,7 +58,8 @@
     </div>
     <div class='choreo-holder'>
         <div id="create-btn" class="card">
-            <a class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#modal1" style="margin-top: 55px;"><i
+            <a class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#modal1"
+               style="margin-top: 55px;"><i
                     class="material-icons">add</i></a>
         </div>
         {{#each dances}}
@@ -94,31 +96,54 @@
                     </div>
 
                     <!--<a class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"-->
-                       <!--onclick="event.stopPropagation();editDance({{author}}, {{name}});"><i-->
-                            <!--class="material-icons">edit</i></a>-->
+                    <!--onclick="event.stopPropagation();editDance({{author}}, {{name}});"><i-->
+                    <!--class="material-icons">edit</i></a>-->
                 </div>
             </div>
         {{/each}}
     </div>
 </div>
 <!--<div class="box">-->
-	<!--<a class="button" href="#popup1"> Help & Documentation </a>-->
+<!--<a class="button" href="#popup1"> Help & Documentation </a>-->
 <!--</div>-->
 
 <!--<div id="popup1" class="overlay">-->
 
-	<!--<div class="popup">-->
-		<!--<h2>FAQ</h2>-->
-		<!--<a class="close" href="#">&times;</a>-->
-		<!--<div class="content">-->
-			<!--<a> <b> How can I add my picture, text, or audio cues? </a> </b>-->
-			<!--<p style= "color:gray"> From <b style="color:black"> Home</b>, click the <b style="color:black"> Create </b> button then add the cues of your choice. </p>-->
+<!--<div class="popup">-->
+<!--<h2>FAQ</h2>-->
+<!--<a class="close" href="#">&times;</a>-->
+<!--<div class="content">-->
+<!--<a> <b> How can I add my picture, text, or audio cues? </a> </b>-->
+<!--<p style= "color:gray"> From <b style="color:black"> Home</b>, click the <b style="color:black"> Create </b> button then add the cues of your choice. </p>-->
 
-			<!--<a> <b> How can I loop the music? </a> </b>-->
-			<!--<p style= "color:gray"> When you click the <b style="color:black"> Edit </b> button on the particular dance you want to edit, slide to the minutes of the music you want to loop, then toggle the <b style="color:black"> Loop </b> button. </p>-->
+<!--<a> <b> How can I loop the music? </a> </b>-->
+<!--<p style= "color:gray"> When you click the <b style="color:black"> Edit </b> button on the particular dance you want to edit, slide to the minutes of the music you want to loop, then toggle the <b style="color:black"> Loop </b> button. </p>-->
 
-		<!--</div>-->
-	<!--</div>-->
 <!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<button data-target="faq-modal" class="btn-floating modal-trigger red"
+        style="right: 10px; bottom: 10px; position: absolute;">
+    <i class="material-icons">help_outline</i>
+</button>
+
+
+<div id="faq-modal" class="modal">
+    <div class="modal-content">
+        <h4 style="text-align: center;">FAQ</h4>
+        <a> <b> How can I add my picture, text, or audio cues?</b> </a>
+        <p style="color:gray"> From <b style="color:black"> Home</b>, click the <b style="color:black"> Create </b>
+            button then add the cues of your choice. </p>
+
+        <a> <b> How can I loop the music?</b> </a>
+        <p style="color:gray"> When you click the <b style="color:black"> Edit </b> button on the particular dance you
+            want to edit, slide to the minutes of the music you want to loop, then toggle the <b style="color:black">
+                Loop </b> button. </p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
 </body>
 </html>
