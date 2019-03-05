@@ -46,9 +46,16 @@
 
 <div id="body" align="center">
     <h1 align="center" style="display: inline-block;">{{name}} &nbsp</h1>
-    <a id ="edit-btn" class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"
-                       onclick="event.stopPropagation();editDance('{{author}}', '{{name}}');"><i
-                            class="material-icons">edit</i></a>
+    <!--<a id ="edit-btn" class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"-->
+                       <!--onclick="event.stopPropagation();editDance('{{author}}', '{{name}}');"><i-->
+                            <!--class="material-icons">edit</i></a>-->
+    <form id="edit-btn" method="get" action="/create/{{author}}/{{name}}" style="display: none">
+    </form>
+    <button style="right: 10px; top: 10px; position: absolute;"
+            class="black btn-floating waves-effect waves-light btn btn-large" type="submit"
+            form="edit-btn">
+        <i class="material-icons">edit</i>
+    </button>
 
 
     <div id="screen" class="container" style="width:100%; height:270px; max-width: 500px; max-height: 270px;"> <!-- THE IMAGE GALLERY -->
