@@ -94,11 +94,17 @@
 
                 <script type="text/javascript">
                     $(document).ready(function () {
+                        function pad(n, width, z) {
+                            z = z || '0';
+                            n = n + '';
+                            return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+                        }
+
                         function toMin(num) {
                             var n = num;
                             var minutes = Math.floor(n / 60);
                             var seconds = (n - minutes * 60);
-                            return (minutes.toString() + ':' + seconds.toString());
+                            return (minutes.toString() + ':' + pad(seconds.toString(), 2));
                         }
 
                         var el = $("#{{~{cue_name}~}}-cue-range");
