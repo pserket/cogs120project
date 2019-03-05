@@ -1,1 +1,61 @@
-{"users":{"dummy":{"name":"dummy","dances":{"Dance 1":{"author":"dummy","name":"Dance 1","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[{"cue_name":"1","start":"100","end":"100","file":"/database/dummy/image/icon.png"},{"cue_name":"awdadawd","start":"100","end":"260","file":"/database/dummy/image/icon.png"},{"cue_name":"aa","start":"100","end":"100","file":"z","type":"text"}]},"Dance 2":{"author":"dummy","name":"Dance 2","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]},"Dance 3":{"author":"dummy","name":"Dance 3","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]},"Dance 4":{"author":"dummy","name":"Dance 4","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]},"test":{"author":"dummy","name":"test","duration":"1:50","song":"./database/dummy/audio/Endless Starlight 〜命のキラメキ〜（Full ver.）.mp3","thumbnail":"https://picsum.photos/170?random","cues":[{"cue_name":"sadf","start":"100","end":"200","file":"/database/dummy/image/Penguins.jpg","type":"image"}]},"new test":{"author":"dummy","name":"new test","duration":"1:50","song":"/database/dummy/audio/Maid with the Flaxen Hair.mp3","thumbnail":"https://picsum.photos/170?random","cues":[{"cue_name":"oeng","start":"0","end":"200","file":"/database/dummy/image/Penguins.jpg","type":"image"}]}},"explore":[{"author":"dummy","name":"Explore 1","duration":"1:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 2","duration":"2:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 3","duration":"3:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 4","duration":"4:50","thumbnail":"https://picsum.photos/170?random"}]}},"explore":[{"author":"dummy","name":"Explore 1","duration":"1:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 2","duration":"2:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 3","duration":"3:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 4","duration":"4:50","thumbnail":"https://picsum.photos/170?random"}]}
+{
+  "users": {
+    "dummy": {
+      "name": "dummy",
+      "dances": {
+      },
+      "explore": [
+        {
+          "author": "dummy",
+          "name": "Explore 1",
+          "duration": "1:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        },
+        {
+          "author": "dummy",
+          "name": "Explore 2",
+          "duration": "2:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        },
+        {
+          "author": "dummy",
+          "name": "Explore 3",
+          "duration": "3:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        },
+        {
+          "author": "dummy",
+          "name": "Explore 4",
+          "duration": "4:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        }
+      ]
+    }
+  },
+  "explore": [
+    {
+      "author": "dummy",
+      "name": "Explore 1",
+      "duration": "1:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    },
+    {
+      "author": "dummy",
+      "name": "Explore 2",
+      "duration": "2:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    },
+    {
+      "author": "dummy",
+      "name": "Explore 3",
+      "duration": "3:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    },
+    {
+      "author": "dummy",
+      "name": "Explore 4",
+      "duration": "4:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    }
+  ]
+}

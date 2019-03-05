@@ -108,14 +108,34 @@
         });
     </script>
     
+    <div id="hidden audio cues">
+
+        {{#each cues}}
+            {{#if audio}}
+                <audio controls autoplay hidden="hidden">
+                <source id = "audio{{start}}"src="{{file}}" type="mp3">
+                <!--This displays an error to users that don't have it supported-->
+                Your browser does not support the audio element.
+                </audio>
+                <script type="text/javascript">
+                    $('#audio{{start}}').bind('timeupdate', function() {
+                        if (this.currentTime >= (parseInt({{end}}, 10) - parseInt({{start}}, 10) {
+                            this.pause();
+                            this.currentTime = 0;
+                        } 
+                    });
+                </script>
+            {{/if}}
+
+        {{/each}}
+        
+    </div>
 
     <!-- CUES AND AUDIO LISTENER FUNCTION (LOOP BETWEEN SPECIFIC TIME & DISPLAYS IMAGE) -->
     <script>
         var myaudio = document.getElementById("sample");
         var cuesArray = new Array(400).fill(("<img id='screen' src='../../black.jpg' width='100%' height='100%'/>"));
         var audioCueArray = new Array(400);
-        // var cuesArray = new Array(400).fill('../../Sana-04.jpg');
-
 
         myaudio.addEventListener('loadedmetadata', function () {
 
@@ -128,6 +148,7 @@
                         cuesArray[i] = ("<img src='{{file}}' width='302' height='202'/>");
                     }
                 }
+
             {{/each}}
         });
 
@@ -139,10 +160,19 @@
             // }
             var myaudio = document.getElementById("sample");
 
+
+            //play audiocue at its set time
+            var audiocue = document.getElementById("audio"+Math.floor(myaudio.currentTime.toString()));
+            if (document.getElementById("audio"+myaudio.currentTime.toString() != null)) {
+                audiocue.play();
+            }
+            
+
             //var container = document.getElementById("screen");
 
             if (document.getElementById("sample").currentTime < cuesArray.length) {
-                $("#screen").html(cuesArray[Math.floor(document.getElementById("sample").currentTime)]);
+                if (cuesArray[Math.floor(document.getElementById("sample").currentTime)] !== $("#screen").html()):
+                    $("#screen").html(cuesArray[Math.floor(document.getElementById("sample").currentTime)]);
                 //console.log(Math.floor(document.getElementById("sample").currentTime));
 
                 //document.getElementById('imageDiv').appendChild(img);

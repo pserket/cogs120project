@@ -109,7 +109,8 @@ function saveCue(author, name, cue_name, file_name, fromT, toT, type) {
         "start": fromT,
         "end": toT,
         "file": file_name.substring(1),
-        "type": type
+        "type": type,
+        "audio": type === 'audio'
     };
 
     data['users'][author]['dances'][name]['cues'].push(cue);

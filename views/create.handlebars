@@ -160,10 +160,28 @@
     </div>
 </div>
 
-<div id="modal1" class="modal" style="height: 400px; max-height: 400px;">
+<div id="modal1" class="modal" style="height: 384px; max-height: 384px;overflow-y: hidden;">
     <div class="modal-content">
         <h4 style="text-align: center;">New Textual Cue</h4>
-        <form id="text-form" method="post" action="/upload_text/{{author}}/{{name}}">
+        <script>
+            function checkTextForm(form) {
+                if (form.cue_name.value === "") {
+                    M.toast({html: 'Add a name to your note!'});
+                    form.cue_name.focus();
+                    return false;
+                }
+
+                if (form.text_area.value === "") {
+                    M.toast({html: 'Add text to your cue!'});
+                    form.text_area.focus();
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+        <form id="text-form" method="post" action="/upload_text/{{author}}/{{name}}"
+              onsubmit="return checkTextForm(this)">
             <div class="input-field col s12">
                 <input id="text-cue-name" type="text" name="cue_name">
                 <label for="text-cue-name">Cue Name</label>
@@ -190,10 +208,39 @@
     </div>
 </div>
 
-<div id="modal2" class="modal" style="height: 400px; max-height: 400px;">
+<div id="modal2" class="modal" style="height: 404px; max-height: 404px;overflow-y: hidden;">
     <div class="modal-content">
         <h4 style="text-align: center;">New Audio Cue</h4>
-        <form id="audio-form" method="post" enctype="multipart/form-data" action="/upload_audio/{{author}}/{{name}}">
+        <script>
+            function checkAudioForm(form) {
+                if (form.cue_name.value === "") {
+                    M.toast({html: 'Add a name to your note!'});
+                    form.cue_name.focus();
+                    return false;
+                }
+
+                var filename = form.file.value;
+
+                if (filename === "") {
+                    M.toast({html: 'Choose a song!'});
+                    form.file.focus();
+                    return false;
+                }
+
+                var ext = filename.split('.').pop();
+
+                if (ext !== 'mp3' && ext !== 'ogg') {
+                    M.toast({html: 'Unsupported audio type!'});
+                    M.toast({html: 'Please use mp3 or ogg'});
+                    form.file.focus();
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+        <form id="audio-form" method="post" enctype="multipart/form-data" action="/upload_audio/{{author}}/{{name}}"
+              onsubmit="return checkAudioForm(this)">
             <div class="input-field col s12">
                 <input id="audio-cue-name" type="text" name="cue_name">
                 <label for="audio-cue-name">Cue Name</label>
@@ -228,11 +275,40 @@
     </div>
 </div>
 
-<div id="modal3" class="modal" style="height: 400px; max-height: 400px;">
+<div id="modal3" class="modal" style="height: 404px; max-height: 404px;overflow-y: hidden;">
     <div class="modal-content">
         <h4 style="text-align: center;">New Picture Cue</h4>
+        <script>
+            function checkPicForm(form) {
+                if (form.cue_name.value === "") {
+                    M.toast({html: 'Add a name to your cue!'});
+                    form.cue_name.focus();
+                    return false;
+                }
+
+                var filename = form.file.value;
+
+                if (filename === "") {
+                    M.toast({html: 'Choose an image!'});
+                    form.file.focus();
+                    return false;
+                }
+
+                var ext = filename.split('.').pop();
+
+                if (ext !== 'png' && ext !== 'jpg' && ext !== 'jpeg' && ext !== 'gif') {
+                    M.toast({html: 'Unsupported image type!'});
+                    M.toast({html: 'Please use png, jpeg, jpg, or gif'});
+                    form.file.focus();
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
         <form id="picture-form" method="post" enctype="multipart/form-data"
-              action="/upload_picture/{{author}}/{{name}}">
+              action="/upload_picture/{{author}}/{{name}}"
+              onsubmit="return checkPicForm(this)">
             <div class="input-field col s6">
                 <input id="pic-cue-name" type="text" name="cue_name">
                 <label for="pic-cue-name">Cue Name</label>
