@@ -166,8 +166,9 @@
                 audiocue.play();
             }
             if (document.getElementById("sample").currentTime < cuesArray.length) {
-                if (cuesArray[Math.floor(document.getElementById("sample").currentTime)] !== $("#screen").html()):
+                if (cuesArray[Math.floor(document.getElementById("sample").currentTime)] !== $("#screen").html()) {
                     $("#screen").html(cuesArray[Math.floor(document.getElementById("sample").currentTime)]);
+                }
                 //console.log(Math.floor(document.getElementById("sample").currentTime));
 
                 //document.getElementById('imageDiv').appendChild(img);
