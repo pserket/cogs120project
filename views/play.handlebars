@@ -111,7 +111,7 @@
     <div id="hidden audio cues">
 
         {{#each cues}}
-            {{#if type == "audio"}}
+            {{#if audio}}
                 <audio controls autoplay hidden="hidden">
                 <source id = "audio{{start}}"src="{{file}}" type="mp3">
                 <!--This displays an error to users that don't have it supported-->
