@@ -116,7 +116,11 @@ body {
     font-size: 3em;
     width: 300px;
     margin-left: auto;
-    padding-left: 20px;
+    text-align: center;
+    background-color: rgba(0,0,0,0.65);
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 5px;
     margin-right: auto;
 }
 
