@@ -1,19 +1,37 @@
 <html>
 <head>
-	<!-- Google Analytics Content Experiment code -->
-<script>function utmx_section(){}function utmx(){}(function(){var
-k='190879672-0',d=document,l=d.location,c=d.cookie;
-if(l.search.indexOf('utm_expid='+k)>0)return;
-function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
-indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
-length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
-'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
-'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
-'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
-valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
-'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
-</script><script>utmx('url','A/B');</script>
-<!-- End of Google Analytics Content Experiment code -->
+    <!-- Google Analytics Content Experiment code -->
+    <script>function utmx_section() {
+    }
+
+    function utmx() {
+    }
+
+    (function () {
+        var
+                k = '190879672-0', d = document, l = d.location, c = d.cookie;
+        if (l.search.indexOf('utm_expid=' + k) > 0) return;
+
+        function f(n) {
+            if (c) {
+                var i = c.indexOf(n + '=');
+                if (i > -1) {
+                    var j = c.indexOf(';', i);
+                    return escape(c.substring(i + n.length + 1, j < 0 ? c.length : j))
+                }
+            }
+        }
+
+        var x = f('__utmx'), xx = f('__utmxx'), h = l.hash;
+        d.write(
+                '<sc' + 'ript src="' + 'http' + (l.protocol == 'https:' ? 's://ssl' :
+                '://www') + '.google-analytics.com/ga_exp.js?' + 'utmxkey=' + k +
+                '&utmx=' + (x ? x : '') + '&utmxx=' + (xx ? xx : '') + '&utmxtime=' + new Date().valueOf() + (h ? '&utmxhash=' + escape(h.substr(1)) : '') +
+                '" type="text/javascript" charset="utf-8"><\/sc' + 'ript>')
+    })();
+    </script>
+    <script>utmx('url', 'A/B');</script>
+    <!-- End of Google Analytics Content Experiment code -->
 
     <title>Dance Notes</title>
 
@@ -33,16 +51,23 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 
     <!-- Google Analytics -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-ga('create', 'UA-135507455-1', 'auto');
-ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
+        ga('create', 'UA-135507455-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
 
 </head>
 <link rel="shortcut icon" href="/myfavicon.ico" type="image/x-icon"/>
@@ -53,7 +78,7 @@ ga('send', 'pageview');
         <h4 style="text-align: center;">New Dance Note</h4>
         <script>
             function checkForm(form) {
-                if(form.dn_name.value === "") {
+                if (form.dn_name.value === "") {
                     M.toast({html: 'Add a name to your note!'});
                     form.dn_name.focus();
                     return false;
@@ -75,6 +100,9 @@ ga('send', 'pageview');
                     form.file.focus();
                     return false;
                 }
+
+                $('#create-btn-text').css('display','none');
+                $('#create-btn-loader').css('display','inline-block');
 
                 return true;
             }
@@ -103,8 +131,60 @@ ga('send', 'pageview');
 
     </div>
     <div class="modal-footer">
-        <button class="waves-effect waves-light btn" type="submit" form="dn-form" value="Submit">
-            Submit
+        <button class="waves-effect waves-light btn" type="submit" form="dn-form" value="Submit" style="height: unset">
+            <div id="create-btn-text">Submit
+            </div>
+
+            <div id="create-btn-loader" class="preloader-wrapper small active" style="display: none">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+
         </button>
     </div>
 </div>

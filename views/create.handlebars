@@ -184,6 +184,9 @@
                     return false;
                 }
 
+                $('#create-text-text').css('display','none');
+                $('#create-text-loader').css('display','inline-block');
+
                 return true;
             }
         </script>
@@ -211,7 +214,61 @@
 
     </div>
     <div class="modal-footer">
-        <div onclick="addStartEndToForm('#text-form', 'upload_text', '{{author}}', '{{name}}')" class="btn">Submit</div>
+        <div onclick="addStartEndToForm('#text-form', 'upload_text', '{{author}}', '{{name}}')" class="btn">
+            <!--Submit-->
+            <div id="create-text-text">Submit
+            </div>
+
+            <div id="create-text-loader" class="preloader-wrapper small active" style="display: none">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -242,6 +299,9 @@
                     form.file.focus();
                     return false;
                 }
+
+                $('#create-audio-text').css('display','none');
+                $('#create-audio-loader').css('display','inline-block');
 
                 return true;
             }
@@ -277,7 +337,58 @@
         </form>
     </div>
     <div class="modal-footer">
-        <div onclick="addStartEndToForm('#audio-form', 'upload_audio', '{{author}}', '{{name}}')" class="btn">Submit
+        <div onclick="addStartEndToForm('#audio-form', 'upload_audio', '{{author}}', '{{name}}')" class="btn">
+            <div id="create-audio-text">Submit
+            </div>
+            <div id="create-audio-loader" class="preloader-wrapper small active" style="display: none">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -309,6 +420,9 @@
                     form.file.focus();
                     return false;
                 }
+
+                $('#create-pic-text').css('display','none');
+                $('#create-pic-loader').css('display','inline-block');
 
                 return true;
             }
@@ -348,7 +462,57 @@
     </div>
     <div class="modal-footer">
         <div onclick="addStartEndToForm('#picture-form', 'upload_picture', '{{author}}', '{{name}}')" class="btn">
-            Submit
+            <div id="create-pic-text">Submit
+            </div>
+            <div id="create-pic-loader" class="preloader-wrapper small active" style="display: none">
+                <div class="spinner-layer spinner-blue">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-yellow">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+                <div class="spinner-layer spinner-green">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
