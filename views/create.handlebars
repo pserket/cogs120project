@@ -227,7 +227,7 @@
                     return false;
                 }
 
-                var ext = filename.split('.').pop();
+                var ext = filename.split('.').pop().toLowerCase();
 
                 if (ext !== 'mp3' && ext !== 'ogg') {
                     M.toast({html: 'Unsupported audio type!'});
@@ -294,7 +294,7 @@
                     return false;
                 }
 
-                var ext = filename.split('.').pop();
+                var ext = filename.split('.').pop().toLowerCase();
 
                 if (ext !== 'png' && ext !== 'jpg' && ext !== 'jpeg' && ext !== 'gif') {
                     M.toast({html: 'Unsupported image type!'});

@@ -54,7 +54,7 @@ ga('send', 'pageview');
                     return false;
                 }
 
-                var ext = filename.split('.').pop();
+                var ext = filename.split('.').pop().toLowerCase();
 
                 if (ext !== 'mp3' && ext !== 'ogg') {
                     M.toast({html: 'Unsupported audio type!'});
