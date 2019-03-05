@@ -16,6 +16,10 @@
     <!--Plugin JavaScript file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script src="../../js/dcount.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <link href="../../css/dcount.css" rel="stylesheet">
     <link href="../../css/button.css" rel="stylesheet">
@@ -64,13 +68,29 @@
 
     <!-- LOOP TOGGLE HTML -->
     <p></p>
-    <div class="loopbutton">
-        <label class="switch">
-            <input type="checkbox" id="check">
-            <span class="slider round" id="loopslider"></span>
+    <div class="switch">
+        <label>
+            <input disabled type="checkbox" id="check">
+            <span class="lever"></span>
+            Loop and select section to loop from:
         </label>
-        Loop and select section to loop from:
     </div>
+
+    <!-- LOOP TOGGLE JAVASCRIPT? -->
+
+    <script>
+        myaudio = document.getElementById("sample");
+        var slider = document.getElementById("check");
+        slider.oninput = function () {
+            if (myaudio.loop === false) {
+                myaudio.loop = true
+            }
+            else {
+                myaudio.loop = false
+            }
+        };
+    </script>
+
 
     <p></p>
     <!-- LOOP 2 HANDLE SLIDER RANGE -->
@@ -214,21 +234,6 @@
     <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton2"></input> (seconds)
   -->
 
-    <!-- LOOP TOGGLE JAVASCRIPT? -->
-
-    <script>
-        myaudio = document.getElementById("sample");
-        var slider = document.getElementById("check");
-        slider.oninput = function () {
-            if (myaudio.loop === false) {
-                myaudio.loop = true
-            }
-            else {
-                myaudio.loop = false
-            }
-        };
-    </script>
-
     <p></p>
 
     <!-- SPEED OF AUDIO SLIDER -->
@@ -252,7 +257,10 @@
         style="right: 10px; bottom: 10px; position: absolute;">
     <i class="material-icons" style="font-size: 2em;">help_outline</i>
 </button>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <div id="faq-modal" class="modal">
     <div class="modal-content">
