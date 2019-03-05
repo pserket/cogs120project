@@ -49,9 +49,38 @@ ga('send', 'pageview');
 <body class="cyan">
 <div id="modal1" class="modal">
     <div class="modal-content">
-        <h4 style="text-align: center;">New Dance Note</h4>
+ <h4 style="text-align: center;">New Dance Note</h4>
+        <script>
+            function checkForm(form) {
+                if(form.dn_name.value === "") {
+                    M.toast({html: 'Add a name to your note!'});
+                    form.dn_name.focus();
+                    return false;
+                }
+
+                var filename = form.file.value;
+
+                if (filename === "") {
+                    M.toast({html: 'Choose a base song!'});
+                    form.file.focus();
+                    return false;
+                }
+
+                var ext = filename.split('.').pop();
+
+                if (ext !== 'mp3' && ext !== 'ogg') {
+                    M.toast({html: 'Unsupported audio type!'});
+                    M.toast({html: 'Please use mp3 or ogg'});
+                    form.file.focus();
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
         <form id="dn-form" method="post" enctype="multipart/form-data"
-              action="/create_new/{{name}}">
+              action="/create_new/{{name}}"
+              onsubmit="return checkForm(this)">
             <div class="input-field col s6">
                 <input id="dn-name" type="text" name="dn_name">
                 <label for="dn-name">Note Name</label>
@@ -87,9 +116,10 @@ ga('send', 'pageview');
 
     <div class='choreo-holder'>
         <div class="row">
+
         <div class = "column", id="create-btn" class="card">
-            <a class="btn-floating btn-large waves-effect waves-light"
-               onclick="event.stopPropagation(); createBtn('{{name}}');" style="margin-top: 70px;"><i
+            <a class="btn-floating btn-large waves-effect waves-light modal-trigger" href="#modal1"
+               style="margin-top: 55px;"><i
                     class="material-icons">add</i></a>
         </div>
     </div>
