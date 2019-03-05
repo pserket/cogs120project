@@ -1,1 +1,173 @@
-{"users":{"dummy":{"name":"dummy","dances":{"Dance 1":{"author":"dummy","name":"Dance 1","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[{"cue_name":"1","start":"100","end":"215","file":"/database/dummy/image/icon.png"},{"cue_name":"awdadawd","start":"100","end":"260","file":"/database/dummy/image/icon.png"}]},"Dance 2":{"author":"dummy","name":"Dance 2","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]},"Dance 3":{"author":"dummy","name":"Dance 3","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]},"Dance 4":{"author":"dummy","name":"Dance 4","duration":"1:50","thumbnail":"https://picsum.photos/170?random","cues":[]},"test":{"author":"dummy","name":"test","duration":"1:50","song":"./database/dummy/audio/Endless Starlight 〜命のキラメキ〜（Full ver.）.mp3","thumbnail":"https://picsum.photos/170?random","cues":[{"cue_name":"sadf","start":"100","end":"200","file":"/database/dummy/image/Penguins.jpg","type":"image"}]},"new test":{"author":"dummy","name":"new test","duration":"1:50","song":"/database/dummy/audio/Maid with the Flaxen Hair.mp3","thumbnail":"https://picsum.photos/170?random","cues":[{"cue_name":"oeng","start":"0","end":"200","file":"/database/dummy/image/Penguins.jpg","type":"image"}]}},"explore":[{"author":"dummy","name":"Explore 1","duration":"1:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 2","duration":"2:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 3","duration":"3:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 4","duration":"4:50","thumbnail":"https://picsum.photos/170?random"}]}},"explore":[{"author":"dummy","name":"Explore 1","duration":"1:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 2","duration":"2:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 3","duration":"3:50","thumbnail":"https://picsum.photos/170?random"},{"author":"dummy","name":"Explore 4","duration":"4:50","thumbnail":"https://picsum.photos/170?random"}]}
+{
+  "users": {
+    "dummy": {
+      "name": "dummy",
+      "dances": {
+        "hh": {
+          "author": "dummy",
+          "name": "hh",
+          "duration": "3:22",
+          "song": "/database/dummy/audio/Candy Pop.mp3",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": []
+        },
+        "notenote": {
+          "author": "dummy",
+          "name": "notenote",
+          "duration": "3:54",
+          "song": "/database/dummy/audio/Roses--Love Yourself Mashup (Full Version).mp3.mp3",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": [
+            {
+              "cue_name": "hello",
+              "start": "0",
+              "end": "202",
+              "file": "ello hello",
+              "type": "text"
+            },
+            {
+              "cue_name": "hello-hello",
+              "start": "100",
+              "end": "246",
+              "file": "erp",
+              "type": "text"
+            }
+          ]
+        },
+        "Test": {
+          "author": "dummy",
+          "name": "Test",
+          "duration": "3:39",
+          "song": "/database/dummy/audio/BIGBANG - LOSER_2.mp3.mp3",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": []
+        },
+        "Tiffany’s test": {
+          "author": "dummy",
+          "name": "Tiffany’s test",
+          "duration": "3:50",
+          "song": "/database/dummy/audio/BLACKPINK - STAY.mp3.mp3",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": []
+        },
+        "test": {
+          "author": "dummy",
+          "name": "test",
+          "duration": "3:17",
+          "song": "/database/dummy/audio/BDZ.mp3",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": [
+            {
+              "cue_name": "test ",
+              "start": "100",
+              "end": "200",
+              "file": "ello",
+              "type": "text"
+            }
+          ]
+        },
+        "twice": {
+          "author": "dummy",
+          "name": "twice",
+          "duration": "6:1",
+          "song": "/database/dummy/audio/TwiceTheNightAway.mp3",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": []
+        },
+        "cheesecake": {
+          "author": "dummy",
+          "name": "cheesecake",
+          "duration": "3:17",
+          "song": "/database/dummy/audio/DEJAVU.mp3",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": [
+            {
+              "cue_name": "cream",
+              "start": "100",
+              "end": "200",
+              "file": "/database/dummy/image/49654237_594286920996983_3116218387340885726_n.jpg",
+              "type": "image"
+            }
+          ]
+        },
+        "note7": {
+          "author": "dummy",
+          "name": "note7",
+          "duration": "3:54",
+          "song": "/database/dummy/audio/Roses--Love Yourself Mashup (Full Version).mp3.mp3",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": []
+        },
+        "yoyo": {
+          "author": "dummy",
+          "name": "yoyo",
+          "duration": "3:54",
+          "duration-s": 234,
+          "song": "/database/dummy/audio/Roses--Love Yourself Mashup (Full Version).mp3.mp3",
+          "thumbnail": "https://picsum.photos/170?random",
+          "cues": [
+            {
+              "cue_name": "koakdokaw-koawd-ko-ko-ko-",
+              "start": "36",
+              "end": "200",
+              "file": "iojfeoi rogjorjg ojeg oiejg",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "explore": [
+        {
+          "author": "dummy",
+          "name": "Explore 1",
+          "duration": "1:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        },
+        {
+          "author": "dummy",
+          "name": "Explore 2",
+          "duration": "2:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        },
+        {
+          "author": "dummy",
+          "name": "Explore 3",
+          "duration": "3:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        },
+        {
+          "author": "dummy",
+          "name": "Explore 4",
+          "duration": "4:50",
+          "thumbnail": "https://picsum.photos/170?random"
+        }
+      ]
+    }
+  },
+  "explore": [
+    {
+      "author": "dummy",
+      "name": "Explore 1",
+      "duration": "1:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    },
+    {
+      "author": "dummy",
+      "name": "Explore 2",
+      "duration": "2:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    },
+    {
+      "author": "dummy",
+      "name": "Explore 3",
+      "duration": "3:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    },
+    {
+      "author": "dummy",
+      "name": "Explore 4",
+      "duration": "4:50",
+      "thumbnail": "https://picsum.photos/170?random"
+    }
+  ]
+}
