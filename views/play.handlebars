@@ -55,7 +55,7 @@
     <p></p>
     <!-- PUT THE AUDIO HERE -->
     <script type="text/javascript">
-        console.log("{{song}}")
+        //console.log("{{song}}")
     </script>
     <audio id="sample" src="{{song}}" controls style="width: 100%; max-height:400px; max-width: 500px" preload="auto" ontimeupdate="audio()">
         <p>Your browser does not support the audio element</p>
@@ -111,22 +111,19 @@
     <div id="hidden audio cues">
 
         {{#each cues}}
-            {{#if audio}}
-                <audio controls autoplay hidden="hidden">
-                <source id = "audio{{start}}"src="{{file}}" type="mp3">
-                <!--This displays an error to users that don't have it supported-->
-                Your browser does not support the audio element.
-                </audio>
-                <script type="text/javascript">
-                    $('#audio{{start}}').bind('timeupdate', function() {
-                        if (this.currentTime >= (parseInt({{end}}, 10) - parseInt({{start}}, 10) {
-                            this.pause();
-                            this.currentTime = 0;
-                        } 
-                        });
-                </script>
-            {{/if}}
+            {{#if audio}} 
 
+                <audio id = "audio{{start}}" src="{{file}}" type="mp3" controls preload="auto" hidden="hidden"ontimeupdate="
+                //console.log(this.currentTime >= (parseInt({{end}}, 10) - parseInt({{start}}, 10)));
+                            if (this.currentTime >= (parseInt({{end}}, 10) - parseInt({{start}}, 10))) {
+                                this.pause();
+                                this.currentTime = 0;
+                            }">
+                            <div id="startTime">{{start}}</div>
+                            <div id="endTime">{{end}}</div>
+                </audio>
+
+            {{/if}}
         {{/each}}
         
     </div>
@@ -136,6 +133,8 @@
         var myaudio = document.getElementById("sample");
         var cuesArray = new Array(400).fill(("<img id='screen' src='../../black.jpg' width='100%' height='100%'/>"));
         var audioCueArray = new Array(400);
+        var audiocues = document.getElementsByTagName("audio");
+        audiocues = Array.prototype.slice.call(audiocues,1);
 
         myaudio.addEventListener('loadedmetadata', function () {
 
@@ -150,6 +149,23 @@
                 }
             {{/each}}
         });
+        myaudio.onpause = function() {
+            for (var i = 0; i < audiocues.length; i++) {
+                audiocues[i].pause();
+            }
+        };
+
+        myaudio.onplay = function() {
+            for (var i = 0; i < audiocues.length; i++) {
+                var cue = audiocues[i];
+                var startT = parseInt(cue.children[0].textContent, 10);
+                var endT = parseInt(cue.children[1].textContent, 10);
+                if ((myaudio.currentTime > startT) && (myaudio.currentTime < endT)) {
+                    cue.currentTime = myaudio.currentTime - startT;
+                    cue.play();
+                }
+            }
+        };
 
 
         function audio() {
@@ -158,13 +174,15 @@
             //     console.log(cuesArray[i])
             // }
             var myaudio = document.getElementById("sample");
-
-
             //play audiocue at its set time
-            var audiocue = document.getElementById("audio"+Math.floor(myaudio.currentTime.toString()));
-            if (document.getElementById("audio"+myaudio.currentTime.toString() != null)) {
+            var audiocue = document.getElementById("audio"+Math.floor(myaudio.currentTime).toString());
+            
+            //console.log("audio"+Math.floor(myaudio.currentTime).toString());
+            if (audiocue != null) {
                 audiocue.play();
+                audiocue.volume = myaudio.volume;
             }
+
             if (document.getElementById("sample").currentTime < cuesArray.length) {
                 if (cuesArray[Math.floor(document.getElementById("sample").currentTime)] !== $("#screen").html()) {
                     $("#screen").html(cuesArray[Math.floor(document.getElementById("sample").currentTime)]);
