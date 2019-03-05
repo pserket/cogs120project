@@ -7,6 +7,7 @@ const path = require('path');
 const fs = require("fs");
 const handlebars = require('express3-handlebars');
 const index = require('./routes/index');
+const index2 = require('./routes/index2');
 const login = require('./routes/login');
 const dance = require('./routes/dance');
 const create = require('./routes/create');
@@ -381,6 +382,7 @@ var urlencodedParser = bodyParser.urlencoded({extended: false});
 app.get('/login', urlencodedParser, login.login);
 app.get('/register', urlencodedParser, login.register);
 app.get('/index', index.view);
+app.get('/index2', index2.view);
 app.get('/dance/:author/:name', dance.view);
 app.get('/create/:author/:name', create.view);
 app.post('/create_new/:author',
