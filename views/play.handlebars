@@ -148,7 +148,7 @@
                         cuesArray[i] = ("<img src='{{file}}' width='302' height='202'/>");
                     }
                 }
-            {{each}}
+            {{/each}}
         });
 
 
@@ -165,19 +165,14 @@
             if (document.getElementById("audio"+myaudio.currentTime.toString() != null)) {
                 audiocue.play();
             }
-            
-
-            //var container = document.getElementById("screen");
-
             if (document.getElementById("sample").currentTime < cuesArray.length) {
-                if (cuesArray[Math.floor(document.getElementById("sample").currentTime)] !== $("#screen").html()):
+                if (cuesArray[Math.floor(document.getElementById("sample").currentTime)] !== $("#screen").html()) {
                     $("#screen").html(cuesArray[Math.floor(document.getElementById("sample").currentTime)]);
+                }
                 //console.log(Math.floor(document.getElementById("sample").currentTime));
 
                 //document.getElementById('imageDiv').appendChild(img);
             }
-
-
             if (myaudio.loop == true) {
                 if (document.getElementById("sample").currentTime >= $('.js-range-slider').data("to")) {
                     document.getElementById("sample").currentTime = $('.js-range-slider').data("from")
@@ -187,8 +182,6 @@
                     document.getElementById("sample").currentTime = $('.js-range-slider').data("from")
                 }
             }
-
-
         }
     </script>
 
@@ -230,9 +223,6 @@
             myaudio.playbackRate = this.value / 100;
         }
     </script>
-
-
 </div>
-
 </body>
 </html>
