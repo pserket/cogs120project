@@ -51,8 +51,37 @@ ga('send', 'pageview');
 <div id="modal1" class="modal">
     <div class="modal-content">
         <h4 style="text-align: center;">New Dance Note</h4>
+        <script>
+            function checkForm(form) {
+                if(form.dn_name.value === "") {
+                    M.toast({html: 'Add a name to your note!'});
+                    form.dn_name.focus();
+                    return false;
+                }
+
+                var filename = form.file.value;
+
+                if (filename === "") {
+                    M.toast({html: 'Choose a base song!'});
+                    form.file.focus();
+                    return false;
+                }
+
+                var ext = filename.split('.').pop();
+
+                if (ext !== 'mp3' && ext !== 'ogg') {
+                    M.toast({html: 'Unsupported audio type!'});
+                    M.toast({html: 'Please use mp3 or ogg'});
+                    form.file.focus();
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
         <form id="dn-form" method="post" enctype="multipart/form-data"
-              action="/create_new/{{name}}">
+              action="/create_new/{{name}}"
+              onsubmit="return checkForm(this)">
             <div class="input-field col s6">
                 <input id="dn-name" type="text" name="dn_name">
                 <label for="dn-name">Note Name</label>
