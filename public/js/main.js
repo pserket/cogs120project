@@ -44,3 +44,8 @@ function initializePage() {
 //         $('.hover_bkgr_fricc').hide();
 //     });
 // });
+
+// function recordPageScroll(e) {
+//     ga('create', 'UA-135507455-1', 'auto');
+//     ga("send", "event", 'pagescroll', 'bottom');
+// }
