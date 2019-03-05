@@ -8,6 +8,8 @@ $(document).ready(function() {
         window.location.href = document.location.origin + "/index";
     });
 
+    var elems = document.querySelectorAll('.modal');
+    M.Modal.init(elems);
 });
 function editDance(user, name) {
     var string = "/create/" + user + "/" + name;
