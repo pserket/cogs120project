@@ -16,10 +16,6 @@
     <!--Plugin JavaScript file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.0/js/ion.rangeSlider.min.js"></script>
     <script src="../../js/dcount.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <link href="../../css/dcount.css" rel="stylesheet">
     <link href="../../css/button.css" rel="stylesheet">
@@ -49,16 +45,9 @@
 
 <div id="body" align="center">
     <h1 align="center" style="display: inline-block;">{{name}} &nbsp</h1>
-    <!--<a id ="edit-btn" class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"-->
-                       <!--onclick="event.stopPropagation();editDance('{{author}}', '{{name}}');"><i-->
-                            <!--class="material-icons">edit</i></a>-->
-    <form id="edit-btn" method="get" action="/create/{{author}}/{{name}}" style="display: none">
-    </form>
-    <button style="right: 10px; top: 10px; position: absolute;"
-            class="black btn-floating waves-effect waves-light btn btn-large" type="submit"
-            form="edit-btn">
-        <i class="material-icons">edit</i>
-    </button>
+    <a id ="edit-btn" class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"
+                       onclick="event.stopPropagation();editDance('{{author}}', '{{name}}');"><i
+                            class="material-icons">edit</i></a>
 
 
     <div id="screen" class="container" style="width:100%; height:270px; max-width: 500px; max-height: 270px;"> <!-- THE IMAGE GALLERY -->
@@ -78,12 +67,12 @@
 
     <!-- LOOP TOGGLE HTML -->
     <p></p>
-    <div class="switch">
-        <label>
-            <input disabled type="checkbox" id="check">
-            <span class="lever"></span>
-            Loop and select section to loop from:
+    <div class="loopbutton">
+        <label class="switch">
+            <input type="checkbox" id="check">
+            <span class="slider round" id="loopslider"></span>
         </label>
+        Loop and select section to loop from:
     </div>
 
     <!-- LOOP TOGGLE JAVASCRIPT? -->
@@ -213,7 +202,7 @@
             var audiocue = document.getElementById("audio"+Math.floor(myaudio.currentTime).toString());
             
             //console.log("audio"+Math.floor(myaudio.currentTime).toString());
-            if (audiocue != null) {
+            if ((audiocue != null) && (myaudio.paused != false)){
                 audiocue.play();
                 audiocue.volume = myaudio.volume;
             }
@@ -267,10 +256,6 @@
         style="right: 10px; bottom: 10px; position: absolute;">
     <i class="material-icons" style="font-size: 2em;">help_outline</i>
 </button>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <div id="faq-modal" class="modal">
     <div class="modal-content">
