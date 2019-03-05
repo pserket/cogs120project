@@ -215,7 +215,7 @@ app.post(
 );
 
 app.post(
-    "/upload_audio/:author/:name/:cue_name/:fromT/:toT",
+    "/upload_audio/:author/:name/:fromT/:toT",
     upload.single("file" /* name attribute of <file> element in your form */),
     (req, res) => {
         const author = req.params.author;
@@ -236,10 +236,8 @@ app.post(
             else console.log('Done!');
 
             const file = parent_dir + req.file.originalname;
-
             const name = req.params.name;
             const cue_name = req.body.cue_name;
-
 
             fs.rename(req.file.path, file, err => {
                 if (err) return handleError(err, res);
