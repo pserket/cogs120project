@@ -50,6 +50,17 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
 
         ga('create', 'UA-135507455-1', 'auto');
         ga('send', 'pageview');
+
+        $(document).ready(function() {
+            var startTime = new Date().getTime();
+
+            $(window).on('beforeunload', function() {
+                var endTime = new Date().getTime();
+                var timeSpent = endTime - startTime;
+
+                ga('send', 'timing', 'page-duration', 'time-spent', timeSpent);
+            });
+        });
     </script>
     <!-- End Google Analytics -->
 
