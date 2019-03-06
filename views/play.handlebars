@@ -38,7 +38,7 @@
 
 </head>
 
-<body>
+<body class="cyan">
 <!--<a id="back-btn" class="btn-floating btn-large waves-effect waves-light red" style="border-radius: 50%;"><i-->
         <!--class="material-icons">arrow_back</i></a>-->
 <button id="back-btn" class="btn-floating red btn-large"
@@ -76,12 +76,13 @@
 
 
     <!-- LOOP TOGGLE HTML -->
-    <p></p>
+    <div>Custom Looping</div>
     <div class="switch">
-        <label>
-            <input disabled type="checkbox" id="check">
+        <label style="color: black !important;">
+            Off
+            <input type="checkbox" id="check">
             <span class="lever"></span>
-            Loop and select section to loop from:
+            On
         </label>
     </div>
 
@@ -91,11 +92,21 @@
         myaudio = document.getElementById("sample");
         var slider = document.getElementById("check");
         slider.oninput = function () {
+            let my_range = $(".js-range-slider").data("ionRangeSlider");
+
             if (myaudio.loop === false) {
-                myaudio.loop = true
+                // let my_range = $(".js-range-slider").data("ionRangeSlider");
+                my_range.update({
+                    disable: false
+                });
+
+                myaudio.loop = true;
             }
             else {
-                myaudio.loop = false
+                my_range.update({
+                    disable: true
+                });
+                myaudio.loop = false;
             }
         };
     </script>
@@ -127,6 +138,7 @@
             min: 0,
             max: 210,
             from: 0,
+            disable: true,
             prettify: toMin
         });
 
