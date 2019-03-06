@@ -58,7 +58,14 @@ valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
                 var endTime = new Date().getTime();
                 var timeSpent = endTime - startTime;
 
-                ga('send', 'timing', 'page-duration', 'time-spent', timeSpent);
+                ga('send', {
+                    hitType:'timing',
+                    timingCategory: 'Performance Metrics',
+                    timingVar: 'Time Spent on Page (DN)',
+                    timingValue: timeSpent
+                });
+
+                // ga('send', 'timing', 'page-duration', 'time-spent', timeSpent);
             });
         });
     </script>
