@@ -6,6 +6,15 @@ $(document).ready(function() {
 
     var elems = document.querySelectorAll('.modal');
     M.Modal.init(elems);
+
+    var startTime = new Date().getTime();
+
+    $(window).on('beforeunload', function() {
+        var endTime = new Date().getTime();
+        var timeSpent = endTime - startTime;
+
+        ga('send', 'timing', 'page-duration', 'time-spent', timeSpent);
+    });
 });
 
 function createBtn(user) {
