@@ -38,22 +38,22 @@
 
 </head>
 
-<body>
+<body class="cyan">
 <!--<a id="back-btn" class="btn-floating btn-large waves-effect waves-light red" style="border-radius: 50%;"><i-->
         <!--class="material-icons">arrow_back</i></a>-->
 <button id="back-btn" class="btn-floating red btn-large"
-        style="left: 10px; top: 10px; position: absolute;">
+        style="left: 10px; top: 10px; position: fixed;">
     <i class="material-icons" style="font-size: 2em;">arrow_back</i>
 </button>
 
 <div id="body" align="center">
-    <h1 align="center" style="display: inline-block;">{{name}} &nbsp</h1>
+    <h2 align="center" style="display: inline-block; margin: 10px">{{name}}</h2>
     <!--<a id ="edit-btn" class="btn-floating btn-small waves-effect waves-light teal choreo-item-btn"-->
                        <!--onclick="event.stopPropagation();editDance('{{author}}', '{{name}}');"><i-->
                             <!--class="material-icons">edit</i></a>-->
     <form id="edit-btn" method="get" action="/create/{{author}}/{{name}}" style="display: none">
     </form>
-    <button style="right: 10px; top: 10px; position: absolute;"
+    <button style="right: 10px; top: 10px; position: fixed;"
             class="black btn-floating waves-effect waves-light btn btn-large" type="submit"
             form="edit-btn">
         <i class="material-icons">edit</i>
@@ -76,12 +76,13 @@
 
 
     <!-- LOOP TOGGLE HTML -->
-    <p></p>
+    <div>Custom Looping</div>
     <div class="switch">
-        <label>
-            <input disabled type="checkbox" id="check">
+        <label style="color: black !important;">
+            Off
+            <input type="checkbox" id="check">
             <span class="lever"></span>
-            Loop and select section to loop from:
+            On
         </label>
     </div>
 
@@ -91,11 +92,21 @@
         myaudio = document.getElementById("sample");
         var slider = document.getElementById("check");
         slider.oninput = function () {
+            let my_range = $(".js-range-slider").data("ionRangeSlider");
+
             if (myaudio.loop === false) {
-                myaudio.loop = true
+                // let my_range = $(".js-range-slider").data("ionRangeSlider");
+                my_range.update({
+                    disable: false
+                });
+
+                myaudio.loop = true;
             }
             else {
-                myaudio.loop = false
+                my_range.update({
+                    disable: true
+                });
+                myaudio.loop = false;
             }
         };
     </script>
@@ -127,6 +138,7 @@
             min: 0,
             max: 210,
             from: 0,
+            disable: true,
             prettify: toMin
         });
 
@@ -263,7 +275,7 @@
 </div>
 
 <button data-target="faq-modal" class="btn-floating modal-trigger red btn-large"
-        style="right: 10px; bottom: 10px; position: absolute;">
+        style="right: 10px; bottom: 10px; position: fixed;">
     <i class="material-icons" style="font-size: 2em;">help_outline</i>
 </button>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
