@@ -155,27 +155,43 @@
         });
         });
     </script>
+
+
            <!-- SPEED OF AUDIO SLIDER -->
-    
-    <form action="#">
-        <p class="range-field">
-            <input type="range" id="speed" min="25" max="200" value="100" style="width: 90%; max-width: 350px" /> 
-            <p></p>
-            Speed: <output id="output"></output>%
-        </p>
-    </form>
+           <p></p>
+    <div style="width: 450px; max-width: 90%;">
+        Playback Speed
+        <input type="text" class="js-range-slider" id="speedrange"name="speedrange" value=""/>
+        <p></p>
+   </div>
 
     <script>
-        var slider = document.getElementById("speed");
-        var output = document.getElementById("output");
-        output.innerHTML = slider.value;
+        function decimal(num) {
+            var n = num;
+            return (n / 100).toString() + 'x';
+        }
+  
+        $("#speedrange").ionRangeSlider({
+            skin: "round",
+            type: "single",
+            min: 25,
+            max: 200,
+            from: 100,
+            step: 5,
+
+            prettify: decimal
+        });
+    </script>
+
+    <script>
+        var slider = document.getElementById("speedrange");
+        //var output = document.getElementById("output");
+        //output.innerHTML = slider.value;
         slider.oninput = function () {
-            output.innerHTML = this.value;
+            //output.innerHTML = this.value / 100;
             myaudio.playbackRate = this.value / 100;
         }
-    </script>
-    
-
+    </script>    
 
     <!-- hidden audio cues -->
     <div id="hidden audio cues">
