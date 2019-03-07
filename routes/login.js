@@ -1,5 +1,6 @@
 const users = require('../users.json');
 const fs = require("fs");
+const crypto = require('crypto');
 
 exports.view = function (req, res) {
     res.render('login');
@@ -9,13 +10,27 @@ exports.login = function (req, res) {
     const username = req.query.username;
     const password = req.query.password;
 
-    if (typeof users[username] !== "undefined" && users[username] === password) {
-        var data = require('../data.json');
+    if (typeof users[username] !== "undefined") {
+        var hashedPassCode = users[username];
+        const salt = hashedPassCode.substring(0, saltLength);
+        const hash = crypto.pbkdf2Sync(password, salt, 1000, 32, 'sha512');
+        const hashString = hash.toString('hex');
+        const saltWithHash = salt + hashString;
 
-        var x = data['users'][username];
-        x['explore'] = data['explore'];
+        if (hashedPassCode === saltWithHash) {
+            var data = require('../data.json');
 
-        res.render('index', x);
+            var x = data['users'][username];
+            x['explore'] = data['explore'];
+
+            res.render('index', x);
+
+            console.log("User successfully logged in!")
+        } else {
+            console.log("Hashed passwords don't match!");
+        }
+
+
     } else {
         console.log(typeof users[username]);
         console.log(users[username] === password);
@@ -27,6 +42,14 @@ exports.login = function (req, res) {
     }
 };
 
+var genRandomString = function(length){
+    return crypto.randomBytes(Math.ceil(length/2))
+        .toString('hex') /** convert to hexadecimal format */
+        .slice(0,length);   /** return required number of characters */
+};
+
+const saltLength = 24;
+
 exports.register = function (req, res) {
     const username = req.query.username;
     const password = req.query.password;
@@ -34,7 +57,14 @@ exports.register = function (req, res) {
 
     if (typeof users[username] === "undefined") {
         if (password === rpassword) {
-            users[username] = password;
+            // hash and salt
+            const salt = genRandomString(saltLength);
+            const hash = crypto.pbkdf2Sync(password, salt, 1000, 32, 'sha512');
+            const hashString = hash.toString('hex');
+            const saltWithHash = salt + hashString;
+            
+            users[username] = saltWithHash;
+            // console.log("SALT LENGTH: " + salt.length);
 
             var content = JSON.stringify(users);
 
