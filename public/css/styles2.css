@@ -35,17 +35,19 @@ body {
     margin-left: 5px;
     height: 26px;
     line-height: 28px;
+    padding-left: 40px;
 }
 
 .choreo-item-duration {
     margin-left: 5px;
     color: rgba(255,255,255,0.55);
+    padding-left: 40px;
 }
 
 .choreo-item-btn {
     position: relative;
     top: -40px;
-    left: 350px;
+    left: 5px;
 }
 
 .main-container {
