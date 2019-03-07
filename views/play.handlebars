@@ -153,7 +153,30 @@
         });
         });
     </script>
+           <!-- SPEED OF AUDIO SLIDER -->
     
+    <form action="#">
+        <p class="range-field">
+
+            
+            <input type="range" id="speed" min="25" max="200" value="100" style="width: 90%; max-width: 350px" /> 
+            Speed: <output id="output"></output>%
+        </p>
+    </form>
+
+    <script>
+        var slider = document.getElementById("speed");
+        var output = document.getElementById("output");
+        output.innerHTML = slider.value;
+        slider.oninput = function () {
+            output.innerHTML = this.value;
+            myaudio.playbackRate = this.value / 100;
+        }
+    </script>
+    
+
+
+    <!-- hidden audio cues -->
     <div id="hidden audio cues">
 
         {{#each cues}}
@@ -255,23 +278,7 @@
     <input onclick="this.value=Math.floor(myaudio.currentTime)" type="button" value=0 id="myButton2"></input> (seconds)
   -->
 
-    <p></p>
-
-    <!-- SPEED OF AUDIO SLIDER -->
-    <div class="slidecontainer">
-        <input type="range" min="25" max="200" value="100" class="slider" id="myRange">
-        <p>Speed: <span id="demo"></span>%</p>
-    </div>
-
-    <script>
-        var slider = document.getElementById("myRange");
-        var output = document.getElementById("demo");
-        output.innerHTML = slider.value;
-        slider.oninput = function () {
-            output.innerHTML = this.value;
-            myaudio.playbackRate = this.value / 100;
-        }
-    </script>
+ 
 </div>
 
 <button data-target="faq-modal" class="btn-floating modal-trigger red btn-large"
