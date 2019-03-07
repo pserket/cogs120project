@@ -35,6 +35,10 @@
     margin-left: -3px;
 }
 
+.irs-from, .irs-to {
+    color: black !important;
+}
+
 .text-cue .irs-bar {
     background-color: #2196F3 !important;
 }
