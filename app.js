@@ -70,6 +70,23 @@ app.use(bodyParser.json());
 
 var ms = require('mediaserver');
 
+const mimeType = {
+    '.ico': 'image/x-icon',
+    '.html': 'text/html',
+    '.js': 'text/javascript',
+    '.json': 'application/json',
+    '.css': 'text/css',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
+    '.wav': 'audio/wav',
+    '.mp3': 'audio/mpeg',
+    '.svg': 'image/svg+xml',
+    '.pdf': 'application/pdf',
+    '.doc': 'application/msword',
+    '.eot': 'appliaction/vnd.ms-fontobject',
+    '.ttf': 'aplication/font-sfnt'
+};
+
 app.get(
     "/database/:author/:ftype/:fl",
     (req, res) => {
@@ -89,7 +106,6 @@ app.get(
         var file = fs.readFileSync(filePath);
         // res.writeHead(200, {'Content-Type': ftype + "/" + ext.substring(1)});
         // res.end(file, 'binary');
-
         // new
         ms.pipe(req,res,filePath);
     }
@@ -380,8 +396,8 @@ app.get('/', login.view);
 var urlencodedParser = bodyParser.urlencoded({extended: false});
 app.get('/login', urlencodedParser, login.login);
 app.get('/register', urlencodedParser, login.register);
-app.get('/index', index.view);
-app.get('/index2', index2.view);
+// app.get('/index', index.view);
+app.get('/index', index2.view);
 app.get('/dance/:author/:name', dance.view);
 app.get('/create/:author/:name', create.view);
 app.post('/create_new/:author',
